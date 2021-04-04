@@ -55,11 +55,15 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"css/Adjustment.css\" rel=\"stylesheet\">\n");
       out.write("        <title>IOTBay Sign In</title>\n");
       out.write("    </head>\n");
-      out.write("    <body>\n");
+      out.write("    <body\n");
+      out.write("        <div>\n");
+      out.write("            <iframe width=\"100%\" src=\"interface.jsp\" title=\"Interface\"></iframe>\n");
+      out.write("        </div>\n");
       out.write("        <div class = \"mb-4\">\n");
       out.write("            <h1 class=\"centre\">Sign In</h1>\n");
+      out.write("            <hr>\n");
       out.write("        </div>\n");
-      out.write("        <div class=\"mb-3\">\n");
+      out.write("        <div class=\"mb-3 container-sm\">\n");
       out.write("            <form action=\"welcome.jsp\" method=\"POST\">\n");
       out.write("\n");
       out.write("                <!--<label for=\"Username\">Username</label><br>-->\n");
@@ -84,13 +88,13 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
                                 && password != null && inFilter.validateInput(password)) {
                             if (user != null && inFilter.IsEmail(user)) {
                                 out.println("Its an email.");//testing
-                            }
-                            else{
+                            } else {
                                 out.println("Its a user.");//testing
                             }
+                        } else {
+                            out.println("Unexpected character.");//testing
                         }
                     }
-
                 
       out.write("\n");
       out.write("\n");
