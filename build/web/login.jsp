@@ -51,13 +51,18 @@
                         {
                             if (user != null && inFilter.IsEmail(user)) {
                                 out.println("Its an email.");//testing
+                                
                                 user = null;//set from database
+                                
                                 User userData = new User(email, user, password, null);
                                 session.setAttribute("user", userData);
-                            } else 
+                            } 
+                            else 
                             {
                                 out.println("Its a user.");//testing
+                                
                                 email = null; //set from database
+                                
                                 User userData = new User(email, user, password, null);
                                 session.setAttribute("user", userData);
                             }
