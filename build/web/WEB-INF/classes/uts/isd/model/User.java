@@ -4,12 +4,13 @@
  * and open the template in the editor.
  */
 package uts.isd.model;
+import java.io.Serializable;
 
 /**
  *
  * @author lilil
  */
-public class User {
+public class User implements Serializable {
     private String email; 
     private String name; 
     private String password; 
@@ -22,8 +23,10 @@ public class User {
     this.name = name; 
     this.password = password;
     this.gender = gender; 
-
 }    
+   
+   public User(){}
+   
    public User getUser(String email) {
         for (User u : this.users) {
             if (u.getEmail() == email) {
