@@ -18,6 +18,11 @@
             <!--Center-->
             
             <a class="navbar-brand px-2" href="#">IoT Bay</a>
+            <a class="navbar-brand" href="/">
+                <div class="logo-image">
+                    <img src="https://i.ibb.co/TB9fFJ2/logo-1617614360752.png" class="img-fluid">
+                </div>
+            </a>
             
             <!--Right side buttons-->
             <ul class="navbar-nav ms-auto">
