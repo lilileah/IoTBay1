@@ -14,15 +14,28 @@
         <title>IOTBay Interface</title>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <!--Center-->
-            <a class="navbar-brand mx-auto" href="#">IOTBay</a>
+            
+            <a class="navbar-brand" href="#">IoT Bay</a>
+            
             <!--Right side buttons-->
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="btn btn-outline-success me-2" href="login.jsp">Login</a></li>
+                <li class="nav-item"><a class="btn btn-sm btn-outline-secondary"" href="login.jsp">Login</a></li>
+                <a>x</a>
                 <li class="nav-item"><a class="btn btn-sm btn-outline-secondary" href="register.jsp"> Register</a></li>
             </ul>
         </nav>
+        
+        <main role="main" class="container">
+      <h1 class="mt-5">Welcome to IoT Bay!</h1>
+    </main>
+        
+   
+        
+     
+        
+        >>
 
         <!--temp-->
         <!--<h1>IOTBay</h1>
