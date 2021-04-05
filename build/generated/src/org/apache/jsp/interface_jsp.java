@@ -56,7 +56,7 @@ public final class interface_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <nav class=\"navbar navbar-expand-md navbar-dark fixed-top bg-dark\">\r\n");
       out.write("            <!--Center-->\r\n");
       out.write("            \r\n");
-      out.write("            <a class=\"navbar-brand\" href=\"#\">IoT Bay</a>\r\n");
+      out.write("            <a class=\"navbar-brand px-2\" href=\"#\">IoT Bay</a>\r\n");
       out.write("            \r\n");
       out.write("            <!--Right side buttons-->\r\n");
       out.write("            <ul class=\"navbar-nav ms-auto\">\r\n");
@@ -65,16 +65,6 @@ public final class interface_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <li class=\"nav-item\"><a class=\"btn btn-sm btn-outline-secondary\" href=\"register.jsp\"> Register</a></li>\r\n");
       out.write("            </ul>\r\n");
       out.write("        </nav>\r\n");
-      out.write("        \r\n");
-      out.write("        <main role=\"main\" class=\"container\">\r\n");
-      out.write("      <h1 class=\"mt-5\">Welcome to IoT Bay!</h1>\r\n");
-      out.write("    </main>\r\n");
-      out.write("        \r\n");
-      out.write("   \r\n");
-      out.write("        \r\n");
-      out.write("     \r\n");
-      out.write("        \r\n");
-      out.write("        >>\r\n");
       out.write("\r\n");
       out.write("        <!--temp-->\r\n");
       out.write("        <!--<h1>IOTBay</h1>\r\n");
