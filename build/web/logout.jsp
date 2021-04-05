@@ -23,7 +23,7 @@
               
             <p>You have been logged out.</p>
             <a> Click</a>
-            <a class="button" href="main.jsp">here</a>
+            <a class="button" href="index.jsp">here</a>
             <a> to proceed to the main page</a>
         </div>
     </body>
