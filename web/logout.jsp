@@ -9,6 +9,10 @@
 <!DOCTYPE html>
 <html>
     
+    <div>
+<iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
+</div>
+    
             <%
                 
            session.invalidate();
@@ -19,12 +23,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-          <div>
+          <div class="mx-auto" style="width: 900px;">
               
-            <p>You have been logged out.</p>
-            <a> Click</a>
-            <a class="button" href="index.jsp">here</a>
-            <a> to proceed to the main page</a>
-        </div>
+            <div class="starter-template">
+        <h1>You have been logged out.</h1>
+        <p>Click <a href="index.jsp">here</a> to return to home page</p>
+        
+     
     </body>
 </html>

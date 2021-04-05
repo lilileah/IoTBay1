@@ -63,9 +63,9 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
             User user = (User)session.getAttribute("user");
         
       out.write("\r\n");
-      out.write("        \r\n");
-      out.write("        <h1>IOT Bay Main Page</h1>\r\n");
-      out.write("        \r\n");
+      out.write("\r\n");
+      out.write("      </section>\r\n");
+      out.write("        </div>\r\n");
       out.write("        ");
  if(user == null){ 
       out.write("\r\n");
@@ -78,12 +78,15 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
  }else{ 
       out.write("\r\n");
-      out.write("        <p>You are logged in as ");
+      out.write("        <section class=\"jumbotron text-center\">\r\n");
+      out.write("        <div class=\"container\">\r\n");
+      out.write("          <h1 class=\"jumbotron-heading\">IoTBay Main page</h1>\r\n");
+      out.write("          <p class=\"lead text-muted\">You are logged in as ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</p>\r\n");
-      out.write("        <p>Here are your account details: </p>\r\n");
-      out.write("        \r\n");
-      out.write("        <table od=\"profile_table\">\r\n");
+      out.write("          \r\n");
+      out.write("          <p>Here are your account details: </p>\r\n");
+      out.write("          <table class=\"table table-striped table-sm\" od=\"profile_table\">\r\n");
       out.write("            <thread><th>Name</th><th>Email</th><th>Password</th><th>Gender</th></thread>\r\n");
       out.write("            <tr><td>");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -95,15 +98,27 @@ public final class main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${user.gender}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</td></tr>\r\n");
       out.write("        </table>\r\n");
-      out.write("      <div>\r\n");
-      out.write("             <a class=\"mb-2 btn-primary btn\" href=\"logout.jsp\">Logout</a>\r\n");
+      out.write("          \r\n");
+      out.write("          <p>\r\n");
+      out.write("            <a href=\"#\" class=\"btn btn-secondary my-2\">Log out</a>\r\n");
+      out.write("          </p>\r\n");
       out.write("        </div>\r\n");
+      out.write("      </section>\r\n");
       out.write("        \r\n");
       out.write("        ");
 } 
       out.write("\r\n");
       out.write("        \r\n");
-      out.write("       \r\n");
+      out.write("       <main role=\"main\">\r\n");
+      out.write("\r\n");
+      out.write("      \r\n");
+      out.write("\r\n");
+      out.write("      <div class=\"album py-5 bg-light\">\r\n");
+      out.write("        <div class=\"container\">\r\n");
+      out.write("\r\n");
+      out.write("           \r\n");
+      out.write("\r\n");
+      out.write("    </main>\r\n");
       out.write("   \r\n");
       out.write("        \r\n");
       out.write("       \r\n");

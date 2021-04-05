@@ -65,6 +65,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <h1 class=\"centre\">Sign In</h1>\r\n");
       out.write("            <hr>\r\n");
       out.write("        </div>\r\n");
+      out.write("        <div class=\"mx-auto\" style=\"width: 400px;\">\r\n");
       out.write("            <form action=\"welcome.jsp\" method=\"POST\">\r\n");
       out.write("\r\n");
       out.write("                <!--<label for=\"Username\">Username</label><br>-->\r\n");
@@ -117,6 +118,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("            </form>\r\n");
+      out.write("        </div>\r\n");
       out.write("        </div>\r\n");
       out.write("\r\n");
       out.write("    </body>\r\n");

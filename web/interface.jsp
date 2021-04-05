@@ -26,6 +26,8 @@
                 <li class="nav-item"><a class="btn btn-sm btn-outline-secondary" href="register.jsp"> Register</a></li>
             </ul>
         </nav>
+        
+      
 
         <!--temp-->
         <!--<h1>IOTBay</h1>

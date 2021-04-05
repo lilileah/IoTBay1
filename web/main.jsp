@@ -21,31 +21,52 @@
         <%
             User user = (User)session.getAttribute("user");
         %>
-        
-        <h1>IOT Bay Main Page</h1>
-        
-        <% if(user == null){ %>
-        <a>You are not logged in</a>
-        
-        <div>
-             <a class="mb-2 btn-primary btn"  href="register.jsp" >Register</a>
+
+      </section>
         </div>
+        <% if(user == null){ %>
+        <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">IoTBay Main page</h1>
+          <p class="lead text-muted">Whoops! Doesn't look like your logged in.</p>
+          
+          <p>
+            <a href="index.jsp" class="btn btn-secondary my-2">Return to home</a>
+          </p>
+        </div>
+      </section>
+        
         
         <% }else{ %>
-        <p>You are logged in as ${user.name}</p>
-        <p>Here are your account details: </p>
-        
-        <table od="profile_table">
+        <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">IoTBay Main page</h1>
+          <p class="lead text-muted">You are logged in as ${user.name}</p>
+          
+          <p>Here are your account details: </p>
+          <table class="table table-striped table-sm" od="profile_table">
             <thread><th>Name</th><th>Email</th><th>Password</th><th>Gender</th></thread>
             <tr><td>${user.name}</td><td>${user.email}</td><td>${user.password}</td><td>${user.gender}</td></tr>
         </table>
-      <div>
-             <a class="mb-2 btn-primary btn" href="logout.jsp">Logout</a>
+          
+          <p>
+            <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
+          </p>
         </div>
+      </section>
         
         <%} %>
         
-       
+       <main role="main">
+
+      
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+           
+
+    </main>
    
         
        

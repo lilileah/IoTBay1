@@ -20,13 +20,16 @@
     <body>
         <div class="mx-auto" style="width: 900px;">
         
-        <main role="main" class="inner cover">
-        <h1 class="cover-heading">Welcome to IoT!</h1>
-        <p class="lead">IoTBay is  a  small  company  based  in  Sydney,  Australia. This site is an  online  IoT  devices  ordering  application  to  allow  their customers  to  purchase  IoT  devices </p>
-        <p class="lead">
-          <a href="register.jsp" class="btn btn-lg btn-secondary" >New member</a>
-              <a href="login.jsp" class="btn btn-lg btn-secondary" >Existing member</a>
-        </p>
+           <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Welcome top IoT bay!</h1>
+          <p class="lead">IoTBay is  a  small  company  based  in  Sydney,  Australia. This site is an  online  IoT  devices  ordering  application  to  allow  their customers  to  purchase  IoT  devices </p>
+          <p>
+            <a href="register.jsp" class="btn btn-primary my-2">New member</a>
+            <a href="login.jsp" class="btn btn-secondary my-2">Existing member</a>
+          </p>
+        </div>
+      </section>
       </main>
         </div>
         
