@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="uts.isd.model.InputFilter"%>
-<%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,15 +15,11 @@
         <link href="css/Adjustment.css" rel="stylesheet">
         <title>IOTBay Sign In</title>
     </head>
-    <body
-        <div>
-            <iframe width="100%" scrolling="no" src="interface.jsp" title="Interface"></iframe>
-        </div>
+    <body>
         <div class = "mb-4">
             <h1 class="centre">Sign In</h1>
-            <hr>
         </div>
-        <div class="mb-3 container-sm">
+        <div class="mb-3">
             <form action="welcome.jsp" method="POST">
 
                 <!--<label for="Username">Username</label><br>-->
@@ -39,31 +34,26 @@
                 <%
                     InputFilter inFilter = new InputFilter();
                     String submitted = request.getParameter("submitted");
-                    String user = null;
-                    String email = null;
+                    String user = request.getParameter("Username");
                     String password = request.getParameter("Password");
 
-                    if (submitted != null || email != null && submitted.equals("yes")) //on form submission
+                    if (submitted != null && submitted.equals("yes")) //on form submission
                     {
-                        email = request.getParameter("Username");
-                        user = request.getParameter("Username");
-
-                        if (user != null || email != null && inFilter.validateInput(user)) //validates input
-                        {
+                        if (user != null && inFilter.validateInput(user)//validates user and password
+                                && password != null && inFilter.validateInput(password)) {
                             if (user != null && inFilter.IsEmail(user)) {
                                 out.println("Its an email.");//testing
-                                user = null;//set from database
-                            } else {
-                                out.println("Its a user.");//testing
-                                email = null; //set from database
                             }
-                        } else {
+                            else{
+                                out.println("Its a user.");//testing
+                            }
+                        }
+                        else
+                        {
                             out.println("Unexpected character.");//testing
                         }
-
-                        //User user = new User(); //get user info from database and load into constructor
-                        //session.setAttribute("user", user);
                     }
+
                 %>
 
             </form>
