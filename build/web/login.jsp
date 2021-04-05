@@ -25,7 +25,7 @@
             <hr>
         </div>
         <div class="mb-3 container-sm">
-            <form action="login.jsp" method="POST">
+            <form action="welcome.jsp" method="POST">
 
                 <!--<label for="Username">Username</label><br>-->
                 <input class="mb-2 form-control" type = "text" id="User" name="Username" placeholder="Username or Email"><br>
