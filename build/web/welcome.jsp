@@ -45,7 +45,7 @@
             <a class="button" href="main.jsp">here</a>
             <a> to proceed to the main page</a>
         </div>
-        <p> Not you? <a class="button" href="interface.jsp">Click here</a> to return and login in or register to another account.
+        <p> Not you? <a class="button" href="index.jsp">Click here</a> to return and login in or register to another account.
         
         <%
         User user = new User(email, name, password, gender);
