@@ -34,7 +34,9 @@
         <h1>Welcome, user!</h1>
         <p>For Identifying purposes, Your: </p>
         <br>
+        <% if(name != null) {%>
         <p>Name is: <%= name%>.</p>
+        <% } %>
         <% if(email != null) {%>
         <p>Email is: <%= email %>.</p>
         <% } %>
