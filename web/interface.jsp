@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <!--Center-->
             
-            <a class="navbar-brand" href="#">IoT Bay</a>
+            <a class="navbar-brand px-2" href="#">IoT Bay</a>
             
             <!--Right side buttons-->
             <ul class="navbar-nav ms-auto">
@@ -26,16 +26,6 @@
                 <li class="nav-item"><a class="btn btn-sm btn-outline-secondary" href="register.jsp"> Register</a></li>
             </ul>
         </nav>
-        
-        <main role="main" class="container">
-      <h1 class="mt-5">Welcome to IoT Bay!</h1>
-    </main>
-        
-   
-        
-     
-        
-        >>
 
         <!--temp-->
         <!--<h1>IOTBay</h1>
