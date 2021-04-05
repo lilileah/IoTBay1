@@ -18,9 +18,9 @@
     </head>
     <body
         <div>
-            <iframe width="100%" scrolling="no" src="interface.jsp" title="Interface"></iframe>
+            <iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
         </div>
-        <div class = "mb-4">
+        <div class = "mb-3">
             <h1 class="centre">Sign In</h1>
             <hr>
         </div>
@@ -47,7 +47,7 @@
                         email = request.getParameter("Username");
                         user = request.getParameter("Username");
 
-                        if (user != null || email != null && inFilter.validateInput(user)) //validates input
+                        if (user != null && inFilter.validateInput(user)) //validates input
                         {
                             if (user != null && inFilter.IsEmail(user)) {
                                 out.println("Its an email.");//testing
