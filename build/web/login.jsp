@@ -20,8 +20,13 @@
             <h1 class="centre">Sign In</h1>
         </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <div class="mb-3">
             <form action="welcome.jsp" method="POST">
+=======
+        <div class="mb-3 container-sm">
+            <form action="login.jsp" method="POST">
+>>>>>>> parent of 8337873 (fixed more stuff)
 =======
         <div class="mb-3 container-sm">
             <form action="login.jsp" method="POST">
