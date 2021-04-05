@@ -25,11 +25,11 @@
         </nav>
 
         <!--temp-->
-        <h1>IOTBay</h1>
+        <!--<h1>IOTBay</h1>
         <p>Welcome to IOT Bay!</p>
         <table>
             <tr><td><a href="register.jsp"> Register</a></td></tr>
             <tr><td><a href="login.jsp"> Login</a></td></tr>
-        </table>
+        </table>-->
     </body>
 </html>
