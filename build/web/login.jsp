@@ -24,6 +24,7 @@
             <h1 class="centre">Sign In</h1>
             <hr>
         </div>
+        <div class="mx-auto" style="width: 400px;">
             <form action="welcome.jsp" method="POST">
 
                 <!--<label for="Username">Username</label><br>-->
@@ -74,6 +75,7 @@
                 %>
 
             </form>
+        </div>
         </div>
 
     </body>

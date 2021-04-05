@@ -59,9 +59,9 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    </head>\r\n");
       out.write("    <body\r\n");
       out.write("        <div>\r\n");
-      out.write("            <iframe width=\"100%\" scrolling=\"no\" src=\"interface.jsp\" title=\"Interface\"></iframe>\r\n");
+      out.write("            <iframe width=\"100%\" height=\"80\" scrolling=\"no\" src=\"interface.jsp\" title=\"Interface\"></iframe>\r\n");
       out.write("        </div>\r\n");
-      out.write("        <div class = \"mb-4\">\r\n");
+      out.write("        <div class = \"mb-3\">\r\n");
       out.write("            <h1 class=\"centre\">Sign In</h1>\r\n");
       out.write("            <hr>\r\n");
       out.write("        </div>\r\n");
@@ -89,21 +89,29 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
                         email = request.getParameter("Username");
                         user = request.getParameter("Username");
 
-                        if (user != null || email != null && inFilter.validateInput(user)) //validates input
+                        if (user != null && inFilter.validateInput(user)) //validates input
                         {
                             if (user != null && inFilter.IsEmail(user)) {
                                 out.println("Its an email.");//testing
+                                
                                 user = null;//set from database
-                            } else {
+                                
+                                User userData = new User(email, user, password, null);
+                                session.setAttribute("user", userData);
+                            } 
+                            else 
+                            {
                                 out.println("Its a user.");//testing
+                                
                                 email = null; //set from database
+                                
+                                User userData = new User(email, user, password, null);
+                                session.setAttribute("user", userData);
                             }
-                        } else {
+                        } else 
+                        {
                             out.println("Unexpected character.");//testing
                         }
-
-                        //User user = new User(); //get user info from database and load into constructor
-                        //session.setAttribute("user", user);
                     }
                 
       out.write("\r\n");
