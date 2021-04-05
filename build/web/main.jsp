@@ -8,6 +8,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+    
+    
+    
     <div>
 <iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
 </div>

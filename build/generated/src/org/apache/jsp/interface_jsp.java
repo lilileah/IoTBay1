@@ -65,6 +65,8 @@ public final class interface_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <li class=\"nav-item\"><a class=\"btn btn-sm btn-outline-secondary\" href=\"register.jsp\"> Register</a></li>\r\n");
       out.write("            </ul>\r\n");
       out.write("        </nav>\r\n");
+      out.write("        \r\n");
+      out.write("      \r\n");
       out.write("\r\n");
       out.write("        <!--temp-->\r\n");
       out.write("        <!--<h1>IOTBay</h1>\r\n");

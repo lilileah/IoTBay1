@@ -1,0 +1,16 @@
+SMAP
+welcome_jsp.java
+JSP
+*S JSP
+*F
++ 0 welcome.jsp
+welcome.jsp
+*L
+5,20:46
+25,11:67
+35,20:78
+55,6:98,3
+61,8:116
+69,3:125
+71,4:128
+*E
