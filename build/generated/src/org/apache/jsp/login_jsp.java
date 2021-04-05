@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 import uts.isd.model.InputFilter;
+import uts.isd.model.User;
 
 public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -46,6 +47,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("\n");
@@ -55,12 +57,16 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"css/Adjustment.css\" rel=\"stylesheet\">\n");
       out.write("        <title>IOTBay Sign In</title>\n");
       out.write("    </head>\n");
-      out.write("    <body>\n");
+      out.write("    <body\n");
+      out.write("        <div>\n");
+      out.write("            <iframe width=\"100%\" scrolling=\"no\" src=\"interface.jsp\" title=\"Interface\"></iframe>\n");
+      out.write("        </div>\n");
       out.write("        <div class = \"mb-4\">\n");
       out.write("            <h1 class=\"centre\">Sign In</h1>\n");
+      out.write("            <hr>\n");
       out.write("        </div>\n");
-      out.write("        <div class=\"mb-3\">\n");
-      out.write("            <form action=\"welcome.jsp\" method=\"POST\">\n");
+      out.write("        <div class=\"mb-3 container-sm\">\n");
+      out.write("            <form action=\"login.jsp\" method=\"POST\">\n");
       out.write("\n");
       out.write("                <!--<label for=\"Username\">Username</label><br>-->\n");
       out.write("                <input class=\"mb-2 form-control\" type = \"text\" id=\"User\" name=\"Username\" placeholder=\"Username or Email\"><br>\n");
@@ -75,22 +81,28 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
 
                     InputFilter inFilter = new InputFilter();
                     String submitted = request.getParameter("submitted");
-                    String user = request.getParameter("Username");
+                    String user = null;
+                    String email = null;
                     String password = request.getParameter("Password");
 
                     if (submitted != null && submitted.equals("yes")) //on form submission
                     {
-                        if (user != null && inFilter.validateInput(user)//validates user and password
-                                && password != null && inFilter.validateInput(password)) {
+                        if (user != null && inFilter.validateInput(user)) //validates input
+                        {
                             if (user != null && inFilter.IsEmail(user)) {
                                 out.println("Its an email.");//testing
-                            }
-                            else{
+                                email = request.getParameter("Username");//confusing but an HTMl elemnt can only have one name
+                            } else {
                                 out.println("Its a user.");//testing
+                                user = request.getParameter("Username");
                             }
+                        } else {
+                            out.println("Unexpected character.");//testing
                         }
+                        
+                        //User user = new User(); //get user info from database and load into constructor
+                        //session.setAttribute("user", user);
                     }
-
                 
       out.write("\n");
       out.write("\n");
