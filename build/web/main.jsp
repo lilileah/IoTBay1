@@ -48,8 +48,8 @@
           
           <p>Here are your account details: </p>
           <table class="table table-striped table-sm" od="profile_table">
-            <thread><th>Name</th><th>Email</th><th>Password</th></thread>
-            <tr><td>${user.name}</td><td>${user.email}</td><td>${user.password}</td>
+            <thread><th>Name</th><th>Username</th><th>Email</th><th>Password</th></thread>
+            <tr><td>${user.name}</td><td>${user.username}</td><td>${user.email}</td><td>${user.password}</td>
         </table>
           
           <p>
