@@ -25,7 +25,6 @@
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            String gender = request.getParameter("gender");
             String username = request.getParameter("username"); //for if the source was Login not Register
             
             if(name==null)
@@ -66,7 +65,7 @@
             
 
         <%
-        User user = new User(email, name, password, gender);
+        User user = new User(email, name, password, username);
         session.setAttribute("user", user);
         %>
     </body>
