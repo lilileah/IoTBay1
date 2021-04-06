@@ -26,7 +26,8 @@
         <div class="mx-auto" style="width: 400px;">
             <form action="welcome.jsp" method="post">
 
-                <input class="mb-2 form-control" type="text" placeholder="Username" name = "name" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="Username" name = "username" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="Full name" name = "name" required= "true"><br>
                 <input class="mb-2 form-control" type="text" placeholder="Email" name = "email" required= "true"><br>
                 <input class="mb-2 form-control" type="password" placeholder="Password" name = "password" required= "true"><br>
                 <input class="mb-2 form-control" type="password" placeholder="Confirm Password" name = "password" required= "true"><br>

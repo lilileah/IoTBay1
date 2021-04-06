@@ -66,7 +66,8 @@ public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <div class=\"mx-auto\" style=\"width: 400px;\">\r\n");
       out.write("            <form action=\"welcome.jsp\" method=\"post\">\r\n");
       out.write("\r\n");
-      out.write("                <input class=\"mb-2 form-control\" type=\"text\" placeholder=\"Userame\" name = \"name\" required= \"true\"><br>\r\n");
+      out.write("                <input class=\"mb-2 form-control\" type=\"text\" placeholder=\"Username\" name = \"username\" required= \"true\"><br>\r\n");
+      out.write("                <input class=\"mb-2 form-control\" type=\"text\" placeholder=\"Full name\" name = \"name\" required= \"true\"><br>\r\n");
       out.write("                <input class=\"mb-2 form-control\" type=\"text\" placeholder=\"Email\" name = \"email\" required= \"true\"><br>\r\n");
       out.write("                <input class=\"mb-2 form-control\" type=\"password\" placeholder=\"Password\" name = \"password\" required= \"true\"><br>\r\n");
       out.write("                <input class=\"mb-2 form-control\" type=\"password\" placeholder=\"Confirm Password\" name = \"password\" required= \"true\"><br>\r\n");

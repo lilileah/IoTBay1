@@ -28,10 +28,10 @@
             <form action="welcome.jsp" method="POST">
 
                 <!--<label for="Username">Username</label><br>-->
-                <input class="mb-2 form-control" type = "text" id="User" name="Username" placeholder="Username or Email"><br>
+                <input class="mb-2 form-control" type = "text" id="User" name="username" placeholder="Username or Email"><br>
 
                 <!--<label for="Password">Password</label><br>-->
-                <input class="mb-2 form-control" type = "Password" id="Password" name="Password" placeholder="Password"><br>
+                <input class="mb-2 form-control" type = "Password" id="Password" name="password" placeholder="Password"><br>
                 <div>
                     <input class="mb-2 btn-primary btn" type="submit">
                     <input type="hidden" name="submitted" value="yes">
@@ -41,7 +41,7 @@
                     String submitted = request.getParameter("submitted");
                     String user = null;
                     String email = null;
-                    String password = request.getParameter("Password");
+                    String password = request.getParameter("password");
 
                     if (submitted != null || email != null && submitted.equals("yes")) //on form submission
                     {

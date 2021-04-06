@@ -16,7 +16,7 @@
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>IOTBay Welcome Page</title>
     </head>
     <body>
        
@@ -26,10 +26,11 @@
             String email = request.getParameter("email");
             String password = request.getParameter("password");
             String gender = request.getParameter("gender");
-            String username = request.getParameter("Username"); //for if the source was Login not Register
+            String username = request.getParameter("username"); //for if the source was Login not Register
+            
             if(name==null)
                 name = username;
-            String pass = request.getParameter("Password");     //likewise the above
+            String pass = request.getParameter("password");     //likewise the above
             if(password == null)
                 password = pass;
             %>
@@ -43,7 +44,7 @@
           <p>For identifying purposes, your:</p>
           
           <% if(name != null) {%>
-        <p>Name is: <%= name%>.</p>
+        <p>Username is: <%= username%>.</p>
         <% } %>
         <% if(email != null) {%>
         <p>Email is: <%= email %>.</p>
