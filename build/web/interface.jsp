@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" rossorigin="anonymous">
         <link href="css/Adjustment.css" rel="stylesheet">
+        <base target="_parent">
         <title>IOTBay Interface</title>
     </head>
     <body>
@@ -18,7 +19,7 @@
             <!--Center-->
             
             <a class="navbar-brand px-2" href="#">IoT Bay</a>
-            <a class="navbar-brand" href="/">
+            <a class="navbar-brand" href="index.jsp">
                 <div class="logo-image">
                     <img src="https://i.ibb.co/TB9fFJ2/logo-1617614360752.png" class="img-fluid">
                 </div>
