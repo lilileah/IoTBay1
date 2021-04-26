@@ -3,13 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/IoTBay3/web/login.jsp</file>
-            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/IoTBay3/web/index.jsp</file>
-            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/IoTBay3/web/logout.jsp</file>
-            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/IoTBay3/web/main.jsp</file>
-            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/IoTBay3/web/interface.jsp</file>
-            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/IoTBay3/web/welcome.jsp</file>
-            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/IoTBay3/web/register.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/staff_accounts.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/products.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/payment_details.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/users.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/access_logs.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/index.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/invoices.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/customer.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/orders.sql</file>
         </group>
     </open-files>
 </project-private>
