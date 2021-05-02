@@ -8,4 +8,3 @@
     CONSTRAINT shipment_details_pk PRIMARY KEY (shipment_details_id),
     CONSTRAINT account_id_fk FOREIGN KEY (account_id) REFERENCES account(account_id)
 );
---vew

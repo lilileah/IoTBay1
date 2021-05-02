@@ -3,15 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/staff_accounts.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/products.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/payment_details.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/users.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/access_logs.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/index.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/invoices.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/customer.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/orders.sql</file>
+            <file>file:/C:/Users/deano/OneDrive%20-%20UTS%20(1)/ISD/Assignment/site/IoTBay1/src/java/uts/isd/model/dao/DBManager_product.java</file>
         </group>
     </open-files>
 </project-private>
