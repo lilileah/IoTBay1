@@ -1,5 +1,5 @@
     CREATE TABLE USERS (
-    user_id int,
+    user_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     username_email varchar(254),
     user_name varchar(254),
     password varchar(254),
@@ -21,7 +21,7 @@
 -- );
 
     CREATE TABLE ACCESS_LOGS (
-    log_id int,
+    log_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     user_id int,
     login_datetime timestamp,
     logout_datetime timestamp,   
@@ -31,7 +31,7 @@
 );
 
     CREATE TABLE PRODUCTS (
-    product_id int,
+    product_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     product_name varchar(254),
     price decimal(10),
     discount int,
@@ -50,7 +50,7 @@
 -- );
 
     CREATE TABLE CUSTOMERS (
-    customer_id int,
+    customer_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     date_signedup date,
     user_id int,
     CONSTRAINT customer_pk PRIMARY KEY (customer_id),
@@ -58,20 +58,20 @@
 );
 
     CREATE TABLE INVOICE (
-    invoice_id int,
+    invoice_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     paid_date date,
     CONSTRAINT invoicepk PRIMARY KEY (invoice_id)
 );
 
 
 CREATE TABLE ORDER_CART (
-    order_id int NOT NULL,
+    order_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     total_price decimal,
     CONSTRAINT order_id_cart_pk PRIMARY KEY (order_id)
 );
 
     CREATE TABLE ORDER_LINE_ITEM (
-    order_line_item_id int,
+    order_line_item_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     quantity int,
     order_id int,
     product_id int,
@@ -83,7 +83,7 @@ CREATE TABLE ORDER_CART (
 CREATE TABLE ORDERS (
     Order_date timestamp,
     user_id int,
-    order_id int,
+    order_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     invoice_id int,
     CONSTRAINT user_id_orders_fk FOREIGN KEY (user_id) REFERENCES Users(user_id),
     CONSTRAINT order_id_fk FOREIGN KEY (order_id) REFERENCES order_cart(order_id),
@@ -91,7 +91,7 @@ CREATE TABLE ORDERS (
 );
 
     CREATE TABLE PAYMENT_DETAILS (
-    payment_details_id int,
+    payment_details_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     card_name varchar(254),
     card_no int,
     user_id int,
@@ -100,14 +100,14 @@ CREATE TABLE ORDERS (
 );
 
     CREATE TABLE shipment_details (
-    shipment_details_id int,
+    shipment_details_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     country varchar(2),
     address varchar(128),
     postcode int,
     is_billing_address boolean,
     user_id int NOT NULL,
     CONSTRAINT shipment_details_pk PRIMARY KEY (shipment_details_id),
-    CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES users(user_id)
+    CONSTRAINT user_id_shipment_fk FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
     CREATE TABLE staff (
