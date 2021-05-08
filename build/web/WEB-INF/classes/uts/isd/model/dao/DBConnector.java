@@ -5,6 +5,7 @@ import java.sql.*;
 public class DBConnector extends DB {
 
     public DBConnector() throws ClassNotFoundException, SQLException {
+        //Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
         Class.forName(driver);
         conn = DriverManager.getConnection(url+db, dbuser, dbpass);
     }
