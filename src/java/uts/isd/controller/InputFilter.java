@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uts.isd.model;
+package uts.isd.controller;
 
 import java.util.*;
 

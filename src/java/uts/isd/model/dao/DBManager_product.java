@@ -17,59 +17,89 @@ public class DBManager_product {
         st = conn.createStatement();
     }
     
+    //find max ID -- no longer used
+    public int fetchHighestID() throws SQLException {
+        String cmd = "SELECT product_ID FROM iotbaydb.products";
+        ResultSet rs = st.executeQuery(cmd);
+
+        while (rs.next()) {
+            int ID = rs.getInt(1);
+
+            return ID;
+        }
+
+        return -1;
+    }
+    
     //find all products
-    public ArrayList<Product> fetchProducts() throws SQLException{
+    public ArrayList<Product> fetchProducts() throws SQLException {
         String cmd = "SELECT * FROM iotbaydb.products";
         ResultSet rs = st.executeQuery(cmd);
         ArrayList<Product> productList = new ArrayList();
-        
-        while(rs.next()){
+
+        while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
             float price = rs.getFloat(3);
             float discount = rs.getFloat(4);
-            
+
             productList.add(new Product(ID, name, price, discount));
         }
-        
+
         return productList;
     }
-    
+
     //find products by name
-    public ArrayList<Product> fetchProductsByName(String productName) throws SQLException{
+    public ArrayList<Product> fetchProductsByName(String productName) throws SQLException {
         String cmd = "SELECT * FROM iotbaydb.products WHERE product_name LIKE %" + productName + "%";
         ResultSet rs = st.executeQuery(cmd);
         ArrayList<Product> productList = new ArrayList();
-        
-        while(rs.next()){
+
+        while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
             float price = rs.getFloat(3);
             float discount = rs.getFloat(4);
-            
+
             productList.add(new Product(ID, name, price, discount));
         }
-        
+
         return productList;
     }
-    
+
     //find product by ID
-    public Product fetchProductsById(int _ID) throws SQLException{
+    public Product fetchProductsById(int _ID) throws SQLException {
         String cmd = "SELECT * FROM iotbaydb.products WHERE product_id EQUALS " + _ID + "";
         ResultSet rs = st.executeQuery(cmd);
         ArrayList<Product> productList = new ArrayList();
-                
-        while(rs.next()){
+
+        while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
             float price = rs.getFloat(3);
             float discount = rs.getFloat(4);
-            
-            if(ID == _ID){
+
+            if (ID == _ID) {
                 return new Product(ID, name, price, discount);
             }
 
         }
         return null;
+    }
+
+    //create product
+    public void addProduct(String name, float price, float discount) throws SQLException {
+        st.executeUpdate("INSERT INTO iotbaydb.products VALUES ('" + name + "','" + price + "','" + discount + "'");
+    }
+
+    //update by ID
+    public void updateProduct(int ID, String name, float price, float discount) throws SQLException {
+        st.executeUpdate("UPDATE iotbaydb.products SET ('" + name + "','" + price + "','" + discount + "'"
+                + " WHERE PRODUCT_ID=" + ID);
+    }
+
+    //delete
+    public void deleteProduct(int ID) throws SQLException {
+        st.executeUpdate("DELETE FROM iotbaydb.products WHERE PRODUCT_ID=" + ID);
     }
 }
