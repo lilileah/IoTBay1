@@ -37,7 +37,7 @@ public class AddProductServlet extends HttpServlet{
             DBMProduct.addProduct(productName, price, discount);
         }
         catch(SQLException ex){
-            //Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage() == null ? "Something broke": "");
         }
     }
 }
