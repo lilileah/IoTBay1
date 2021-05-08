@@ -12,8 +12,8 @@ import java.sql.*;
 public abstract class DB {
     
     protected String url = "jdbc:derby://localhost:1572/";
-    protected String db = "iotbay";
-    protected String dbuser = "isduser";
+    protected String db = "iotbaydb";
+    protected String dbuser = "iotbay";
     protected String dbpass = "admin";
     protected String driver = "org.apache.derby.jdbc.ClientDriver";
     protected Connection conn;
