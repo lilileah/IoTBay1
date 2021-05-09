@@ -16,14 +16,28 @@ public class DBManager_user {
     public DBManager_user(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
-    //Find user by email and password in the database   
-    //user
-    //Create: sign up with full name, email, password, phone
     
-   
+    /* Adding Users */
+    //add new user
+    public void addUser(String userEmail, String name, String password, String phone, LocalDate dob, String gender, String userType) 
+            throws SQLException {
+                String query = "INSERT INTO USERS ("
+                        + "USERNAME_EMAIL, "
+                        + "USER_NAME, "
+                        + "PASSWORD, "
+                        + "PHONE, "
+                        + "DOB, "
+                        + "GENDER, "
+                        + "USER_TYPE) "
+                        + "VALUES (%s, %s, %s, %s, %s, %s, %s)";
+
+                st.executeUpdate(String.format(query, userEmail, name, password, phone, dob, gender, userType));
+    }  
+    
+    
     //Read: Find user by username and email
     public User findUser(String email, String password) throws SQLException {
-        String fetch = "select * from IOTBaydb.Users where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+        String fetch = "select * from Users where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while(rs.next()){
@@ -39,9 +53,8 @@ public class DBManager_user {
     }
     
     //Read: view registration detail = findUserById()
-    
-    public User findUserById(int id) throws SQLException {
-        String fetch = "select * from IOTBaydb.Users where ID = '" + id + "'";
+    public User findUserById(int user_id) throws SQLException {
+        String fetch = "select * from Users where USER_ID = '" + user_id + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while(rs.next()){
@@ -51,51 +64,56 @@ public class DBManager_user {
             String userPass = rs.getString(4);
             String phone = rs.getString(5);
             Date dob = rs.getDate(6);
+            String gender = rs.getString(7);
+            String userType = rs.getString(8);
         }
     return null;
 }
     
-    
-    
-    //Read: login and logout
-    
-    //Update: registered user can update their registration details
-    //create user
-    //Add a user-data into the database   
-public void addUser(String userEmail, String name, String password, String phone, LocalDate dob, String gender, String userType) throws SQLException {                   //code for add-operation       
-  st.executeUpdate("INSERT INTO ISDUSER.Users " + "VALUES ('" + userEmail + "','" + name + "','" + password + "','" + phone + "', '" + gender + "', '" + userType + "')");
-}
+    //find all users
+    public ArrayList<User> fetchUsers() throws SQLException {
+        String cmd = "SELECT * FROM users";
+        ResultSet rs = st.executeQuery(cmd);
+        ArrayList<User> userList = new ArrayList();
 
-    public void addUser(String spolgarcvtcomau, String samuel_Polgar, String password1, String string, LocalDate ld, String a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        while (rs.next()) {
+            int userId = rs.getInt(1);
+            String userEmail = rs.getString(2);
+            String name = rs.getString(3);
+            String userPass = rs.getString(4);
+            String phone = rs.getString(5);
+            Date dob = rs.getDate(6);
+            String gender = rs.getString(7);
+            String userType = rs.getString(8);
+            userList.add(new User(userId, userEmail, name, userPass, phone, dob, gender, userType));
+        }
+        return userList;
     }
 
-//update a user details in the database   
-//public void updateUser( String email, String name, String password, String gender, String favcol) throws SQLException {       
-//  st.executeUpdate("UPDATE ISDUSER.Users SET NAME='" + name + "', PASSWORD='" + password + "',GENDER= '" + gender + "', FAVCOL= '" + favcol + "', EMAIL= '" + email + "' WHERE EMAIL = '" + email + "' ");
-//
-//}  
-    //update user
-    
-    //Delete: registered user can cancel their registration
-    
-    
-    
-   
-    //user access logs
-    //Create: Logs are stored in the database (user id, login datetime, logout datetime)
-    
-    //Read: Customer and staff can view access logs and search
-    
-    //Update: user cannot update access logs
-    
-    //Delete: user cannot delete
+                
 
-//    public void addUser(String spolgarcvtcomau, String samuel_Polgar, String password1, String string, java.util.Date myDate, String a) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+//Update by Id
+    public void updateUser(int user_id, String userEmail, String name, String password, String phone, LocalDate dob, String gender, String userType) 
+            throws SQLException {
+               String query = "UPDATE USERS SET "
+                       + "USERNAME_EMAIL='%s', "
+                       + "USER_NAME='%s', "
+                       + "PASSWORD='%s', "
+                       + "PHONE='%s', "
+                       + "DOB='%s', "
+                       + "GENDER='%s', "
+                       + "USER_TYPE='%s' "
+                       + "WHERE USER_ID=%s";
 
+               st.executeUpdate(String.format(query, userEmail, name, password, phone, dob, gender, userType, user_id));
+    }
 
+//Delete by Id
+    public void deleteUser(int user_id) throws SQLException{
+       String query = "DELETE FROM USERS "
+               + "WHERE USER_ID=%s";
 
-    
+       st.executeUpdate(String.format(query, user_id));
+    }
+
 }

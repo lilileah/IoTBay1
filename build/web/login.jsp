@@ -4,8 +4,9 @@
     Author     : Dean
 --%>
 
-<%@page import="uts.isd.model.InputFilter"%>
-<%@page import="uts.isd.model.User"%>
+<%--<%@page import="uts.isd.model.InputFilter"%>--%>
+<%@page import="uts.isd.controller.InputFilter"%>
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -25,7 +26,7 @@
             <hr>
         </div>
         <div class="mx-auto" style="width: 400px;">
-            <form action="welcome.jsp" method="POST">
+            <form action="welcome.jsp" method="POST">       
 
                 <!--<label for="Username">Username</label><br>-->
                 <input class="mb-2 form-control" type = "text" id="User" name="username" placeholder="Username or Email"><br>
@@ -48,7 +49,7 @@
                         email = request.getParameter("Username");
                         user = request.getParameter("Username");
 
-                        if (user != null && inFilter.validateInput(user)) //validates input
+                        if (user != null && inFilter.validateInput(user))
                         {
                             if (user != null && inFilter.IsEmail(user)) {
                                 out.println("Its an email.");//testing

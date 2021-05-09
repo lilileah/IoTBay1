@@ -11,7 +11,7 @@ import java.sql.*;
  */
 public abstract class DB {
     
-    protected String url = "jdbc:derby://localhost:1572/";
+    protected String url = "jdbc:derby://localhost:1527/";
     protected String db = "iotbaydb";
     protected String dbuser = "iotbay";
     protected String dbpass = "admin";

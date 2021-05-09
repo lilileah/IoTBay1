@@ -3,26 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBManager_user.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBConnector.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBManager_product.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/Product.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/WEB-INF/web.xml</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/WEB-INF/glassfish-web.xml</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/Test_User.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/ConnServlet.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/User.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/index.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/InputFilter.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/_CREATEALLTABLES.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/staff.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/products.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBManager_util.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/shipment_details.sql</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/access_logs.sql</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/users.sql</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/payment_details.sql</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/invoices.sql</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/customer.sql</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/orders.sql</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/order_line_item.sql</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/order_cart.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBManager_user.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBManager_product.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/login.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/ConnServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/User.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/controller_user.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/interface.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/TestDB.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/_CREATEALLTABLES.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/staff.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/ProductsServlets/AddProductServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/products.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/AccessLogs.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DB.java</file>
         </group>
     </open-files>

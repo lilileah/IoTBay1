@@ -17,7 +17,6 @@ public class DBManager_product {
         st = conn.createStatement();
     }
     
-<<<<<<< Updated upstream
     //find max ID -- no longer used
     public int fetchHighestID() throws SQLException {
         String cmd = "SELECT product_ID FROM iotbaydb.products";
@@ -75,69 +74,18 @@ public class DBManager_product {
         ArrayList<Product> productList = new ArrayList();
 
         while (rs.next()) {
-=======
-    //find all products
-    public ArrayList<Product> fetchProducts() throws SQLException{
-        String cmd = "SELECT * FROM iotbaydb.products";
-        ResultSet rs = st.executeQuery(cmd);
-        ArrayList<Product> productList = new ArrayList();
-        
-        while(rs.next()){
             int ID = rs.getInt(1);
             String name = rs.getString(2);
             float price = rs.getFloat(3);
             float discount = rs.getFloat(4);
-            
-            productList.add(new Product(ID, name, price, discount));
-        }
-        
-        return productList;
-    }
-    
-    //find products by name
-    public ArrayList<Product> fetchProductsByName(String productName) throws SQLException{
-        String cmd = "SELECT * FROM iotbaydb.products WHERE product_name LIKE %" + productName + "%";
-        ResultSet rs = st.executeQuery(cmd);
-        ArrayList<Product> productList = new ArrayList();
-        
-        while(rs.next()){
-            int ID = rs.getInt(1);
-            String name = rs.getString(2);
-            float price = rs.getFloat(3);
-            float discount = rs.getFloat(4);
-            
-            productList.add(new Product(ID, name, price, discount));
-        }
-        
-        return productList;
-    }
-    
-    //find product by ID
-    public Product fetchProductsById(int _ID) throws SQLException{
-        String cmd = "SELECT * FROM iotbaydb.products WHERE product_id EQUALS " + _ID + "";
-        ResultSet rs = st.executeQuery(cmd);
-        ArrayList<Product> productList = new ArrayList();
-                
-        while(rs.next()){
->>>>>>> Stashed changes
-            int ID = rs.getInt(1);
-            String name = rs.getString(2);
-            float price = rs.getFloat(3);
-            float discount = rs.getFloat(4);
-<<<<<<< Updated upstream
 
             if (ID == _ID) {
-=======
-            
-            if(ID == _ID){
->>>>>>> Stashed changes
                 return new Product(ID, name, price, discount);
             }
 
         }
         return null;
     }
-<<<<<<< Updated upstream
 
     //create product
     public void addProduct(String name, float price, float discount) throws SQLException {
@@ -154,6 +102,4 @@ public class DBManager_product {
     public void deleteProduct(int ID) throws SQLException {
         st.executeUpdate("DELETE FROM iotbaydb.products WHERE PRODUCT_ID=" + ID);
     }
-=======
->>>>>>> Stashed changes
 }

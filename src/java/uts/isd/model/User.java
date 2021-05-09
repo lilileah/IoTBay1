@@ -11,10 +11,10 @@ public class User implements Serializable {
     private Date dob;
     private String gender;
     private String user_type;
-    private Iterable<User> users;
+    //private Iterable<User> users;
 
-
-    public User(int user_id, String username_email, String user_name, String password, String phone, Date dob, String gender, String user_type, Iterable<User> users) {
+//    public User(int user_id, String username_email, String user_name, String password, String phone, Date dob, String gender, String user_type, Iterable<User> users)
+    public User(int user_id, String username_email, String user_name, String password, String phone, Date dob, String gender, String user_type) {
         this.user_id = user_id;
         this.username_email = username_email;
         this.user_name = user_name;
@@ -23,8 +23,9 @@ public class User implements Serializable {
         this.dob = dob;
         this.gender = gender;
         this.user_type = user_type;
-        this.users = users;
+        //this.users = users;
     }
+
 
     public int getUser_id() {
         return user_id;
@@ -90,13 +91,13 @@ public class User implements Serializable {
         this.user_type = user_type;
     }
 
-    public Iterable<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Iterable<User> users) {
-        this.users = users;
-    }
+//    public Iterable<User> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Iterable<User> users) {
+//        this.users = users;
+//    }
     
  
 

@@ -18,28 +18,26 @@ public class Test_User {
 
     public static void main(String[] args) {
         try {
-
+            
             DBConnector connector = new DBConnector();
 
             Connection conn = connector.openConnection();
-
-            //DBManager_product db = new DBManager_product(conn);
             
             DBManager_user db = new DBManager_user(conn);
             
-            //db.addUser("spolgar@cvt.com.au", "Samuel Polgar", "Password1", "+61412767767", 1991-12-17, "A");
-    
-            
+            //creating a date variable
             String str="2015-03-31";  
             LocalDate ld = LocalDate.parse( str ) ;
 
-            db.addUser("spolgar@cvt.com.au", "Samuel Polgar", "Password1", "+61412767767", ld, "Male", "A");
-            //String userEmail, String name, String password, String phone, LocalDate dob, String gender, String userType
+            //Test for adding a new user
+            //db.addUser("spolgar@cvt.com.au", "Samuel Polgar", "Password1", "+61412767767", ld, "Male", "A");
             
-            //db.addUser(userEmail, name, password, phone, dob, gender, userType);
+            //Test for updating a user
+            db.updateUser(104, "sexyblackman104@blackman.com", "Gomez Gomez", "BigBlack", "13Unbelieveable", ld, "Male", "A");
             
-            //db.addUser("prod", (float)51.41, (float)968.5);
-
+            //Test for deleting a user
+            //db.deleteUser(103);
+            
             System.out.println("User is added to the database.");
 
             connector.closeConnection();
