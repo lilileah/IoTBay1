@@ -20,7 +20,7 @@ public class DBManager_product {
 <<<<<<< Updated upstream
     //find max ID -- no longer used
     public int fetchHighestID() throws SQLException {
-        String cmd = "SELECT product_ID FROM iotbaydb.products";
+        String cmd = "SELECT product_ID FROM iotbay.products";
         ResultSet rs = st.executeQuery(cmd);
 
         while (rs.next()) {
@@ -34,7 +34,7 @@ public class DBManager_product {
     
     //find all products
     public ArrayList<Product> fetchProducts() throws SQLException {
-        String cmd = "SELECT * FROM iotbaydb.products";
+        String cmd = "SELECT * FROM iotbay.products";
         ResultSet rs = st.executeQuery(cmd);
         ArrayList<Product> productList = new ArrayList();
 
@@ -52,7 +52,7 @@ public class DBManager_product {
 
     //find products by name
     public ArrayList<Product> fetchProductsByName(String productName) throws SQLException {
-        String cmd = "SELECT * FROM iotbaydb.products WHERE product_name LIKE %" + productName + "%";
+        String cmd = "SELECT * FROM iotbay.products WHERE product_name LIKE %" + productName + "%";
         ResultSet rs = st.executeQuery(cmd);
         ArrayList<Product> productList = new ArrayList();
 
@@ -70,7 +70,7 @@ public class DBManager_product {
 
     //find product by ID
     public Product fetchProductsById(int _ID) throws SQLException {
-        String cmd = "SELECT * FROM iotbaydb.products WHERE product_id EQUALS " + _ID + "";
+        String cmd = "SELECT * FROM iotbay.products WHERE product_id EQUALS " + _ID + "";
         ResultSet rs = st.executeQuery(cmd);
         ArrayList<Product> productList = new ArrayList();
 
@@ -141,18 +141,19 @@ public class DBManager_product {
 
     //create product
     public void addProduct(String name, float price, float discount) throws SQLException {
-        st.executeUpdate("INSERT INTO iotbaydb.products VALUES ('" + name + "','" + price + "','" + discount + "'");
+        st.executeUpdate("INSERT INTO iotbay.products (PRODUCT_NAME, PRICE, DISCOUNT)" +
+        " VALUES ('" + name + "'," + price + "," + discount + ")");
     }
 
     //update by ID
     public void updateProduct(int ID, String name, float price, float discount) throws SQLException {
-        st.executeUpdate("UPDATE iotbaydb.products SET ('" + name + "','" + price + "','" + discount + "'"
-                + " WHERE PRODUCT_ID=" + ID);
+        st.executeUpdate("UPDATE iotbay.products SET ('" + name + "','" + price + "','" + discount + "'"
+                + " WHERE PRODUCT_ID=" + ID +")");
     }
 
     //delete
     public void deleteProduct(int ID) throws SQLException {
-        st.executeUpdate("DELETE FROM iotbaydb.products WHERE PRODUCT_ID=" + ID);
+        st.executeUpdate("DELETE FROM iotbay.products WHERE PRODUCT_ID=" + ID);
     }
 =======
 >>>>>>> Stashed changes
