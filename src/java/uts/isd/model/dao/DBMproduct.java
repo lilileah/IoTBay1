@@ -9,11 +9,11 @@ import uts.isd.model.Product;
 * DBManager is the primary DAO class to interact with the database. 
 * Complete the existing methods of this classes to perform CRUD operations with the db.
  */
-public class DBManager_product {
+public class DBMproduct {
 
     private Statement st;
 
-    public DBManager_product(Connection conn) throws SQLException {
+    public DBMproduct(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
     
@@ -95,8 +95,9 @@ public class DBManager_product {
 
     //update by ID
     public void updateProduct(int ID, String name, float price, float discount) throws SQLException {
-        st.executeUpdate("UPDATE iotbay.products SET ('" + name + "','" + price + "','" + discount + "'"
-                + " WHERE PRODUCT_ID=" + ID +")");
+        st.executeUpdate("UPDATE iotbay.products "
+                + "SET PRODUCT_NAME='" + name + "',PRICE=" + price + ", DISCOUNT=" + discount + ""
+                + " WHERE PRODUCT_ID=" + ID +"");
     }
 
     //delete
