@@ -1,3 +1,5 @@
 /dist/
 nbproject/build-impl.xml
 nbproject/private/private.xml
+build/web/WEB-INF/lib/derby.jar
+build/web/WEB-INF/lib/derbyclient.jar
