@@ -3,6 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import uts.isd.controller.ConnServlet;
+import uts.isd.model.dao.DBMproduct;
 import uts.isd.model.*;
 
 public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspBase
@@ -46,6 +48,8 @@ public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
@@ -55,7 +59,7 @@ public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("    <body>\r\n");
       out.write("        <div>\r\n");
       out.write("            ");
- 
+
                 User user = (User) session.getAttribute("user");
             
       out.write("\r\n");
@@ -66,6 +70,10 @@ public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("            <input type =\"text\" placeholder=\"product discount\" name=\"productDiscount\"><br>\r\n");
       out.write("            <input type=\"submit\" value=\"AddProductBtn\"> \r\n");
       out.write("        </form>\r\n");
+      out.write("<!--        TESTING-->\r\n");
+      out.write("            ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/ConnServlet", out, true);
+      out.write("\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {

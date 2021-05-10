@@ -19,7 +19,7 @@ import uts.isd.model.dao.*;
  *
  * @author Dean
  */
-public class EditProductServlet extends HttpServlet{//TODO
+public class EditProductServlet extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         

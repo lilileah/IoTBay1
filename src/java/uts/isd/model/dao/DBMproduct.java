@@ -16,7 +16,7 @@ public class DBMproduct {
     public DBMproduct(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
-    
+
     //find max ID -- no longer used
     public int fetchHighestID() throws SQLException {
         String cmd = "SELECT product_ID FROM iotbay.products";
@@ -30,12 +30,12 @@ public class DBMproduct {
 
         return -1;
     }
-    
+
     //find all products
     public ArrayList<Product> fetchProducts() throws SQLException {
         String cmd = "SELECT * FROM iotbay.products";
         ResultSet rs = st.executeQuery(cmd);
-        ArrayList<Product> productList = new ArrayList();
+        ArrayList<Product> productList = new ArrayList<Product>();
 
         while (rs.next()) {
             int ID = rs.getInt(1);
@@ -53,7 +53,7 @@ public class DBMproduct {
     public ArrayList<Product> fetchProductsByName(String productName) throws SQLException {
         String cmd = "SELECT * FROM iotbay.products WHERE product_name LIKE %" + productName + "%";
         ResultSet rs = st.executeQuery(cmd);
-        ArrayList<Product> productList = new ArrayList();
+        ArrayList<Product> productList = new ArrayList<Product>();
 
         while (rs.next()) {
             int ID = rs.getInt(1);
@@ -71,7 +71,7 @@ public class DBMproduct {
     public Product fetchProductsById(int _ID) throws SQLException {
         String cmd = "SELECT * FROM iotbay.products WHERE product_id EQUALS " + _ID + "";
         ResultSet rs = st.executeQuery(cmd);
-        ArrayList<Product> productList = new ArrayList();
+        ArrayList<Product> productList = new ArrayList<Product>();
 
         while (rs.next()) {
             int ID = rs.getInt(1);
@@ -89,15 +89,15 @@ public class DBMproduct {
 
     //create product
     public void addProduct(String name, float price, float discount) throws SQLException {
-        st.executeUpdate("INSERT INTO iotbay.products (PRODUCT_NAME, PRICE, DISCOUNT)" +
-        " VALUES ('" + name + "'," + price + "," + discount + ")");
+        st.executeUpdate("INSERT INTO iotbay.products (PRODUCT_NAME, PRICE, DISCOUNT)"
+                + " VALUES ('" + name + "'," + price + "," + discount + ")");
     }
 
     //update by ID
     public void updateProduct(int ID, String name, float price, float discount) throws SQLException {
         st.executeUpdate("UPDATE iotbay.products "
                 + "SET PRODUCT_NAME='" + name + "',PRICE=" + price + ", DISCOUNT=" + discount + ""
-                + " WHERE PRODUCT_ID=" + ID +"");
+                + " WHERE PRODUCT_ID=" + ID + "");
     }
 
     //delete
