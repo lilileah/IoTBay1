@@ -20,16 +20,26 @@ public class PaymentDetails implements Serializable {
     private String owner_name;
     private Date exp_date;
     private int CCV;
+    private int userID;
     
-    public PaymentDetails(int method_id, String card_type, int card_number, String owner_name, Date exp_date, int CCV) {
+    public PaymentDetails(int method_id, String card_type, int card_number, String owner_name, Date exp_date, int CCV, int userID) {
         this.payment_details_id = method_id;
         this.card_type = card_type;
         this.card_number = card_number;
         this.owner_name = owner_name;
         this.exp_date = exp_date;
         this.CCV = CCV;
+        this.userID = userID;
+    }
+    
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
+    public int getUserID() {
+        return userID;
+    }
+    
     public void setPayment_details_id(int payment_details_id) {
         this.payment_details_id = payment_details_id;
     }
