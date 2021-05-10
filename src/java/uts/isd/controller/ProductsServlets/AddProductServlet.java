@@ -31,7 +31,7 @@ public class AddProductServlet extends HttpServlet{
         float price = Float.parseFloat(request.getParameter("productPrice"));
         float discount = Float.parseFloat(request.getParameter("productDiscount"));
         
-        DBManager_product DBMProduct = (DBManager_product) session.getAttribute("productManager");
+        DBMproduct DBMProduct = (DBMproduct) session.getAttribute("productManager");
         
         try{
             DBMProduct.addProduct(productName, price, discount);

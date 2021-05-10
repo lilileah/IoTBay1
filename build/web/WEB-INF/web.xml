@@ -1,22 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app metadata-complete="true" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+         metadata-complete="true">
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ProductsServlets.AddProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ProductsServlets.EditProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>GetProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ProductsServlets.GetProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UserServlets.AddUserServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>GetUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UserServlets.GetUserServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>MyShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.MyShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>AddShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.AddShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>EditShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>FinalizeShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.FinalizeShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+
+    <!-- User and Register Servlet -->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UserServlets.RegisterServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    
+
+    
+    <!--    Utility-->
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>uts.isd.controller.UserServlets.LoginServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>uts.isd.controller.UserServlets.RegisterServlet</servlet-class>
-    </servlet>
+    <!--    Product-->
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProductServlet</servlet-name>
+        <url-pattern>/EditProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetProductServlet</servlet-name>
+        <url-pattern>/GetProductServlet</url-pattern>
+    </servlet-mapping>
+    <!--User-->
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
@@ -24,6 +102,26 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyShipmentServlet</servlet-name>
+        <url-pattern>/MyShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddShipmentServlet</servlet-name>
+        <url-pattern>/AddShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteShipmentServlet</servlet-name>
+        <url-pattern>/DeleteShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditShipmentServlet</servlet-name>
+        <url-pattern>/EditShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizeShipmentServlet</servlet-name>
+        <url-pattern>/FinalizeShipment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
