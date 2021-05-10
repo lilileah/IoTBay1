@@ -25,7 +25,6 @@
     user_id int,
     login_datetime timestamp,
     logout_datetime timestamp,   
-    user_id int,
     CONSTRAINT log_pk PRIMARY KEY (log_id),
     CONSTRAINT userid_fk FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
@@ -92,8 +91,11 @@ CREATE TABLE ORDERS (
 
     CREATE TABLE PAYMENT_DETAILS (
     payment_details_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
-    card_name varchar(254),
-    card_no int,
+    card_type varchar(30),
+    card_number int NOT NULL,
+    owner_name varchar(50),
+    exp_date date,
+    CCV int NOT NULL,
     user_id int,
     CONSTRAINT payment_details_id_pk PRIMARY KEY (payment_details_id),
     CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES users(user_id)
