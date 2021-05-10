@@ -23,13 +23,13 @@ public class Test_User {
 
             Connection conn = connector.openConnection();
             
-            DBMuser db = new DBMuser(conn);
+            //DBMuser db = new DBMuser(conn);
             
             //creating a date variable
             //String str="2015-03-31";  
 
             //Test for adding a new user
-            db.addUser("spolgar@cvt.com.au123", "Samuel Polgar1", "Password1", "+61412767767", "2015-03-31", "Male", "A");
+            //db.addUser("spolgar@cvt.com.au123", "Samuel Polgar1", "Password1", "+61412767767", "2015-03-31", "Male", "A");
             
             //Test for updating a user
             //db.updateUser(104, "sexyblackman104@blackman.com", "Gomez Gomez", "BigBlack", "13Unbelieveable", str, "Male", "A");

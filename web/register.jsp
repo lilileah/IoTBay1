@@ -24,10 +24,11 @@
             <hr>
         </div>
         <div class="mx-auto" style="width: 400px;">
-            <form method="post" action="RegisterServlet">
+            <form method="post" action="AddUser">
+<!--            <form method="post" action="RegisterServlet">-->
                 <input class="mb-2 form-control" type="text" placeholder="Username email" name = "USERNAME_EMAIL" required= "true"><br>
                 <input class="mb-2 form-control" type="text" placeholder="Full name" name = "USER_NAME" required= "true"><br>
-                <input class="mb-2 form-control" type="password" placeholder="Password" name = "PASSWORD" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="Password" name = "PASSWORD" required= "true"><br>
                 <input class="mb-2 form-control" type="text" placeholder="Phone" name = "PHONE" required= "true"><br>
                 <input class="mb-2 form-control" type="text" placeholder="dd/mm/yyyy" name = "DOB" required= "true"><br>
                 <input class="mb-2 form-control" type="text" placeholder="gender" name = "GENDER" required= "true"><br>
@@ -39,7 +40,7 @@
             </form>
         </div>
     </body>
-   <jsp:include page="/ConnServlet" flush="true"/>
+    <%--<jsp:include page="/ConnServlet" flush="true"/>--%>
 </html>
 
 
