@@ -2,24 +2,24 @@ package uts.isd.model.dao;
 
 import uts.isd.model.User;
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 
 /* 
 * DBManager is the primary DAO class to interact with the database. 
 * Complete the existing methods of this classes to perform CRUD operations with the db.
  */
-public class DBManager_user {
+public class DBMuser {
+
 
     private Statement st;
 
-    public DBManager_user(Connection conn) throws SQLException {
+    public DBMuser(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
     
     /* Adding Users */
     //add new user
-    public void addUser(String userEmail, String name, String password, String phone, LocalDate dob, String gender, String userType) 
+    public void addUser(String USERNAME_EMAIL, String USER_NAME, String PASSWORD, String PHONE, String DOB, String GENDER, String USER_TYPE) 
             throws SQLException {
                 String query = "INSERT INTO USERS ("
                         + "USERNAME_EMAIL, "
@@ -29,10 +29,30 @@ public class DBManager_user {
                         + "DOB, "
                         + "GENDER, "
                         + "USER_TYPE) "
-                        + "VALUES (%s, %s, %s, %s, %s, %s, %s)";
+                        + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
 
-                st.executeUpdate(String.format(query, userEmail, name, password, phone, dob, gender, userType));
-    }  
+                st.executeUpdate(String.format(query, USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE));
+    }
+    
+    
+    public static void addUser(User newUser) {
+        
+    }
+    
+//        public void addUser(String userEmail, String name, String password, String phone, String dob, String gender, String userType) 
+//            throws SQLException {
+//                String query = "INSERT INTO USERS ("
+//                        + "USERNAME_EMAIL, "
+//                        + "USER_NAME, "
+//                        + "PASSWORD, "
+//                        + "PHONE, "
+//                        + "DOB, "
+//                        + "GENDER, "
+//                        + "USER_TYPE) "
+//                        + "VALUES (%s, %s, %s, %s, %s, %s, %s)";
+//
+//                st.executeUpdate(String.format(query, userEmail, name, password, phone, dob, gender, userType));
+//    }
     
     
     //Read: Find user by username and email
@@ -46,7 +66,7 @@ public class DBManager_user {
             if(userEmail.equals(email) && userPass.equals(password)){
                 String name = rs.getString(3);
                 String phone = rs.getString(5);
-                Date dob = rs.getDate(6);
+                String dob = rs.getString(6);
             }
         }
         return null;
@@ -63,7 +83,7 @@ public class DBManager_user {
             String name = rs.getString(3);
             String userPass = rs.getString(4);
             String phone = rs.getString(5);
-            Date dob = rs.getDate(6);
+            String dob = rs.getString(6);
             String gender = rs.getString(7);
             String userType = rs.getString(8);
         }
@@ -82,7 +102,7 @@ public class DBManager_user {
             String name = rs.getString(3);
             String userPass = rs.getString(4);
             String phone = rs.getString(5);
-            Date dob = rs.getDate(6);
+            String dob = rs.getString(6);
             String gender = rs.getString(7);
             String userType = rs.getString(8);
             userList.add(new User(userId, userEmail, name, userPass, phone, dob, gender, userType));
@@ -93,7 +113,7 @@ public class DBManager_user {
                 
 
 //Update by Id
-    public void updateUser(int user_id, String userEmail, String name, String password, String phone, LocalDate dob, String gender, String userType) 
+    public void updateUser(int user_id, String userEmail, String name, String password, String phone, String dob, String gender, String userType) 
             throws SQLException {
                String query = "UPDATE USERS SET "
                        + "USERNAME_EMAIL='%s', "

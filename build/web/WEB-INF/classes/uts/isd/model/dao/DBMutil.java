@@ -10,25 +10,44 @@ import uts.isd.model.AccessLogs;
  *
  * @author samuelpolgar
  */
-public class DBManager_util {
+public class DBMutil {
     
     private Statement st;
 
-    public DBManager_util(Connection conn) throws SQLException {
+    public DBMutil(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
     
     //create logs
-    public void addLog(Timestamp logon_datetime, Timestamp logout_datetime, int user_id)
+    public void addLog(String logon_datetime, String logout_datetime, int user_id)
             throws SQLException {
                 String query = "INSERT INTO ACCESS_LOGS ("
                         + "LOGIN_DATETIME, "
                         + "LOGOUT_DATETIME, "
                         + "USER_ID) "
-                        + "VALUES (%s, %s, %s)";
+                        + "VALUES ('%s', '%s', %s)";
                 
                 st.executeUpdate(String.format(query, logon_datetime, logout_datetime, user_id));
     }
+    
+
+    
+//    
+//        public void addUser(String userEmail, String name, String password, String phone, String dob, String gender, String userType) 
+//            throws SQLException {
+//                String query = "INSERT INTO USERS ("
+//                        + "USERNAME_EMAIL, "
+//                        + "USER_NAME, "
+//                        + "PASSWORD, "
+//                        + "PHONE, "
+//                        + "DOB, "
+//                        + "GENDER, "
+//                        + "USER_TYPE) "
+//                        + "VALUES (%s, %s, %s, %s, %s, %s, %s)";
+//
+//                st.executeUpdate(String.format(query, userEmail, name, password, phone, dob, gender, userType));
+//    }  
+    
     
     //Update log by id
     public void updateLog(int log_id,Timestamp logout_datetime) 

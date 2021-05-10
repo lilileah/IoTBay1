@@ -4,7 +4,7 @@
     Author     : lilil
 --%>
 
-<%@page import="uts.isd.model.User"%>
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,19 +24,14 @@
             <hr>
         </div>
         <div class="mx-auto" style="width: 400px;">
-            <form action="welcome.jsp" method="post">
-
-                <input class="mb-2 form-control" type="text" placeholder="Username" name = "username" required= "true"><br>
-                <input class="mb-2 form-control" type="text" placeholder="Full name" name = "name" required= "true"><br>
-                <input class="mb-2 form-control" type="text" placeholder="Email" name = "email" required= "true"><br>
-                <input class="mb-2 form-control" type="password" placeholder="Password" name = "password" required= "true"><br>
-                <input class="mb-2 form-control" type="password" placeholder="Confirm Password" name = "password" required= "true"><br>
-
-                <!--<label for="lname">Gender:</label><br>
-                <input type="radio" id="male" name="gender" value="male">
-                <label for="male">Male</label><br>
-                <input type="radio" id="female" name="gender" value="female">
-                <label for="female">Female</label><br>-->
+            <form method="post" action="RegisterServlet">
+                <input class="mb-2 form-control" type="text" placeholder="Username email" name = "USERNAME_EMAIL" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="Full name" name = "USER_NAME" required= "true"><br>
+                <input class="mb-2 form-control" type="password" placeholder="Password" name = "PASSWORD" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="Phone" name = "PHONE" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="dd/mm/yyyy" name = "DOB" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="gender" name = "GENDER" required= "true"><br>
+                <input class="mb-2 form-control" type="text" placeholder="type" name = "USER_TYPE" required= "true"><br>
                 <div>
                     <input class="mb-2 btn-primary btn" type="submit" value="register">
                     <input type="hidden" name="submitted" value="yes">
@@ -44,6 +39,7 @@
             </form>
         </div>
     </body>
+   <jsp:include page="/ConnServlet" flush="true"/>
 </html>
 
 

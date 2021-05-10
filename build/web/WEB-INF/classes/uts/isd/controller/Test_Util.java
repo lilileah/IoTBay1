@@ -19,27 +19,30 @@ public class Test_Util {
 
             Connection conn = connector.openConnection();
             
-            DBManager_util db = new DBManager_util(conn);
+            DBMutil db = new DBMutil(conn);
             
             //creating a datetime of now.
             Date date = new Date();  
             Timestamp ts = new Timestamp(date.getTime());  
-            System.out.println(ts);
-           
+            System.out.println(ts.getClass());
+            String tsString = ts.toString();
+            System.out.println(tsString);
+            String str1 = "hello";
             
             //Test for adding a log to the database
-//           db.addLog(ts, ts, 104);
-//           System.out.println("Ts is added to the database.");
+           //db.addLog(tsString, tsString, 104);
+           db.addLog(str1, str1, 4);
+          // System.out.println("Ts is added to the database.");
 
             //Test for updating log with logoff time
             
             
             //Test for getting a log from the data base
-            db.updateLog(1, ts);
-            System.out.println("log updated");
+//            db.updateLog(1, ts);
+//            System.out.println("log updated");
 
             //Fetch logs for user Id
-            db.fetchLogsByUserId(104);
+           // db.fetchLogsByUserId(104);
            // System.out.println("log got from DB");
             //Fetch all logs
             //db.fetchAllLogs();

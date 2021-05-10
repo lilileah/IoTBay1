@@ -4,7 +4,7 @@
     user_name varchar(254),
     password varchar(254),
     phone varchar(15),
-    dob date,
+    dob varchar(254),
     gender varchar(254),
     user_type varchar(1),
     CONSTRAINT userspk PRIMARY KEY (user_id)
@@ -22,12 +22,11 @@
 
     CREATE TABLE ACCESS_LOGS (
     log_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
-    user_id int,
-    login_datetime timestamp,
-    logout_datetime timestamp,   
-    user_id int,
-    CONSTRAINT log_pk PRIMARY KEY (log_id),
-    CONSTRAINT userid_fk FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    login_datetime varchar(254),
+    logout_datetime varchar(254),
+    user_id int NOT NULL,
+    CONSTRAINT login_PK PRIMARY KEY (log_id),
+    CONSTRAINT useridFK FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
 
     CREATE TABLE PRODUCTS (
