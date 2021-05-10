@@ -13,13 +13,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.*;
+import uts.isd.model.Product;
 import uts.isd.model.dao.*;
 
 /**
  *
  * @author Dean
  */
-public class AddProductServlet extends HttpServlet{
+public class GetProductServlet extends HttpServlet{//TODO
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         
@@ -27,14 +28,13 @@ public class AddProductServlet extends HttpServlet{
         
         //Validator validatior
         
-        String productName = request.getParameter("productName");
-        float price = Float.parseFloat(request.getParameter("productPrice"));
-        float discount = Float.parseFloat(request.getParameter("productDiscount"));
+        int ID = Integer.parseInt(request.getParameter("productId"));
         
         DBMproduct DBMProduct = (DBMproduct) session.getAttribute("productManager");
         
         try{
-            DBMProduct.addProduct(productName, price, discount);
+            Product product = DBMProduct.fetchProductsById(ID);
+            
         }
         catch(SQLException ex){
             System.out.println(ex.getMessage() == null ? "Something broke": "");

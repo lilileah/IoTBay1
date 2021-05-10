@@ -19,7 +19,7 @@ import uts.isd.model.dao.*;
  *
  * @author Dean
  */
-public class AddProductServlet extends HttpServlet{
+public class EditProductServlet extends HttpServlet{//TODO
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         
@@ -27,6 +27,7 @@ public class AddProductServlet extends HttpServlet{
         
         //Validator validatior
         
+        int ID = Integer.parseInt(request.getParameter("productId"));
         String productName = request.getParameter("productName");
         float price = Float.parseFloat(request.getParameter("productPrice"));
         float discount = Float.parseFloat(request.getParameter("productDiscount"));
@@ -34,7 +35,7 @@ public class AddProductServlet extends HttpServlet{
         DBMproduct DBMProduct = (DBMproduct) session.getAttribute("productManager");
         
         try{
-            DBMProduct.addProduct(productName, price, discount);
+            DBMProduct.updateProduct(ID, productName, price, discount);
         }
         catch(SQLException ex){
             System.out.println(ex.getMessage() == null ? "Something broke": "");

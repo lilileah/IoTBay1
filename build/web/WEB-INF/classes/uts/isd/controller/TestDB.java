@@ -20,11 +20,18 @@ public class TestDB {
 
             Connection conn = connector.openConnection();
 
-            DBManager_product db = new DBManager_product(conn);
+            DBMproduct db = new DBMproduct(conn);
+            
 
             db.addProduct("dfogk", (float)51.41, (float)968.5);
 
-            System.out.println("User is added to the database.");
+            System.out.println("product is added to the database.");
+            
+            
+            db.updateProduct(1, "product A", (float)51.41, (float)0.0);
+
+            System.out.println("product is updated.");
+            
 
             connector.closeConnection();
 
