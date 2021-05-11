@@ -38,6 +38,32 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
     
+    <servlet>
+        <servlet-name>MyShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.MyShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>AddShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.AddShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>EditShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>FinalizeShipmentServlet</servlet-name>
+        <servlet-class>uts.isd.controller.FinalizeShipmentServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    
     <!--    Utility-->
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -64,6 +90,26 @@
     <servlet-mapping>
         <servlet-name>GetUserServlet</servlet-name>
         <url-pattern>/GetUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyShipmentServlet</servlet-name>
+        <url-pattern>/MyShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddShipmentServlet</servlet-name>
+        <url-pattern>/AddShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteShipmentServlet</servlet-name>
+        <url-pattern>/DeleteShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditShipmentServlet</servlet-name>
+        <url-pattern>/EditShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinalizeShipmentServlet</servlet-name>
+        <url-pattern>/FinalizeShipment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
