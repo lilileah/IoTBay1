@@ -20,6 +20,7 @@ import uts.isd.model.dao.*;
  * @author Dean
  */
 public class EditProductServlet extends HttpServlet{
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         
@@ -36,9 +37,12 @@ public class EditProductServlet extends HttpServlet{
         
         try{
             DBMProduct.updateProduct(ID, productName, price, discount);
+            session.setAttribute("updatedProduct", DBMProduct.fetchProductsById(ID));
         }
         catch(SQLException ex){
             System.out.println(ex.getMessage() == null ? "Something broke": "");
         }
+        
+        //redirect
     }
 }

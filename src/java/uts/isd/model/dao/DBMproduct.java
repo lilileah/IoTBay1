@@ -43,7 +43,7 @@ public class DBMproduct {
             float price = rs.getFloat(3);
             float discount = rs.getFloat(4);
 
-            productList.add(new Product(ID, name, price, discount));
+            productList.add(new Product(ID, name, price, discount,null));
         }
 
         return productList;
@@ -61,7 +61,7 @@ public class DBMproduct {
             float price = rs.getFloat(3);
             float discount = rs.getFloat(4);
 
-            productList.add(new Product(ID, name, price, discount));
+            productList.add(new Product(ID, name, price, discount, null));
         }
 
         return productList;
@@ -80,7 +80,7 @@ public class DBMproduct {
             float discount = rs.getFloat(4);
 
             if (ID == _ID) {
-                return new Product(ID, name, price, discount);
+                return new Product(ID, name, price, discount, null);
             }
 
         }
