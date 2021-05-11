@@ -1,4 +1,4 @@
-package org.apache.jsp;
+package org.apache.jsp.ProductTestingSites;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -7,7 +7,7 @@ import uts.isd.controller.ConnServlet;
 import uts.isd.model.dao.DBMproduct;
 import uts.isd.model.*;
 
-public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class GetProductForm_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -54,7 +54,7 @@ public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>JSP Page</title>\r\n");
+      out.write("        <title>Edit</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        <div>\r\n");
@@ -65,13 +65,17 @@ public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("        </div>\r\n");
       out.write("        <form method=\"post\" action=\"AddProductServlet\">\r\n");
-      out.write("            <input type =\"text\" placeholder=\"product name\" name=\"addProduct\" required><br>\r\n");
-      out.write("            <input type =\"text\" placeholder=\"product price\" name=\"productPrice\" required><br>\r\n");
-      out.write("            <input type =\"text\" placeholder=\"product discount\" name=\"productDiscount\"><br>\r\n");
-      out.write("            <input type=\"submit\" value=\"AddProductBtn\"> \r\n");
+      out.write("            <input type =\"text\" placeholder=\"product name\" name=\"productId\" required><br>\r\n");
+      out.write("            <input type=\"submit\" value=\"getProductForm\"> \r\n");
       out.write("        </form>\r\n");
-      out.write("<!--        TESTING-->\r\n");
-      out.write("            ");
+      out.write("        ");
+
+            Product product = (Product)session.getAttribute("product");
+            
+        
+      out.write("\r\n");
+      out.write("        <!--        TESTING-->\r\n");
+      out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/ConnServlet", out, true);
       out.write("\r\n");
       out.write("    </body>\r\n");

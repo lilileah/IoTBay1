@@ -20,24 +20,30 @@ import uts.isd.model.dao.*;
  *
  * @author Dean
  */
-public class GetProductServlet extends HttpServlet{//TODO
+public class GetProductServlet extends HttpServlet {//TODO
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException{
-        
+            throws ServletException, IOException {
+
         HttpSession session = request.getSession();
-        
+
         //Validator validatior
-        
         int ID = Integer.parseInt(request.getParameter("productId"));
-        
+
         DBMproduct DBMProduct = (DBMproduct) session.getAttribute("productManager");
-        
-        try{
-            Product product = DBMProduct.fetchProductsById(ID);
-            
-        }
-        catch(SQLException ex){
-            System.out.println(ex.getMessage() == null ? "Something broke": "");
+
+        try {
+            if (DBMProduct.fetchProductsById(ID) != null) {
+                Product product = DBMProduct.fetchProductsById(ID);
+                session.setAttribute("GetProduct", product);
+            }
+            else
+            {
+                System.out.println("No product found");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage() == null ? "Something broke" : "");
         }
     }
 }

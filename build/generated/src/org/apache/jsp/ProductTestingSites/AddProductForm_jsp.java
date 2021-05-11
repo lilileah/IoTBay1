@@ -1,4 +1,4 @@
-package org.apache.jsp;
+package org.apache.jsp.ProductTestingSites;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -65,7 +65,7 @@ public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("        </div>\r\n");
       out.write("        <form method=\"post\" action=\"AddProductServlet\">\r\n");
-      out.write("            <input type =\"text\" placeholder=\"product name\" name=\"addProduct\" required><br>\r\n");
+      out.write("            <input type =\"text\" placeholder=\"product name\" name=\"productName\" required><br>\r\n");
       out.write("            <input type =\"text\" placeholder=\"product price\" name=\"productPrice\" required><br>\r\n");
       out.write("            <input type =\"text\" placeholder=\"product discount\" name=\"productDiscount\"><br>\r\n");
       out.write("            <input type=\"submit\" value=\"AddProductBtn\"> \r\n");
