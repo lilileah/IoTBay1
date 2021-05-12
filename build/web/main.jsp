@@ -44,12 +44,12 @@
         <section class="jumbotron text-center">
         <div class="container">
           <h1 class="jumbotron-heading">IoTBay Main page</h1>
-          <p class="lead text-muted">You are logged in as ${user.name}</p>
+          <p class="lead text-muted">You are logged in as ${user.USER_NAME}</p>
           
           <p>Here are your account details: </p>
           <table class="table table-striped table-sm" od="profile_table">
-            <thread><th>Name</th><th>Username</th><th>Email</th><th>Password</th></thread>
-            <tr><td>${user.name}</td><td>${user.username}</td><td>${user.email}</td><td>${user.password}</td>
+            <thread><th>Name</th><th>Email</th><th>Phone</th><th>Password</th></thread>
+            <tr><td>${user.USER_NAME}</td><td>${user.USERNAME_PASSOWRD}</td><td>${user.PHONE}</td><td>${user.PASSWORD}</td>
         </table>
           
           <p>

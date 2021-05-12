@@ -19,20 +19,9 @@
         <title>IOTBay Welcome Page</title>
     </head>
     <body>
-        <%
-            User user = (User)session.getAttribute("user");
-            
-            if(user!=null){
-                String USERNAME_EMAIL = user.getUsername_email();
-                System.out.println(USERNAME_EMAIL+"Hello Wrold");
-            }
-            
-
-        %>
        
-        <%--
-        <%         
-            
+        
+        <%
             String name = request.getParameter("name");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
@@ -60,10 +49,7 @@
         <p>Email is: <%= email %>.</p>
         <% } %>
         
-        
-        --%>
-        
-        <div>
+                <div>
             <a>Click </a>
             <a class="button" href="main.jsp">here</a>
             <a> to proceed to the main page</a>
@@ -77,11 +63,10 @@
         </div>
       </section>
             
-        <%--
+
         <%
         User user = new User(email, name, password, username);
         session.setAttribute("user", user);
         %>
-        --%>
     </body>
 </html>

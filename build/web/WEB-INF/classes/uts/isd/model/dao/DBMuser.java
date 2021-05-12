@@ -29,18 +29,62 @@ public class DBMuser {
     } 
     
         public void addUser(User user) throws SQLException {
+            System.out.println("Here in the addUser");
         String sql = "INSERT INTO iotbay.users (USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE) VALUES(?,?,?,?,?,?,?)";
         PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(2, user.getUsername_email());
-        ps.setString(3, user.getUser_name());
-        ps.setString(4, user.getPassword());
-        ps.setString(5, user.getPhone());
-        ps.setString(6, user.getDob());
-        ps.setString(7, user.getGender());
-        ps.setString(8, user.getUser_type());
+        ps.setString(1, user.getUsername_email());
+        ps.setString(2, user.getUser_name());
+        ps.setString(3, user.getPassword());
+        ps.setString(4, user.getPhone());
+        ps.setString(5, user.getDob());
+        ps.setString(6, user.getGender());
+        ps.setString(7, user.getUser_type());
         ps.executeUpdate();
     }
-}
+
+
+        public User findUser(String USERNAME_EMAIL, String PASSWORD) throws SQLException {
+            System.out.println("Here finding a user");
+            String sql = "SELECT * FROM iotbay.users where USERNAME_EMAIL=? AND PASSWORD=?";
+            try{
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ps.setString(1, USERNAME_EMAIL);
+                ps.setString(3, PASSWORD);
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()){
+                return new User(
+                        rs.getInt("USER_ID"),
+                        rs.getString("USERNAME_EMAIL"),
+                        rs.getString("USER_NAME"),
+                        rs.getString("PASSWORD"),
+                        rs.getString("PHONE"),
+                        rs.getString("DOB"),
+                        rs.getString("GENDER"),
+                        rs.getString("USER_TYPE"));
+                }
+           }catch (SQLException ex){
+                        Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
+           }
+            return null;
+        };
+        
+        //    //Read: Find user by username and email
+//    public User findUser(String email, String password) throws SQLException {
+//        String fetch = "select * from Users where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+//        ResultSet rs = st.executeQuery(fetch);
+//        
+//        while(rs.next()){
+//            String userEmail = rs.getString(2);
+//            String userPass = rs.getString(4);
+//            if(userEmail.equals(email) && userPass.equals(password)){
+//                String name = rs.getString(3);
+//                String phone = rs.getString(5);
+//                String dob = rs.getString(6);
+//            }
+//        }
+//        return null;
+//    }
+    }
         
 //    /* Adding Users */
 //    //add new user
