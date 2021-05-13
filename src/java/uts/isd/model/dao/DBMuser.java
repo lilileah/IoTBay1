@@ -68,9 +68,28 @@ public class DBMuser {
         return null;
     }
 
-//    public void updateUser(User user) {
-//        String sql = "update users set USERNAME_EMAIL=?, USER_NAME=?,  "
-//    }
+    public void updateUser(User user) throws SQLException {
+        System.out.println("Id in the updateUser is: " + user.getUser_id());
+        String sql = "update users set "
+            + "USERNAME_EMAIL=?, "
+            + "USER_NAME=?,"
+            + "PASSWORD=?,"
+            + "PHONE=?, "
+            + "DOB=?,"
+            + "GENDER=?,"
+            + "USER_TYPE=?"
+            + "WHERE USER_ID=?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, user.getUser_id());
+        ps.setString(2, user.getUsername_email());
+        ps.setString(3, user.getUser_name());
+        ps.setString(4, user.getPassword());
+        ps.setString(5, user.getPhone());
+        ps.setString(6, user.getDob());
+        ps.setString(7, user.getGender());
+        ps.setString(8, user.getUser_type());
+        ps.executeUpdate();
+    }
 };
         
         
