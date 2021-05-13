@@ -10,6 +10,7 @@ import java.time.*;
 import java.util.*;
 import java.util.Date;
 import java.util.logging.*;
+import uts.isd.model.User;
 import uts.isd.model.dao.*;
 
 public class Test_User {
@@ -19,17 +20,34 @@ public class Test_User {
     public static void main(String[] args) {
         try {
             
-            DBConnector connector = new DBConnector();
+            //DBConnector connector = new DBConnector();
 
-            Connection conn = connector.openConnection();
+            //Connection conn = connector.openConnection();
             
-            //DBMuser db = new DBMuser(conn);
+            DBMuser db = new DBMuser();
+            
+            
+//            User foundUser = db.findUser("sampolgar@gmail.com", "123123");
+//            if(foundUser != null)
+//                System.out.println(foundUser.getPhone() + " and " + foundUser.getUser_id());
+//            System.out.println("Found user null");
+                
             
             //creating a date variable
             //String str="2015-03-31";  
 
             //Test for adding a new user
-            //db.addUser("spolgar@cvt.com.au123", "Samuel Polgar1", "Password1", "+61412767767", "2015-03-31", "Male", "A");
+            //db.addUser("spolgar@cvt.com.augomez", "Samuel Polgar1", "Password1", "+61412767767", "2015-03-31", "Male", "A");
+            User newUser = new User();
+            newUser.setUsername_email("spolgar@cvt.com.augomez");
+            newUser.setUser_name("Samuel_Polgar");
+            newUser.setPassword("Here123");
+            newUser.setPhone("+61412767767");
+            newUser.setDob("10/7/1996");
+            newUser.setGender("Male");
+            newUser.setUser_type("A");
+            db.addUser(newUser);
+            
             
             //Test for updating a user
             //db.updateUser(104, "sexyblackman104@blackman.com", "Gomez Gomez", "BigBlack", "13Unbelieveable", str, "Male", "A");
@@ -37,11 +55,11 @@ public class Test_User {
             //Test for deleting a user
             //db.deleteUser(103);
             
-            System.out.println("User is added to the database.");
+            //System.out.println("User is added to the database.");
 
-            connector.closeConnection();
+            //connector.closeConnection();
 
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (SQLException ex) {
 
             Logger.getLogger(Test_User.class.getName()).log(Level.SEVERE, null, ex);
         }

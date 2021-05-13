@@ -4,8 +4,8 @@
     Author     : Dean
 --%>
 
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@page import="uts.isd.controller.InputFilter"%>
-<%--<%@page import="uts.isd.model.InputFilter"%>--%>
 <%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,8 +21,18 @@
             <iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
         </div>
         
-        
-        
+        <c:if test = "${existErr != null}">
+            <div class="alert alert-danger my-4" role="alert">
+            <c:out value="${existErr}"/>
+        </c:if>
+         
+                
+        <c:if test = "${emailErr != null}">
+            <div class="alert alert-danger my-4" role="alert">
+            <c:out value="${emailErr}"/>
+        </c:if>        
+                
+                
         <div class = "mb-3">
             <h1 class="centre">Sign In</h1>
             <hr>
@@ -46,35 +56,3 @@
 
     </body>
 </html>
-
-
-
-
-<!--<html>
-   <head>
-      <title><c:choose> Tag Example</title>
-   </head>
-
-   <body>
-      <c:set var = "salary" scope = "session" value = "${2000*2}"/>
-      <p>Your salary is : <c:out value = "${salary}"/></p>
-      <c:choose>
-         
-         <c:when test = "${salary <= 0}">
-            Salary is very low to survive.
-         </c:when>
-         
-         <c:when test = "${salary > 1000}">
-            Salary is very good.
-         </c:when>
-         
-         <c:otherwise>
-            No comment sir...
-         </c:otherwise>
-      </c:choose>
-   
-   </body>
-</html>
-
-Your salary is : 4000
-Salary is very good. -->

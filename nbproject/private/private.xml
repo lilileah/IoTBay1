@@ -4,24 +4,17 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/LoginServlet.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBMproduct.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/login.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/welcome.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/AddShipmentServlet.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/EditShipmentServlet.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/index.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/MyShipmentServlet.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/login_new.jsp</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/ProductsServlets/AddProductServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/welcome.jsp</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/RegisterServlet.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/addShipment.jsp</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBMuser.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/Test_User.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/editShipment.jsp</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/ProductsServlets/GetProductServlet.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/DeleteShipmentServlet.java</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBShipment.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/User.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/Validator.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/register.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/main.jsp</file>
         </group>
     </open-files>
 </project-private>

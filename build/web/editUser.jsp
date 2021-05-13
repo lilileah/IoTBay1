@@ -30,13 +30,13 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td>${user.user_id}</td>
-                            <td>${user.username_email}</td>
-                            <td>${user.user_name}</td>
-                            <td>${user.phone}</td>
-                            <td>${user.dob}</td>
-                            <td>${user.gender}</td>
-                            <td>${user.user_type}</td>
+                            <td><label contenteditable="true">${user.user_id}</label> </td>
+                            <td><label contenteditable="true">${user.username_email}</label></td>
+                            <td><label contenteditable="true">${user.user_name}</label></td>
+                            <td><label contenteditable="true">${user.phone}</label></td>
+                            <td><label contenteditable="true">${user.dob}</label></td>
+                            <td><label contenteditable="true">${user.gender}</label></td>
+                            <td><label contenteditable="true">${user.user_type}</label></td>
                         </tr>
                         </tbody>
                     </table>

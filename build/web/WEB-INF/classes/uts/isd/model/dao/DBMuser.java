@@ -1,5 +1,4 @@
 package uts.isd.model.dao;
-
 import uts.isd.model.User;
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,25 +11,27 @@ import java.util.logging.Logger;
  */
 public class DBMuser {
 
-    private Statement st;
+    //private Statement st;
     private Connection conn;
-    
+    //private PreparedStatement ps;
+
+
     //Create a user
     
     public DBMuser() {
-        try{
+        try {
             DBConnector connector = new DBConnector();
             conn = connector.openConnection();
-        } catch (SQLException ex){
+        } catch (SQLException ex) {
             Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex){
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
         }
-    } 
+    }
+
     
         public void addUser(User user) throws SQLException {
-            System.out.println("Here in the addUser");
-        String sql = "INSERT INTO iotbay.users (USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO users (USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE) VALUES(?,?,?,?,?,?,?)";        
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setString(1, user.getUsername_email());
         ps.setString(2, user.getUser_name());
@@ -41,53 +42,14 @@ public class DBMuser {
         ps.setString(7, user.getUser_type());
         ps.executeUpdate();
     }
-
-
-        public User findUser(String USERNAME_EMAIL, String PASSWORD) throws SQLException {
-            System.out.println("Here finding a user");
-            String sql = "SELECT * FROM iotbay.users where USERNAME_EMAIL=? AND PASSWORD=?";
-            try{
-                PreparedStatement ps = conn.prepareStatement(sql);
-                ps.setString(1, USERNAME_EMAIL);
-                ps.setString(3, PASSWORD);
-                ResultSet rs = ps.executeQuery();
-                while (rs.next()){
-                return new User(
-                        rs.getInt("USER_ID"),
-                        rs.getString("USERNAME_EMAIL"),
-                        rs.getString("USER_NAME"),
-                        rs.getString("PASSWORD"),
-                        rs.getString("PHONE"),
-                        rs.getString("DOB"),
-                        rs.getString("GENDER"),
-                        rs.getString("USER_TYPE"));
-                }
-           }catch (SQLException ex){
-                        Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
-           }
-            return null;
-        };
+};
         
-        //    //Read: Find user by username and email
-//    public User findUser(String email, String password) throws SQLException {
-//        String fetch = "select * from Users where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
-//        ResultSet rs = st.executeQuery(fetch);
-//        
-//        while(rs.next()){
-//            String userEmail = rs.getString(2);
-//            String userPass = rs.getString(4);
-//            if(userEmail.equals(email) && userPass.equals(password)){
-//                String name = rs.getString(3);
-//                String phone = rs.getString(5);
-//                String dob = rs.getString(6);
-//            }
-//        }
-//        return null;
+        
+//    public DBMuser(Connection conn) throws SQLException {
+//        st = conn.createStatement();
 //    }
-    }
-        
-//    /* Adding Users */
-//    //add new user
+            /* Adding Users */
+    //add new user
 //    public void addUser(String USERNAME_EMAIL, String USER_NAME, String PASSWORD, String PHONE, String DOB, String GENDER, String USER_TYPE) 
 //            throws SQLException {
 //                String query = "INSERT INTO USERS ("
@@ -101,7 +63,57 @@ public class DBMuser {
 //                        + "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')";
 //
 //                st.executeUpdate(String.format(query, USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE));
+//    };
+
+
+//        public User findUser(String USERNAME_EMAIL, String PASSWORD) throws SQLException {
+//            System.out.println("Here finding a user");
+//            String sql = "SELECT * FROM iotbay.users where USERNAME_EMAIL=? AND PASSWORD=?";
+//            try{
+//                PreparedStatement ps = conn.prepareStatement(sql);
+//                ps.setString(2, USERNAME_EMAIL);
+//                ps.setString(4, PASSWORD);
+//                ResultSet rs = ps.executeQuery();
+//                while (rs.next()){
+//                return new User(
+//                        rs.getInt("USER_ID"),
+//                        rs.getString("USERNAME_EMAIL"),
+//                        rs.getString("USER_NAME"),
+//                        rs.getString("PASSWORD"),
+//                        rs.getString("PHONE"),
+//                        rs.getString("DOB"),
+//                        rs.getString("GENDER"),
+//                        rs.getString("USER_TYPE"));
+//                }
+//           }catch (SQLException ex){
+//                        Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
+//           }
+//            return null;
+//        };
+        
+//Read: Find user by username and email
+//    public User findUser(String email, String password) throws SQLException {
+//        String fetch = "select * from Users where USERNAME_EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+//        ResultSet rs = st.executeQuery(fetch);
+//        
+//       while(rs.next()){
+//            String USERNAME_EMAIL = rs.getString(2);
+//            String PASSWORD = rs.getString(4);
+//            if(USERNAME_EMAIL.equals(USERNAME_EMAIL) && PASSWORD.equals(PASSWORD)){
+//                int USER_ID = rs.getInt(1);
+//                String USERNAME = rs.getString(3);
+//                String PHONE = rs.getString(5);
+//                String DOB = rs.getString(6);
+//                String GENDER = rs.getString(7);
+//                String USER_TYPE = rs.getString(8);
+//                return new User(USER_ID, USERNAME_EMAIL, USERNAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE);
+//            }
+//        }
+//        return null;
+//        }
 //    }
+        
+
 //    
 //    //Read: Find user by username and email
 //    public User findUser(String email, String password) throws SQLException {
