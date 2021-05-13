@@ -37,18 +37,34 @@ public class DBManager_user {
     
     //Read: Find user by username and email
     public User findUser(String email, String password) throws SQLException {
-        String fetch = "select * from Users where EMAIL = '" + email + "' and PASSWORD='" + password + "'";
+        System.out.println("Called");
+        
+        String fetch = "select * from USERS where USERNAME_EMAIL = '" + email + "' and PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
         
+        int size = -1;
+        if(rs!= null)
+            size = rs.getRow();
+            
+        System.out.println("Got query, size is " + size);
+        
         while(rs.next()){
+            System.out.println("Finding user");
             String userEmail = rs.getString(2);
             String userPass = rs.getString(4);
             if(userEmail.equals(email) && userPass.equals(password)){
+                System.out.println("Found user");
+                int ID = rs.getInt(1);
                 String name = rs.getString(3);
                 String phone = rs.getString(5);
                 Date dob = rs.getDate(6);
+                String gender = rs.getString(7);
+                String userT = rs.getString(8);
+                User user = new User(ID,email,name,password,phone,dob,gender,userT);
+                return user;
             }
         }
+        System.out.println("Did not find user");
         return null;
     }
     

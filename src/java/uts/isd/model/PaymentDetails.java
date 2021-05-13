@@ -7,7 +7,7 @@ package uts.isd.model;
 
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.*;
 
 /**
  *
@@ -18,11 +18,11 @@ public class PaymentDetails implements Serializable {
     private String card_type;
     private int card_number;
     private String owner_name;
-    private Date exp_date;
+    private String exp_date;
     private int CCV;
     private int userID;
     
-    public PaymentDetails(int method_id, String card_type, int card_number, String owner_name, Date exp_date, int CCV, int userID) {
+    public PaymentDetails(int method_id, String card_type, int card_number, String owner_name, String exp_date, int CCV, int userID) {
         this.payment_details_id = method_id;
         this.card_type = card_type;
         this.card_number = card_number;
@@ -56,7 +56,7 @@ public class PaymentDetails implements Serializable {
         this.owner_name = owner_name;
     }
 
-    public void setExp_date(Date exp_date) {
+    public void setExp_date(String exp_date) {
         this.exp_date = exp_date;
     }
 
@@ -80,7 +80,7 @@ public class PaymentDetails implements Serializable {
         return owner_name;
     }
 
-    public Date getExp_date() {
+    public String getExp_date() {
         return exp_date;
     }
 

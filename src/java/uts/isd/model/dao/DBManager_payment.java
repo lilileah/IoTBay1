@@ -5,8 +5,10 @@
  */
 package uts.isd.model.dao;
 
+import java.math.BigInteger;
 import uts.isd.model.PaymentDetails;
 import java.sql.*;
+import java.time.LocalDate;
 import uts.isd.model.User;
 
 /**
@@ -32,7 +34,7 @@ public PaymentDetails fetchPaymentDetailsById(int _ID) throws SQLException {
         String type = rs.getString(2);
         int number = rs.getInt(3);
         String owner = rs.getString(4);
-        Date exp = rs.getDate(5);
+        String exp = rs.getString(5);
         int CCV = rs.getInt(6);
         int userID = rs.getInt(7);
      
@@ -53,7 +55,7 @@ public PaymentDetails fetchPaymentDetailsByUser(User user) throws SQLException {
         String type = rs.getString(2);
         int number = rs.getInt(3);
         String owner = rs.getString(4);
-        Date exp = rs.getDate(5);
+        String exp = rs.getString(5);
         int CCV = rs.getInt(6);
         int theirID = rs.getInt(7);
      
@@ -66,16 +68,18 @@ public PaymentDetails fetchPaymentDetailsByUser(User user) throws SQLException {
 
 
 //Add a set of payment details into the database   
-public void addPayment(String type, int number, String owner, Date exp, int CCV, User user) throws SQLException {                   //code for add-operation       
+public void addPayment(String type, BigInteger number, String owner, String date, int CCV, User user) throws SQLException {                   //code for add-operation       
+    int userID;
+    userID = user.getUser_id();
     st.executeUpdate("INSERT INTO iotbay.PAYMENT_DETAILS (Card_Type, Card_Number, Owner_Name, Exp_Date, CCV, USER_ID)" + 
-         " VALUES ('" + type + "'," + number + ",'" + owner  + "'," + exp + "," + CCV + "," + user + ")");   
+         " VALUES ('" + type + "'," + number + ",'" + owner  + "'," + date + "," + CCV + "," + userID + ")");   
 
 }
 
 //update a set of payment details in the database by its ID 
-public void updatePayment(int ID, String type, int number, String owner, Date exp, int CCV) throws SQLException {       
-   st.executeUpdate("UPDATE iotbay.PAYMENT_DETAILS "
-                + "SET CARD_TYPE='" + type + "',CARD_NUMBER=" + number + ", OWNER_NAME=" + owner + ",EXP_DATE=" + exp + ",CCV=" + CCV + ""
+public void updatePayment(int ID, String type, BigInteger number, String owner, String date, int CCV) throws SQLException {       
+    st.executeUpdate("UPDATE iotbay.PAYMENT_DETAILS "
+                + "SET CARD_TYPE='" + type + "',CARD_NUMBER=" + number + ", OWNER_NAME=" + owner + ",EXP_DATE=" + date + ",CCV=" + CCV + ""
                 + " WHERE PAYMENT_DETAILS_ID=" + ID +"");  
 
 }       
