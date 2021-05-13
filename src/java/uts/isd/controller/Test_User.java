@@ -38,18 +38,21 @@ public class Test_User {
 
             //Test for adding a new user
             //db.addUser("spolgar@cvt.com.augomez", "Samuel Polgar1", "Password1", "+61412767767", "2015-03-31", "Male", "A");
-            User newUser = new User();
-            newUser.setUsername_email("spolgar@cvt.com.augomez");
-            newUser.setUser_name("Samuel_Polgar");
-            newUser.setPassword("Here123");
-            newUser.setPhone("+61412767767");
-            newUser.setDob("10/7/1996");
-            newUser.setGender("Male");
-            newUser.setUser_type("A");
-            db.addUser(newUser);
+//            User newUser = new User();
+//            newUser.setUsername_email("spolgar@cvt.com.augomez");
+//            newUser.setUser_name("Samuel_Polgar");
+//            newUser.setPassword("Here123");
+//            newUser.setPhone("+61412767767");
+//            newUser.setDob("10/7/1996");
+//            newUser.setGender("Male");
+//            newUser.setUser_type("A");
+//            db.addUser(newUser);
             
-            
-            //Test for updating a user
+            //Test for getting a user by Id
+            User foundUser = db.getUserById(10);
+            System.out.println(foundUser.getUser_name());
+
+            //Test for updating
             //db.updateUser(104, "sexyblackman104@blackman.com", "Gomez Gomez", "BigBlack", "13Unbelieveable", str, "Male", "A");
             
             //Test for deleting a user

@@ -42,7 +42,7 @@
                     </table>
                 <p>
                 <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
-                <a href="editUser.jsp" class="btn btn-secondary my-2">Edit Account</a>
+                <a href="editUser.jsp" class="btn btn-secondary my-2">Submit Account Changes</a>
               </p>
             </body>
         </div>

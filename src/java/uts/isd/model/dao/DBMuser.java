@@ -42,6 +42,35 @@ public class DBMuser {
         ps.setString(7, user.getUser_type());
         ps.executeUpdate();
     }
+
+    public User getUserById(int user_id) {
+        String sql = "SELECT * FROM USERS WHERE USER_ID = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                return new User(
+                rs.getInt("USER_ID"),
+                rs.getString("USERNAME_EMAIL"),
+                rs.getString("USER_NAME"),
+                rs.getString("PASSWORD"),
+                rs.getString("PHONE"),
+                rs.getString("DOB"),
+                rs.getString("GENDER"),
+                rs.getString("USER_TYPE")
+                );
+            }
+        } catch (SQLException ex){
+            Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Returned null in get user by id DBMuser");
+        return null;
+    }
+
+//    public void updateUser(User user) {
+//        String sql = "update users set USERNAME_EMAIL=?, USER_NAME=?,  "
+//    }
 };
         
         
