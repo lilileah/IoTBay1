@@ -31,10 +31,6 @@ public class Test_User {
 //                System.out.println(foundUser.getPhone() + " and " + foundUser.getUser_id());
 //            System.out.println("Found user null");
                 
-            
-            //creating a date variable
-            //String str="2015-03-31";  
-
             //Test for adding a new user
             //db.addUser("spolgar@cvt.com.augomez", "Samuel Polgar1", "Password1", "+61412767767", "2015-03-31", "Male", "A");
 //            User newUser = new User();
@@ -50,14 +46,8 @@ public class Test_User {
             //Test for getting a user by Id
             User foundUser = db.getUserById(10);
             System.out.println("updating user"+foundUser.getUser_name()+"with id: "+foundUser.getUser_id());
-            int x = foundUser.getUser_id();
             foundUser.setPhone("Updated");
             db.updateUser(foundUser);
-            
-            
-
-            //Test for updating
-            //db.updateUser(104, "sexyblackman104@blackman.com", "Gomez Gomez", "BigBlack", "13Unbelieveable", str, "Male", "A");
             
             //Test for deleting a user
             //db.deleteUser(103);
