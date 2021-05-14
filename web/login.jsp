@@ -56,8 +56,8 @@
                                 
                                 user = null;//set from database
                                 
-                                User userData = new User(email, user, password, null);
-                                session.setAttribute("user", userData);
+                                //User userData = new User(email, user, password, null);
+                                //session.setAttribute("user", userData);
                             } 
                             else 
                             {
@@ -65,8 +65,8 @@
                                 
                                 email = null; //set from database
                                 
-                                User userData = new User(email, user, password, null);
-                                session.setAttribute("user", userData);
+                                //User userData = new User(email, user, password, null);
+                                //session.setAttribute("user", userData);
                             }
                         } else 
                         {

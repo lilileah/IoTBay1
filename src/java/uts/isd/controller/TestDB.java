@@ -23,16 +23,19 @@ public class TestDB {
             DBMproduct db = new DBMproduct(conn);
             
 
-            db.addProduct("dfogk", (float)51.41, (float)968.5);
-
-            System.out.println("product is added to the database.");
+//            db.addProduct("dfogk", (float)51.41, (float)968.5);
+//
+//            System.out.println("product is added to the database.");
+//            
+//            
+//            db.updateProduct(1, "product A", (float)51.41, (float)0.0);
+//
+//            System.out.println("product is updated.");
             
             
-            db.updateProduct(1, "product A", (float)51.41, (float)0.0);
-
-            System.out.println("product is updated.");
+            ArrayList products = db.fetchProducts();
+            System.out.println("products: " + products.size());
             
-
             connector.closeConnection();
 
         } catch (ClassNotFoundException | SQLException ex) {

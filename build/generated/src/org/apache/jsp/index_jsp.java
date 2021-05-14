@@ -3,9 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import uts.isd.model.*;
 
-public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -45,28 +44,38 @@ public final class AddProductForm_jsp extends org.apache.jasper.runtime.HttpJspB
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
+      out.write("\r\n");
+      out.write("    <div>\r\n");
+      out.write("        <iframe width=\"100%\" height=\"80\" scrolling=\"no\" src=\"interface.jsp\" title=\"Interface\"></iframe>\r\n");
+      out.write("    </div>\r\n");
+      out.write("\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>JSP Page</title>\r\n");
+      out.write("        <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6\" crossorigin=\"anonymous\">\r\n");
+      out.write("        <title>Home Page</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
-      out.write("        <div>\r\n");
-      out.write("            ");
- 
-                User user = (User) session.getAttribute("user");
-            
+      out.write("        <div class=\"mx-auto\" style=\"width: 900px;\">\r\n");
       out.write("\r\n");
-      out.write("        </div>\r\n");
-      out.write("        <form method=\"post\" action=\"AddProductServlet\">\r\n");
-      out.write("            <input type =\"text\" placeholder=\"product name\" name=\"addProduct\" required><br>\r\n");
-      out.write("            <input type =\"text\" placeholder=\"product price\" name=\"productPrice\" required><br>\r\n");
-      out.write("            <input type =\"text\" placeholder=\"product discount\" name=\"productDiscount\"><br>\r\n");
-      out.write("            <input type=\"submit\" value=\"AddProductBtn\"> \r\n");
-      out.write("        </form>\r\n");
-      out.write("    </body>\r\n");
+      out.write("            <section class=\"jumbotron text-center\">\r\n");
+      out.write("                <div class=\"container\">\r\n");
+      out.write("                    <h1 class=\"jumbotron-heading\">Welcome top IoT bay!</h1>\r\n");
+      out.write("                    <p class=\"lead\">IoTBay is  a  small  company  based  in  Sydney,  Australia. This site is an  online  IoT  devices  ordering  application  to  allow  their customers  to  purchase  IoT  devices </p>\r\n");
+      out.write("                    <p>\r\n");
+      out.write("                        <a href=\"register.jsp\" class=\"btn btn-primary my-2\">New member</a>\r\n");
+      out.write("                        <a href=\"login.jsp\" class=\"btn btn-secondary my-2\">Existing member</a>\r\n");
+      out.write("                        <a href=\"GetAllProductServlet\" class=\"btn btn-secondary my-2\">View Products</a>\r\n");
+      out.write("                    </p>\r\n");
+      out.write("                </div>\r\n");
+      out.write("            </section>\r\n");
+      out.write("        </main>\r\n");
+      out.write("    </div>\r\n");
+      out.write("    ");
+      org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "connServlet.jsp", out, true);
+      out.write("\r\n");
+      out.write("</body>\r\n");
       out.write("</html>\r\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

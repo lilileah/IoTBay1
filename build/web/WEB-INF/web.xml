@@ -5,13 +5,15 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1"
          metadata-complete="true">
+    <!--    util-->
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
     
-    <servlet>
+    <!--    Product-->
+<!--    <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.AddProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
@@ -20,13 +22,19 @@
         <servlet-name>EditProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.EditProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
-    </servlet>
+    </servlet>-->
     <servlet>
         <servlet-name>GetProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.GetProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>GetAllProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ProductsServlets.GetAllProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
     
+    <!--    user-->
     <servlet>
         <servlet-name>AddUserServlet</servlet-name>
         <servlet-class>uts.isd.controller.UserServlets.AddUserServlet</servlet-class>
@@ -38,23 +46,29 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
     
+    <!--    mapping-->
     <!--    Utility-->
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
+    
     <!--    Product-->
-    <servlet-mapping>
+<!--    <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/AddProductServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditProductServlet</servlet-name>
         <url-pattern>/EditProductServlet</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>GetProductServlet</servlet-name>
         <url-pattern>/GetProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAllProductServlet</servlet-name>
+        <url-pattern>/GetAllProductServlet</url-pattern>
     </servlet-mapping>
     <!--User-->
     <servlet-mapping>

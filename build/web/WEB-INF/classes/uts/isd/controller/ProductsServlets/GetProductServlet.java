@@ -1,49 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uts.isd.controller.ProductsServlets;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import uts.isd.model.Product;
-import uts.isd.model.dao.*;
+import uts.isd.model.dao.DBMproduct;
 
 /**
  *
- * @author Dean
+ * @author deano
  */
-public class GetProductServlet extends HttpServlet {//TODO
+public class GetProductServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        //session
         HttpSession session = request.getSession();
+        //product manager
+        DBMproduct productManager = (DBMproduct) session.getAttribute("productManager");
 
-        //Validator validatior
-        int ID = Integer.parseInt(request.getParameter("productId"));
-
-        DBMproduct DBMProduct = (DBMproduct) session.getAttribute("productManager");
+        //input values
+        int ID = Integer.parseInt(request.getParameter("ID"));
 
         try {
-            if (DBMProduct.fetchProductsById(ID) != null) {
-                Product product = DBMProduct.fetchProductsById(ID);
-                session.setAttribute("GetProduct", product);
+            if (productManager.fetchProductsById(ID) != null) {
+                session.setAttribute("product", productManager.fetchProductsById(ID));//TODO: change this to not call db twice
+                request.getRequestDispatcher("ProductItem").include(request, response);
+            } else {
+                
             }
-            else
-            {
-                System.out.println("No product found");
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage() == null ? "Something broke" : "");
+        } 
+        catch (SQLException | NullPointerException ex) {
+            System.out.println(ex.getMessage() == null ? "Product does not exist" : "welcome");
         }
     }
 }
+//redirect
+//Session.getRequestDispatcher("page.jsp").include(request, response);
