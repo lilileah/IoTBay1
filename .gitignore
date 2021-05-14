@@ -1,5 +1,8 @@
 /dist/
 nbproject/build-impl.xml
 nbproject/private/private.xml
+build/web/WEB-INF/lib/jakarta.jakartaee-api-8.0.0.jar
+build/web/WEB-INF/lib/jakarta.jakartaee-web-api-8.0.0.jar
+build/web/gfv510ee8.dpf
 build/web/WEB-INF/lib/derby.jar
 build/web/WEB-INF/lib/derbyclient.jar

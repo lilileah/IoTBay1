@@ -1,9 +1,3 @@
-<%-- 
-    Document   : logout
-    Created on : 01/04/2021, 6:12:06 PM
-    Author     : lilil
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.isd.model.User"%>
 <!DOCTYPE html>
@@ -12,9 +6,7 @@
     <div>
 <iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
 </div>
-    
-            <%
-                
+        <%
            session.invalidate();
         %>
     <head>
@@ -24,11 +16,8 @@
     </head>
     <body>
           <div class="mx-auto" style="width: 900px;">
-              
             <div class="starter-template">
         <h1>You have been logged out.</h1>
         <p>Click <a href="index.jsp">here</a> to return to home page</p>
-        
-     
     </body>
 </html>
