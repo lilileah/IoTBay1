@@ -19,8 +19,12 @@ import uts.isd.model.dao.*;
  *
  * @author Dean
  */
+<<<<<<< HEAD
 public class EditProductServlet extends HttpServlet{
     @Override
+=======
+public class EditProductServlet extends HttpServlet{//TODO
+>>>>>>> parent of 3b7efeb (Add products test working)
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException{
         
