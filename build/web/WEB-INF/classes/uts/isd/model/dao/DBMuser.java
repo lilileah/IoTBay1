@@ -32,7 +32,7 @@ public class DBMuser {
     
         public void addUser(User user) throws SQLException {
         String sql = "INSERT INTO users (USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE) VALUES(?,?,?,?,?,?,?)";        
-        PreparedStatement ps = conn.prepareStatement(sql);
+        PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ps.setString(1, user.getUsername_email());
         ps.setString(2, user.getUser_name());
         ps.setString(3, user.getPassword());
@@ -41,6 +41,13 @@ public class DBMuser {
         ps.setString(6, user.getGender());
         ps.setString(7, user.getUser_type());
         ps.executeUpdate();
+        
+        ResultSet generatedKeysRs = ps.getGeneratedKeys();
+        
+        if (!generatedKeysRs.next())
+            throw new SQLException("No generated key.");
+        
+        user.setUser_id(generatedKeysRs.getInt(1));
     }
 
     public User getUserById(int user_id) {
@@ -68,9 +75,35 @@ public class DBMuser {
         return null;
     }
 
-//    public void updateUser(User user) {
-//        String sql = "update users set USERNAME_EMAIL=?, USER_NAME=?,  "
-//    }
+    public void updateUser(User user) throws SQLException {
+        System.out.println("Id in the updateUser is: " + user.getUser_id() + "user type: " + user.getUser_type());
+        String sql = "update users set "
+            + "USERNAME_EMAIL=?, "
+            + "USER_NAME=?, "
+            + "PASSWORD=?, "
+            + "PHONE=?, "
+            + "DOB=?, "
+            + "GENDER=?, "
+            + "USER_TYPE=? "
+            + "WHERE USER_ID=?";
+        
+                PreparedStatement ps = conn.prepareStatement(sql);
+                
+                ps.setString(1, user.getUsername_email());
+                ps.setString(2, user.getUser_name());
+                ps.setString(3, user.getPassword());
+                ps.setString(4, user.getPhone());
+                ps.setString(5, user.getDob());
+                ps.setString(6, user.getGender());
+                ps.setString(7, user.getUser_type());
+                ps.setInt(8, user.getUser_id());
+
+                
+                ps.executeUpdate();
+    }
+    
+    
+    
 };
         
         
@@ -178,7 +211,7 @@ public class DBMuser {
 //        }
 //    return null;
 //}
-//    
+//    https://www.codota.com/code/java/classes/java.sql.PreparedStatement
 //    //find all users
 //    public ArrayList<User> fetchUsers() throws SQLException {
 //        String cmd = "SELECT * FROM users";

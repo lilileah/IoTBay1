@@ -15,11 +15,11 @@
           <h1 class="jumbotron-heading">IoTBay Main page</h1>
           <p class="lead text-muted">You are logged in as ${user.user_name}</p>
           <h1 class="font-weight-bold">Profile Info</h1>
+          <form method="post" action="UpdateUserServlet">
             <body>
                     <table class="table">
                         <thead class="thead-light">
                         <tr>
-                            <th scope="col">Id </th>
                             <th scope="col">Email </th>
                             <th scope="col">Username </th>
                             <th scope="col">Phone </th>
@@ -30,19 +30,24 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><label contenteditable="true">${user.user_id}</label> </td>
-                            <td><label contenteditable="true">${user.username_email}</label></td>
-                            <td><label contenteditable="true">${user.user_name}</label></td>
-                            <td><label contenteditable="true">${user.phone}</label></td>
-                            <td><label contenteditable="true">${user.dob}</label></td>
-                            <td><label contenteditable="true">${user.gender}</label></td>
-                            <td><label contenteditable="true">${user.user_type}</label></td>
+                           
+                            <td><input class="mb-2 form-control" type="text" name = "USERNAME_EMAIL" required= "true" value="${user.username_email}"></td>
+                            <td><input class="mb-2 form-control" type="text" name = "USER_NAME" required= "true" value="${user.user_name}"></td>
+                            <td><input class="mb-2 form-control" type="text" name = "PHONE" required= "true" value="${user.phone}"></td>
+                            <td><input class="mb-2 form-control" type="text" name = "DOB" required= "true" value="${user.dob}"></td>
+                            <td><input class="mb-2 form-control" type="text" name = "GENDER" required= "true" value="${user.gender}"></td>
+                            <td><input class="mb-2 form-control" type="text" name = "USER_TYPE" required= "true" value="${user.user_type}"></td>
                         </tr>
                         </tbody>
                     </table>
+                        <input class="mb-2 form-control" type="hidden" name = "USER_ID" required= "true" value="${user.user_id}">
+                    <div>
+                            <input class="mb-2 btn-primary btn" type="submit" value="Submit account update">
+                            <input type="hidden" name="submitted" value="yes">
+                        </div>
+                </form>
                 <p>
                 <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
-                <a href="editUser.jsp" class="btn btn-secondary my-2">Submit Account Changes</a>
               </p>
             </body>
         </div>

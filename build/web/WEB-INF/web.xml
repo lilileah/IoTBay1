@@ -5,25 +5,33 @@
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>uts.isd.controller.UserServlets.LoginServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>uts.isd.controller.UserServlets.RegisterUserServlet</servlet-class>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UserServlets.LoginServlet</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/RegisterServlet</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UserServlets.RegisterUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterUserServlet</servlet-name>
+        <url-pattern>/RegisterUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UserServlets.UpdateUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateUserServlet</servlet-name>
+        <url-pattern>/UpdateUserServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

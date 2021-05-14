@@ -30,9 +30,10 @@ public class UpdateUserServlet extends ConnServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = dbmUser.getUserById(Integer.parseInt(request.getParameter("user_id")));
-        request.setAttribute("user", user);
-        request.getRequestDispatcher("main.jsp").forward(request, response);
+                User user = dbmUser.getUserById(Integer.parseInt(request.getParameter("user_id")));
+//                User user = dbmUser.getUserById(1);
+                request.setAttribute("user", user);
+                request.getRequestDispatcher("main.jsp").forward(request, response);
     }
     
     @Override
@@ -47,20 +48,16 @@ public class UpdateUserServlet extends ConnServlet {
                     user.setGender(request.getParameter("GENDER"));
                     user.setDob(request.getParameter("DOB"));
                     user.setUser_type(request.getParameter("USER_TYPE"));
-            //Add user to database
-            //dbmUser.updateUser(user);
-//            
-//            try{
-//                dbmUser.updateUser(user);
-//            } catch (SQLException ex) {
-//                System.out.println(ex);
-//                Logger.getLogger(UpdateUserServlet.class.getName()).log(Level.SEVERE, null, ex);
-//            }    
-            //Create session and send it to the view
-//            HttpSession session = request.getSession();
-//            session.setAttribute("user", user);
-//            request.setAttribute("registered", true);
+                    
+                    try {
+                        System.out.println(user.toString());
+                        dbmUser.updateUser(user);
+                        //update session
+                        HttpSession session = request.getSession();
+                        session.setAttribute("user", user);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(UpdateUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
             request.getRequestDispatcher("main.jsp").include(request, response);
-            }    
-    //}
+            }
 }

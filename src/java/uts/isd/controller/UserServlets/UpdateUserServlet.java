@@ -31,6 +31,7 @@ public class UpdateUserServlet extends ConnServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
                 User user = dbmUser.getUserById(Integer.parseInt(request.getParameter("user_id")));
+//                User user = dbmUser.getUserById(1);
                 request.setAttribute("user", user);
                 request.getRequestDispatcher("main.jsp").forward(request, response);
     }
@@ -49,10 +50,14 @@ public class UpdateUserServlet extends ConnServlet {
                     user.setUser_type(request.getParameter("USER_TYPE"));
                     
                     try {
+                        System.out.println(user.toString());
                         dbmUser.updateUser(user);
+                        //update session
+                        HttpSession session = request.getSession();
+                        session.setAttribute("user", user);
                     } catch (SQLException ex) {
                         Logger.getLogger(UpdateUserServlet.class.getName()).log(Level.SEVERE, null, ex);
                     }
             request.getRequestDispatcher("main.jsp").include(request, response);
-            }    
+            }
 }
