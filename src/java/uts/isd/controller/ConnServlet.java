@@ -29,26 +29,6 @@ public class ConnServlet extends HttpServlet {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-//            
-//            throws ServletException, IOException {
-//        
-//        DBMuser userManager = null;
-//        
-//        response.setContentType("text/html;charset=UTF-8");
-//        
-//        HttpSession session = request.getSession();
-//        
-//        conn = db.openConnection();
-//        
-//        try{
-//            userManager = new DBMuser(conn);
-//        } catch (SQLException ex){
-//            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
 
     @Override //Add the DBConnector, DBManager, Connection instances to the session
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

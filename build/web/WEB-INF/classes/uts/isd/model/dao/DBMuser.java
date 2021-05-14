@@ -11,13 +11,9 @@ import java.util.logging.Logger;
  */
 public class DBMuser {
 
-    //private Statement st;
     private Connection conn;
-    //private PreparedStatement ps;
-
 
     //Create a user
-    
     public DBMuser() {
         try {
             DBConnector connector = new DBConnector();
@@ -29,7 +25,6 @@ public class DBMuser {
         }
     }
 
-    
         public void addUser(User user) throws SQLException {
         String sql = "INSERT INTO users (USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE) VALUES(?,?,?,?,?,?,?)";        
         PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -98,7 +93,6 @@ public class DBMuser {
                 ps.setString(7, user.getUser_type());
                 ps.setInt(8, user.getUser_id());
 
-                
                 ps.executeUpdate();
     }
     
