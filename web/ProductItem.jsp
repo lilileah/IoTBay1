@@ -23,7 +23,5 @@
             <h1 class="centre">Product Page</h1>
             <hr>
         </div>
-
-
     </body>
 </html>

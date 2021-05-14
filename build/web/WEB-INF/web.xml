@@ -26,6 +26,11 @@
         <servlet-class>uts.isd.controller.ProductsServlets.GetProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>GetAllProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.ProductsServlets.GetAllProductServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
     
     <servlet>
         <servlet-name>AddUserServlet</servlet-name>
@@ -81,6 +86,10 @@
     <servlet-mapping>
         <servlet-name>GetProductServlet</servlet-name>
         <url-pattern>/GetProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAllProductServlet</servlet-name>
+        <url-pattern>/GetAllProductServlet</url-pattern>
     </servlet-mapping>
     <!--User-->
     <servlet-mapping>
