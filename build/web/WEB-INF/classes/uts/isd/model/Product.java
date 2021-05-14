@@ -10,26 +10,23 @@ import java.io.Serializable;
  *
  * @author Dean
  */
-public class Product {
+public class Product implements Serializable{
     
     private int id;
     private String name; 
     private float price; 
     private float discount;
-    //private Iterable<Product> products;
+    private Iterable<Product> products;
 
     public Product() {
     }
 
-    public Product(int id, String name, float price, float discount) {
+    public Product(int id, String name, float price, float discount, Iterable<Product> products) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.discount = discount;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.products = products;
     }
 
     public int getId() {
@@ -48,6 +45,14 @@ public class Product {
         return discount;
     }
 
+    public Iterable<Product> getProducts() {
+        return products;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -59,7 +64,10 @@ public class Product {
     public void setDiscount(float discount) {
         this.discount = discount;
     }
-    
-    
-    
+
+    public void setProducts(Iterable<Product> products) {
+        this.products = products;
+    }
+
+
 }
