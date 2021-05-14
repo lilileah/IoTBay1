@@ -46,7 +46,7 @@ public class Test_User {
             //Test for getting a user by Id
             User foundUser = db.getUserById(10);
             System.out.println("updating user"+foundUser.getUser_name()+"with id: "+foundUser.getUser_id());
-            foundUser.setPhone("Updated");
+            foundUser.setPhone("Updated123");
             db.updateUser(foundUser);
             
             //Test for deleting a user
