@@ -42,13 +42,13 @@
                                 <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
                                     <div class="mr-2 mb-3 mb-lg-0"> <img src="https://i.imgur.com/Aj0L4Wa.jpg" width="150" height="150" alt=""> </div>
                                     <div class="media-body">
-                                        <h6 class="media-title font-weight-semibold"> <a href="#" data-abc="true">Apple iPhone XS Max (Gold, 64 GB)</a> </h6>
+                                        <h6 class="media-title font-weight-semibold"> <a href="#" data-abc="true"><%=products.get(i).getName()%></a> </h6>
                                         <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
                                         </ul>
                                         <p class="mb-3">256 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 15MP Front Camera A12 Bionic Chip Processor | Gorilla Glass with high quality display </p>
                                     </div>
                                     <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
-                                        <h3 class="mb-0 font-weight-semibold">$612.99</h3>
+                                        <h3 class="mb-0 font-weight-semibold">$<%=products.get(i).getPrice()%></h3>
                                         <div> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                                         <button type="button" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i> Add to cart</button>
                                         <input type="hidden" name="ID" />
