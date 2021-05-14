@@ -25,7 +25,6 @@
     user_id int,
     login_datetime timestamp,
     logout_datetime timestamp,   
-    user_id int,
     CONSTRAINT log_pk PRIMARY KEY (log_id),
     CONSTRAINT userid_fk FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
@@ -33,6 +32,7 @@
     CREATE TABLE PRODUCTS (
     product_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     product_name varchar(254),
+    description varchar(1000),
     price decimal(10),
     discount int,
     CONSTRAINT productpk PRIMARY KEY (product_id)
