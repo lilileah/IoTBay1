@@ -46,7 +46,6 @@ public class RegisterUserServlet extends ConnServlet {
                 Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE,null,ex);
             }
             
-                
             //Create session and send it to the view
             HttpSession session = request.getSession();
             session.setAttribute("user", user);

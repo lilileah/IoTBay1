@@ -19,7 +19,12 @@
     <body
         <div>
             <iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
+        </div>         
+        <div class = "mb-3">
+            <h1 class="centre">Sign In</h1>
+            <hr>
         </div>
+
         
         <c:if test = "${existErr != null}">
             <div class="alert alert-danger my-4" role="alert">
@@ -32,11 +37,7 @@
             <c:out value="${emailErr}"/>
         </c:if>        
                 
-                
-        <div class = "mb-3">
-            <h1 class="centre">Sign In</h1>
-            <hr>
-        </div>
+            
         <div class="mx-auto" style="width: 400px;">
             <form action="LoginServlet" method="POST">
 

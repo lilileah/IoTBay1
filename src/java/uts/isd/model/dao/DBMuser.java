@@ -44,6 +44,31 @@ public class DBMuser {
         
         user.setUser_id(generatedKeysRs.getInt(1));
     }
+        
+    public void updateUser(User user) throws SQLException {
+        String sql = "update users set "
+            + "USERNAME_EMAIL=?, "
+            + "USER_NAME=?, "
+            + "PASSWORD=?, "
+            + "PHONE=?, "
+            + "DOB=?, "
+            + "GENDER=?, "
+            + "USER_TYPE=? "
+            + "WHERE USER_ID=?";
+        
+                PreparedStatement ps = conn.prepareStatement(sql);
+                
+                ps.setString(1, user.getUsername_email());
+                ps.setString(2, user.getUser_name());
+                ps.setString(3, user.getPassword());
+                ps.setString(4, user.getPhone());
+                ps.setString(5, user.getDob());
+                ps.setString(6, user.getGender());
+                ps.setString(7, user.getUser_type());
+                ps.setInt(8, user.getUser_id());
+
+                ps.executeUpdate();
+    }
 
     public User getUserById(int user_id) {
         String sql = "SELECT * FROM USERS WHERE USER_ID = ?";
@@ -69,35 +94,32 @@ public class DBMuser {
         System.out.println("Returned null in get user by id DBMuser");
         return null;
     }
-
-    public void updateUser(User user) throws SQLException {
-        System.out.println("Id in the updateUser is: " + user.getUser_id() + "user type: " + user.getUser_type());
-        String sql = "update users set "
-            + "USERNAME_EMAIL=?, "
-            + "USER_NAME=?, "
-            + "PASSWORD=?, "
-            + "PHONE=?, "
-            + "DOB=?, "
-            + "GENDER=?, "
-            + "USER_TYPE=? "
-            + "WHERE USER_ID=?";
-        
-                PreparedStatement ps = conn.prepareStatement(sql);
-                
-                ps.setString(1, user.getUsername_email());
-                ps.setString(2, user.getUser_name());
-                ps.setString(3, user.getPassword());
-                ps.setString(4, user.getPhone());
-                ps.setString(5, user.getDob());
-                ps.setString(6, user.getGender());
-                ps.setString(7, user.getUser_type());
-                ps.setInt(8, user.getUser_id());
-
-                ps.executeUpdate();
+    
+    public User getUser(String USERNAME_EMAIL, String PASSWORD) {
+        String sql = "SELECT * FROM USERS WHERE USERNAME_EMAIL LIKE ? AND PASSWORD LIKE ? ";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, USERNAME_EMAIL);
+            ps.setString(2, PASSWORD);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                return new User(
+                rs.getInt("USER_ID"),
+                rs.getString("USERNAME_EMAIL"),
+                rs.getString("USER_NAME"),
+                rs.getString("PASSWORD"),
+                rs.getString("PHONE"),
+                rs.getString("DOB"),
+                rs.getString("GENDER"),
+                rs.getString("USER_TYPE")
+                );
+            }
+        } catch (SQLException ex){
+            Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Returned null in get user by id DBMuser");
+        return null;
     }
-    
-    
-    
 };
         
         
