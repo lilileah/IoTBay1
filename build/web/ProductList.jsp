@@ -65,6 +65,5 @@
         <%}else{%>
         <p> This page is empty :( (There are no product add one)</p>
         <%}%>
-        <jsp:include page="connServlet.jsp" flush="true"/>
     </body>
 </html>

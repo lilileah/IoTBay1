@@ -47,14 +47,11 @@ public class GetAllProductServlet extends HttpServlet {
 
         try {
             ArrayList<Product> products = productManager.fetchProducts();
-            if(products.size() == 0){
-                System.out.println("rfigujh eirug");
-            }
-            session.setAttribute("allproducts", products);//TODO: change this to not call db twice
+            session.setAttribute("allproducts", products);//TODO: Change this to not call db twice
             request.getRequestDispatcher("ProductList.jsp").include(request, response);
 
         } catch (SQLException | NullPointerException ex) {
-            System.out.println(ex.getMessage() == null ? "Product does not exist" : "welcome");
+            System.out.println(ex.getMessage() == null ? "Product does not exist" : "Success");
         }
     }
 }

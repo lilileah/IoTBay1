@@ -27,12 +27,12 @@
                     <p>
                         <a href="register.jsp" class="btn btn-primary my-2">New member</a>
                         <a href="login.jsp" class="btn btn-secondary my-2">Existing member</a>
-                        <a href="GetAllProductServlet" class="btn btn-secondary my-2">View Products</a>
+                        <a href="/IoTBay1/GetAllProductServlet" class="btn btn-secondary my-2">View Products</a>
                     </p>
                 </div>
             </section>
         </main>
     </div>
-    <jsp:include page="connServlet.jsp" flush="true"/>
+    <jsp:include page="/ConnServlet" flush="true"/>
 </body>
 </html>

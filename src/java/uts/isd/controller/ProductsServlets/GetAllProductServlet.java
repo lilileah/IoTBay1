@@ -47,7 +47,7 @@ public class GetAllProductServlet extends HttpServlet {
 
         try {
             ArrayList<Product> products = productManager.fetchProducts();
-            session.setAttribute("allproducts", products);//TODO: change this to not call db twice
+            session.setAttribute("allproducts", products);//TODO: Change this to not call db twice
             request.getRequestDispatcher("ProductList.jsp").include(request, response);
 
         } catch (SQLException | NullPointerException ex) {

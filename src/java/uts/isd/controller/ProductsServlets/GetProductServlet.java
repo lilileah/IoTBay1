@@ -37,6 +37,7 @@ public class GetProductServlet extends HttpServlet {
             }
         } 
         catch (SQLException | NullPointerException ex) {
+            System.out.println(ex);
             System.out.println(ex.getMessage() == null ? "Product does not exist" : "welcome");
         }
     }
