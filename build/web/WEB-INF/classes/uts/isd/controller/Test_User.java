@@ -20,10 +20,18 @@ public class Test_User {
             DBMuser db = new DBMuser();
             
             
-            User foundUser = db.getUser("sampolgar999@gmail.com", "123123");
-            if(foundUser != null)
+            User foundUser = db.getUser("sampolgar@gmail.com9988", "123123");
+            if(foundUser != null){
                 System.out.println(foundUser.getPhone() + " and " + foundUser.getUser_id());
-            System.out.println("Found user null");
+                db.deleteUserById(foundUser.getUser_id());
+                System.out.println("deleted user");
+            } else {
+                System.out.println("found user null");
+            }
+
+            
+            
+            
                 
             //Test for adding a new user
             //db.addUser("spolgar@cvt.com.augomez", "Samuel Polgar1", "Password1", "+61412767767", "2015-03-31", "Male", "A");

@@ -44,11 +44,16 @@
                     <div>
                             <input class="mb-2 btn-primary btn" type="submit" value="Submit account update">
                             <input type="hidden" name="submitted" value="yes">
-                        </div>
+                    </div>
                 </form>
                 <p>
                 <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
-              </p>
+                <form method = "POST" action="DeleteUserServlet">
+                <input class="mb-2 form-control" type="hidden" name = "USER_ID" required= "true" value="${user.user_id}">
+                <input class="mb-2 btn-primary btn" type="submit" value="Delete Account">
+                <input type="hidden" name="submitted" value="yes">
+                </form>
+                </p>
             </body>
         </div>
     </section>

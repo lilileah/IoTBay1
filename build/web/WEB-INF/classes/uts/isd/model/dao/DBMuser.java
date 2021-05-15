@@ -120,6 +120,20 @@ public class DBMuser {
         System.out.println("Returned null in get user by id DBMuser");
         return null;
     }
+    
+        public void deleteUserById(int user_id) {
+        String sql = "DELETE FROM USERS WHERE USER_ID = ?";
+        try {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, user_id);
+            ps.executeUpdate();
+        } catch (SQLException ex){
+            Logger.getLogger(DBMuser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println("Couldn't delete the user");
+    }
+    
+    
 };
         
         
