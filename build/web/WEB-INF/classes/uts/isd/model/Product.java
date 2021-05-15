@@ -14,6 +14,7 @@ public class Product implements Serializable{
     
     private int id;
     private String name; 
+    private String description;
     private float price; 
     private float discount;
     private Iterable<Product> products;
@@ -21,9 +22,10 @@ public class Product implements Serializable{
     public Product() {
     }
 
-    public Product(int id, String name, float price, float discount, Iterable<Product> products) {
+    public Product(int id, String name, String description, float price, float discount, Iterable<Product> products) {
         this.id = id;
         this.name = name;
+        this.description = description;
         this.price = price;
         this.discount = discount;
         this.products = products;
@@ -35,6 +37,10 @@ public class Product implements Serializable{
 
     public String getName() {
         return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public float getPrice() {
@@ -57,6 +63,10 @@ public class Product implements Serializable{
         this.name = name;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setPrice(float price) {
         this.price = price;
     }
@@ -68,6 +78,6 @@ public class Product implements Serializable{
     public void setProducts(Iterable<Product> products) {
         this.products = products;
     }
-
-
+    
+    
 }

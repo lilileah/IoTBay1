@@ -33,7 +33,7 @@ public class GetProductServlet extends HttpServlet {
                 session.setAttribute("product", productManager.fetchProductsById(ID));//TODO: change this to not call db twice
                 request.getRequestDispatcher("ProductItem").include(request, response);
             } else {
-                
+                System.out.println("no.");
             }
         } 
         catch (SQLException | NullPointerException ex) {
