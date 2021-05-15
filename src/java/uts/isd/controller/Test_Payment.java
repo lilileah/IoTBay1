@@ -59,17 +59,33 @@ public class Test_Payment {
             String exp = "11/21";
             int ccv = 980;
 
-            System.out.println("called");
             User user = dbu.getUser("test@email.com","testpass");
             System.out.println(user.getUser_id());
-            System.out.println("got user ID");
             dbp.addPayment(type, held, name, exp, ccv, user);
-            System.out.println("User added");
+            System.out.println("payment detail added");
             
-            //checking if the added payment method exists
-            System.out.print("Fetching stored payment details");
+            //testing if retrieve by payment ID works
             PaymentDetails payment = dbp.fetchPaymentDetailsByUser(user);
-            System.out.print("Card number is: " + payment.getCard_number());
+            int ID = payment.getPayment_details_id();
+            payment = dbp.fetchPaymentDetailsById(ID);
+            System.out.println(payment.getCard_number());
+//           
+            //checking if the added payment method exists
+//            System.out.println("Fetching stored payment details");
+//            PaymentDetails payment = dbp.fetchPaymentDetailsByUser(user);
+//            System.out.println("Card number is: " + payment.getCard_number());
+
+              //testing update
+//            System.out.println("Updating payment details");
+//            PaymentDetails payment = dbp.fetchPaymentDetailsByUser(user);
+//            int ID = payment.getPayment_details_id();
+//            dbp.updatePayment(ID, "Newcardtype", held, name, exp, ccv);
+              
+              //testing delete
+//            System.out.println("Deleting payment details");
+//            PaymentDetails payment = dbp.fetchPaymentDetailsByUser(user);
+//            int ID = payment.getPayment_details_id();
+//            dbp.deletePayment(ID);
             
             connector.closeConnection();
 

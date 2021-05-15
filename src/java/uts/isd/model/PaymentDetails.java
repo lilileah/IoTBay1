@@ -7,7 +7,7 @@ package uts.isd.model;
 
 
 import java.io.Serializable;
-import java.time.*;
+import java.math.BigInteger;
 
 /**
  *
@@ -16,13 +16,13 @@ import java.time.*;
 public class PaymentDetails implements Serializable {
     private int payment_details_id;
     private String card_type;
-    private int card_number;
+    private BigInteger card_number;
     private String owner_name;
     private String exp_date;
     private int CCV;
     private int userID;
     
-    public PaymentDetails(int method_id, String card_type, int card_number, String owner_name, String exp_date, int CCV, int userID) {
+    public PaymentDetails(int method_id, String card_type, BigInteger card_number, String owner_name, String exp_date, int CCV, int userID) {
         this.payment_details_id = method_id;
         this.card_type = card_type;
         this.card_number = card_number;
@@ -48,7 +48,7 @@ public class PaymentDetails implements Serializable {
         this.card_type = card_type;
     }
 
-    public void setCard_number(int card_number) {
+    public void setCard_number(BigInteger card_number) {
         this.card_number = card_number;
     }
 
@@ -72,7 +72,7 @@ public class PaymentDetails implements Serializable {
         return card_type;
     }
 
-    public int getCard_number() {
+    public BigInteger getCard_number() {
         return card_number;
     }
 

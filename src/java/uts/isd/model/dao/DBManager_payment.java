@@ -26,13 +26,14 @@ public DBManager_payment(Connection conn) throws SQLException {
 
 //Find a set of payment details by its unique ID in the database   
 public PaymentDetails fetchPaymentDetailsById(int _ID) throws SQLException {
-    String cmd = "SELECT * FROM iotbay.PAYMENT_DETAILS WHERE payment_details_id EQUALS " + _ID + "";
+    String cmd = "SELECT * FROM iotbay.PAYMENT_DETAILS WHERE payment_details_id =" + _ID + "";
     ResultSet rs = st.executeQuery(cmd);
 
     while (rs.next()) {
         int ID = rs.getInt(1);
         String type = rs.getString(2);
-        int number = rs.getInt(3);
+        String hold = rs.getString(3);
+        BigInteger number = new BigInteger(hold);
         String owner = rs.getString(4);
         String exp = rs.getString(5);
         int CCV = rs.getInt(6);
@@ -47,13 +48,14 @@ public PaymentDetails fetchPaymentDetailsById(int _ID) throws SQLException {
 
 public PaymentDetails fetchPaymentDetailsByUser(User user) throws SQLException {
     int userID = user.getUser_id();
-    String cmd = "SELECT * from iotbay.PAYMENT_DETAILS WHERE USER_ID EQUALS " + userID + "";
+    String cmd = "SELECT * from iotbay.PAYMENT_DETAILS where USER_ID = " + userID + "";
     ResultSet rs = st.executeQuery(cmd);
     
     while (rs.next()) {
         int ID = rs.getInt(1);
         String type = rs.getString(2);
-        int number = rs.getInt(3);
+        String hold = rs.getString(3);
+        BigInteger number = new BigInteger(hold);
         String owner = rs.getString(4);
         String exp = rs.getString(5);
         int CCV = rs.getInt(6);
@@ -80,7 +82,7 @@ public void addPayment(String type, BigInteger number, String owner, String date
 //update a set of payment details in the database by its ID 
 public void updatePayment(int ID, String type, BigInteger number, String owner, String date, int CCV) throws SQLException {       
     st.executeUpdate("UPDATE iotbay.PAYMENT_DETAILS "
-                + "SET CARD_TYPE='" + type + "',CARD_NUMBER=" + number + ", OWNER_NAME=" + owner + ",EXP_DATE=" + date + ",CCV=" + CCV + ""
+                + "SET CARD_TYPE='" + type + "',CARD_NUMBER=" + number + ", OWNER_NAME='" + owner + "',EXP_DATE='" + date + "',CCV=" + CCV + ""
                 + " WHERE PAYMENT_DETAILS_ID=" + ID +"");  
 
 }       
