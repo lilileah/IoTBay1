@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="uts.isd.model.Product"%>
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,8 +16,9 @@
         <title>Product List</title>
     </head>
     <%
+        User user = (User) session.getAttribute("user");
         ArrayList<Product> products = new ArrayList<Product>();
-        products = (ArrayList<Product>) session.getAttribute("allproducts");
+        products = (ArrayList<Product>) session.getAttribute("products");
     %>
     <body>
         <!--        navbar-->
@@ -30,13 +31,27 @@
             <hr>
         </div>
 
+        <!--        staff menu-->
+        <%//if (user.getUser_type().equals("S")) {%>
+        <!--<div>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <button type="button" value="" class="btn btn-warning mt-4 text-white" onclick="GetproductServlet"><i class="icon-cart-add mr-2"></i> View Item</button>
+                    </a>
+                </div>
+            </nav>
+        </div>-->
+        <%//}%>
+
         <!--        product view-->
-        <%if (products != null) {%>
+        <%if (products != null || products.size() == 0) {%>
         <div class="container d-flex justify-content-center mt-50 mb-50">
             <div class="row">
                 <div class="col-md-10">
                     <div class="card card-body">
                         <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+                            
                             <%for (int i = 0; i < products.size(); i++) {%>
                             <div class="card card-body mt-3">
                                 <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
@@ -45,25 +60,24 @@
                                         <h6 class="media-title font-weight-semibold"> <a href="#" data-abc="true"><%=products.get(i).getName()%></a> </h6>
                                         <ul class="list-inline list-inline-dotted mb-3 mb-lg-2">
                                         </ul>
-                                        <p class="mb-3">256 GB ROM | 15.49 cm (6.1 inch) Display 12MP Rear Camera | 15MP Front Camera A12 Bionic Chip Processor | Gorilla Glass with high quality display </p>
+                                        <p class="mb-3"><%=products.get(i).getDescription()%></p>
                                     </div>
                                     <div class="mt-3 mt-lg-0 ml-lg-3 text-center">
                                         <h3 class="mb-0 font-weight-semibold">$<%=products.get(i).getPrice()%></h3>
                                         <div> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
                                         <button type="button" class="btn btn-warning mt-4 text-white"><i class="icon-cart-add mr-2"></i> Add to cart</button>
-                                        <input type="hidden" name="ID" />
-                                        <button type="button" value="" class="btn btn-warning mt-4 text-white" onclick="GetproductServlet"><i class="icon-cart-add mr-2"></i> View Item</button>
+                                        <!--<button type="button" value="" class="btn btn-warning mt-4 text-white" href="/IoTBay1/GetProductServlet?param1="><i class="icon-cart-add mr-2"></i> View Item</button>-->
+                                        <a href="/IoTBay1/GetProductServlet?param1=<%=products.get(i).getID()%>">Go to this</a>
                                     </div>
                                 </div>
                             </div>
                             <%}%>
+                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <%}else{%>
-        <p> This page is empty :( (There are no product add one)</p>
         <%}%>
     </body>
 </html>

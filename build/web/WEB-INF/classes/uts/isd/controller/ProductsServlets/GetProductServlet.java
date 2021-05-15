@@ -31,7 +31,7 @@ public class GetProductServlet extends HttpServlet {
         try {
             if (productManager.fetchProductsById(ID) != null) {
                 session.setAttribute("product", productManager.fetchProductsById(ID));//TODO: change this to not call db twice
-                request.getRequestDispatcher("ProductItem").include(request, response);
+                request.getRequestDispatcher("ProductItem.jsp").include(request, response);
             } else {
                 
             }

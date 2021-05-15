@@ -40,10 +40,11 @@ public class DBMproduct {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
-            float price = rs.getFloat(3);
-            float discount = rs.getFloat(4);
+            String desc = rs.getString(3);
+            float price = rs.getFloat(4);
+            float discount = rs.getFloat(5);
 
-            productList.add(new Product(ID, name, price, discount,null));
+            productList.add(new Product(ID, name, desc ,price, discount,null));
         }
 
         return productList;
@@ -58,10 +59,11 @@ public class DBMproduct {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
-            float price = rs.getFloat(3);
-            float discount = rs.getFloat(4);
+            String desc = rs.getString(3);
+            float price = rs.getFloat(4);
+            float discount = rs.getFloat(5);
 
-            productList.add(new Product(ID, name, price, discount, null));
+            productList.add(new Product(ID, name, desc ,price, discount, null));
         }
 
         return productList;
@@ -76,11 +78,12 @@ public class DBMproduct {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
-            float price = rs.getFloat(3);
-            float discount = rs.getFloat(4);
+            String desc = rs.getString(3);
+            float price = rs.getFloat(4);
+            float discount = rs.getFloat(5);
 
             if (ID == _ID) {
-                return new Product(ID, name, price, discount, null);
+                return new Product(ID, name, desc ,price, discount, null);
             }
 
         }
