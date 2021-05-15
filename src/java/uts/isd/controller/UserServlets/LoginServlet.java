@@ -35,7 +35,7 @@ import uts.isd.model.dao.DBConnector;
                 );
 //                User user = dbmUser.getUserById(1);
                 request.setAttribute("user", user);
-                request.getRequestDispatcher("main.jsp").forward(request, response);
+                request.getRequestDispatcher("/GetUserPaymentDetailsServlet").forward(request, response);
         }
         
         @Override
@@ -48,7 +48,7 @@ import uts.isd.model.dao.DBConnector;
                     HttpSession session = request.getSession();
                         session.setAttribute("user", user);
                         request.setAttribute("loggedIn", true);
-                        request.getRequestDispatcher("main.jsp").include(request, response);
+                        request.getRequestDispatcher("/GetUserPaymentDetailsServlet").include(request, response);
         }
             
 }

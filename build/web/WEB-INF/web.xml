@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app metadata-complete="true" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
-
-
-<!--        Dean Servlets -->
+    <!--        Dean Servlets -->
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.AddProductServlet</servlet-class>
@@ -29,40 +25,57 @@
         <servlet-class>uts.isd.controller.ProductsServlets.GetProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
-
-<!--   Sam Servlets -->
+    <!--   Sam Servlets -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>uts.isd.controller.UserServlets.LoginServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>RegisterUserServlet</servlet-name>
         <servlet-class>uts.isd.controller.UserServlets.RegisterUserServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>RegisterUserServlet</servlet-name>
         <url-pattern>/RegisterUserServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet>
         <servlet-name>UpdateUserServlet</servlet-name>
         <servlet-class>uts.isd.controller.UserServlets.UpdateUserServlet</servlet-class>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>UpdateUserServlet</servlet-name>
         <url-pattern>/UpdateUserServlet</url-pattern>
     </servlet-mapping>
-
-
-<!--   Enzo Servlets -->
+    <!-- Tim Servlets -->
+    <servlet>
+        <servlet-name>AddPaymentDetailServlet</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentServlets.AddPaymentDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPaymentDetailServlet</servlet-name>
+        <url-pattern>/AddPaymentDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdatePaymentDetailServlet</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentServlets.UpdatePaymentDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdatePaymentDetailServlet</servlet-name>
+        <url-pattern>/UpdatePaymentDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>GetUserPaymentDetailsServlet</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentServlets.GetUserPaymentDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetUserPaymentDetailsServlet</servlet-name>
+        <url-pattern>/GetUserPaymentDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <!--   Enzo Servlets -->
     <servlet>
         <servlet-name>MyShipmentServlet</servlet-name>
         <servlet-class>uts.isd.controller.MyShipmentServlet</servlet-class>
@@ -108,9 +121,7 @@
         <servlet-name>FinalizeShipmentServlet</servlet-name>
         <url-pattern>/FinalizeShipment</url-pattern>
     </servlet-mapping>
-
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
-    
 </web-app>

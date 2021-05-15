@@ -9,7 +9,7 @@
  */
 
 -- select * from users;
-
+-- 
 select * from payment_details;
 
 -- INSERT INTO users (USERNAME_EMAIL, USER_NAME, PASSWORD, PHONE, DOB, GENDER, USER_TYPE) 

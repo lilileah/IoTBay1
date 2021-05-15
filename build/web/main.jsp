@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="uts.isd.model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,6 +17,7 @@
           <p class="lead text-muted">You are logged in as ${user.user_name}</p>
           <h1 class="font-weight-bold">Profile Info</h1>
             <body>
+                    
                     <table class="table">
                         <thead class="thead-light">
                         <tr>
@@ -40,9 +42,30 @@
                         </tr>
                         </tbody>
                     </table>
+                        
+                    <table class="table">
+                        <tr>
+                            <th>Payment ID</th>
+                            <th>Card Type</th>
+                            <th>Card Number</th>
+                            <th>Owner Name</th>
+                            <th>Expiry Date</th>
+                        </tr>
+                        <c:forEach var="paymentmethod" items="${paymentdetails}">
+                            <tr>
+                                <td><c:out value = "${paymentmethod.payment_details_id}" /></td>
+                                <td><c:out value = "${paymentmethod.card_type}" /></td>
+                                <td><c:out value = "${paymentmethod.card_number}" /></td>
+                                <td><c:out value = "${paymentmethod.owner_name}" /></td>
+                                <td><c:out value = "${paymentmethod.exp_date}" /></td>
+                            </tr>
+                        </c:forEach>
+                    </table>
+ 
                 <p>
                 <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
                 <a href="editUser.jsp" class="btn btn-secondary my-2">Edit Account</a>
+                <a href="addPayment.jsp" class="btn btn-secondary my-2">Add New Payment Method</a>
               </p>
             </body>
         </div>
