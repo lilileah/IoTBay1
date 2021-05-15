@@ -72,7 +72,8 @@ public void addPayment(String type, BigInteger number, String owner, String date
     int userID;
     userID = user.getUser_id();
     st.executeUpdate("INSERT INTO iotbay.PAYMENT_DETAILS (Card_Type, Card_Number, Owner_Name, Exp_Date, CCV, USER_ID)" + 
-         " VALUES ('" + type + "'," + number + ",'" + owner  + "'," + date + "," + CCV + "," + userID + ")");   
+         " VALUES ('" 
+            + type + "'," + number + ",'" + owner  + "','" + date + "'," + CCV + "," + userID + ")");   
 
 }
 

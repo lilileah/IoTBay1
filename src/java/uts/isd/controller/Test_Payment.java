@@ -60,7 +60,7 @@ public class Test_Payment {
             int ccv = 980;
 
             System.out.println("called");
-            User user = dbu.getUser("testname@email.com.au","Password1");
+            User user = dbu.getUser("test@email.com","testpass");
             System.out.println(user.getUser_id());
             System.out.println("got user ID");
             dbp.addPayment(type, held, name, exp, ccv, user);
