@@ -14,57 +14,49 @@ import uts.isd.model.dao.*;
 
 public class ConnServlet extends HttpServlet {
 
-    private DBConnector db;
-    private Connection conn;
+ private DBConnector db;
+private Connection conn;
 
-    @Override //Open connection for the session
-    public void init() {
+ @Override //Open connection for the session
+public void init() {
 
-        try {
+ try {
+db = new DBConnector();
+} catch (ClassNotFoundException | SQLException ex) {
+Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+}
+}
 
-            db = new DBConnector();
+ @Override //Add the DBConnector, DBManager, Connection instances to the session
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
 
-        } catch (ClassNotFoundException | SQLException ex) {
+ DBMproduct productManager = null;
+DBMuser userManager = null;
+DBOrders orderManager = null;
+response.setContentType("text/html;charset=UTF-8");
+HttpSession session = request.getSession();
+conn = db.openConnection();
 
-            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+ try {
+productManager = new DBMproduct(conn);
+userManager = new DBMuser();
+orderManager = new DBOrders(conn);
+} catch (SQLException ex) {
+Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+}
+//export the managers to the view-session (JSPs)
+session.setAttribute("productManager", productManager);
+session.setAttribute("userManager", userManager);
+session.setAttribute("orderManager", orderManager);
+}
 
-    @Override //Add the DBConnector, DBManager, Connection instances to the session
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        DBMproduct productManager = null;
-
-        response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession();
-        conn = db.openConnection();
-
-        try {
-
-            productManager = new DBMproduct(conn);
-
-        } catch (SQLException ex) {
-
-            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
-
-        //export the managers to the view-session (JSPs)
-        session.setAttribute("productManager", productManager);
-
-    }
-
-    @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)
-    public void destroy() {
-        try {
-
-            db.closeConnection();
-
-        } catch (SQLException ex) {
-
-            Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
-
-        }
-    }
+ @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)
+public void destroy() {
+try {
+db.closeConnection();
+} catch (SQLException ex) {
+Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+}
+}
 }

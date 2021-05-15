@@ -30,13 +30,6 @@
             }
         %>
 
-        <FORM NAME="form1" METHOD="POST">
-            <INPUT TYPE="HIDDEN" NAME="buttonName">
-            <INPUT TYPE="BUTTON" VALUE="Button 1" ONCLICK="button1()">
-            <INPUT TYPE="BUTTON" VALUE="Button 2" ONCLICK="button2()">
-        </FORM>
-       
-
        
         
         
@@ -45,9 +38,9 @@
                          ArrayList<Product> Cart = new ArrayList<Product>();
                           //session.setAttribute("productsCart", productsCart);
                           ///id, produtname, price, discount, productEnumeral 
-                         Cart.add(new Product( 1, "Book", 12, 1, null));
-                         Cart.add(new Product( 2, "Pencil", 2, 1, null));
-                         Cart.add(new Product( 3, "Pen", 7, 2, null));
+                            Cart.add(new Product( 1, "Book", 12, 1, null));
+                        Cart.add(new Product( 2, "Pencil", 2, 1, null));
+                        Cart.add(new Product( 3, "Pen", 7, 2, null));
                          
                          session.setAttribute("CartList", Cart);
 
@@ -57,26 +50,33 @@
                       
             }
                 
-               
                 
                 %>
+            <FORM NAME="form1" METHOD="POST">
+            <INPUT TYPE="HIDDEN" NAME="buttonName">
+            <INPUT TYPE="SUBMIT" VALUE="Button 1" ONCLICK="<%= Cart.add(new Product( 3, "Pen", 7, 2, null))%>">
+            <INPUT TYPE="BUTTON" VALUE="Button 2" ONCLICK="button2()">
+            </FORM>
                 
                  <SCRIPT LANGUAGE="JavaScript">
             <!--
             function button1()
             {
                document.form1.buttonName.value = "button 1";
-               form1.submit();
+
+               
+                 form1.submit();
+        
             }    
             function button2()
             {
                 document.form1.buttonName.value = "button 2";
+               
                 form1.submit();
             }    
             // --> 
         </SCRIPT>
-        
-
+         
         
         <section class="pt-5 pb-5">
   <div class="container">
@@ -100,10 +100,12 @@
                       <div>
                       <%
 
-
-                        if(Cart == null){
+                          
+                        if(Cart == null || d == 0){
                           %>
-                          <p>Null array</p>
+                           <p class="mb-5 text-center">
+                
+                        <i class="text-info font-weight-bold"></i> Your cart is empty</p>
                           <%}
 
                         else{
@@ -128,11 +130,15 @@
                         </td>
                         <td class="actions" data-th="">
                             <p>
-                                
                                
-                            <a  class="btn btn-secondary my-2" ONCLICK="<%= Cart.remove(i) %>">Remove</a>
+                             <input type="button" name="removeButton" value="Remove" ONCLICK="button1()">
+                            <a  class="btn btn-secondary my-2" ONCLICK="button1()">Remove</a>
                         </p>
                         </td>
+                        
+                        
+                                             
+                        
                       <%}
 
                         }

@@ -4,13 +4,14 @@
     Author     : lilil
 --%>
 
+<%@page import="uts.isd.model.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.isd.model.Product"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-     <<div>
-
+    <div>
+<iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
 </div>
      
     <head>
@@ -23,7 +24,6 @@
     <%
             ArrayList<Product> CartList = new ArrayList<Product>();
             CartList = (ArrayList<Product>)session.getAttribute("CartList");
-            
 
                 if(CartList == null){
                           %>
@@ -38,8 +38,6 @@
                       <%}
 
                         }
-
-
 
         %>
     
@@ -108,78 +106,109 @@
             </li>
           </ul>
 
+       
           
         </div>
         <div class="col-md-8 order-md-1">
-          <h4 class="mb-3">My details</h4>
+             <h4 class="mb-3">My details</h4>
+              <%
+            User user = (User)session.getAttribute("user");
+            
+            if(user==null){ %>
+  
+            <p>You're not logged in, please <a href="login.jsp">login</a> or <a href="register.jsp">register</a> to check out</p>
+      
+        
+             
+             <%
+               
+                
+            }
+            else{
+
+        %>
+       
+            
+         
           <form class="needs-validation" novalidate="">
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                <h6>First name</h6>
+                 <p>${user.user_name}</p>
                 </div>
               <div class="col-md-6 mb-3">
-                <label for="lastName">Last name</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
+                <h6>User ID</h6>
+                <p>${user.user_id} </p>
               </div>
+              <div class="col-md-6 mb-3">
+                <h6>Email</h6>
+                 <p>${user.username_email}</p>
+                </div>
+                <div class="col-md-6 mb-3">
+                <h6>Phone number</h6>
+                 <p>${user.phone}</p>
+                </div>
             </div>
 
-            <div class="mb-3">
-              <label for="username">Username</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@</span>
-                </div>
-                <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                <div class="invalid-feedback" style="width: 100%;">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
+            
+              
+               <%
+       }
 
-            <div class="mb-3">
-              <label for="email">Email <span class="text-muted">(Optional)</span></label>
-              <input type="email" class="form-control" id="email" placeholder="you@example.com">
-             
-            </div>
+        %>
             
             <h4 class="mb-3">Shipment & payment</h4>
 
            
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="cc-name">Address</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                 <h6>Address</h6>
+                 <p>${user.username_email}</p>
                   <p>
-            <a href="login.jsp" class="btn btn-secondary my-2">Add shipment details</a>
+            <a href="login.jsp" class="btn btn-secondary my-2">edit shipment details</a>
           </p>
               </div>
                           </div>
             
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="cc-name">Name on card</label>
-                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                <h6>Name on Card</h6>
+                 <p>${user.username_email}</p>
                 
               </div>
               <div class="col-md-6 mb-3">
-                <label for="cc-number">Credit card number</label>
-                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                <h6>Credit Card number</h6>
+                 <p>${user.username_email}</p>
 
               </div>
                  <p>
-            <a href="login.jsp" class="btn btn-secondary my-2">Add payment details</a>
+            <a href="login.jsp" class="btn btn-secondary my-2">Edit payment details</a>
           </p>
             </div>
             <div class="row">
               
             </div>
             <hr class="mb-4">
-            <a href="orderComplete.jsp" class="btn btn-primary btn-lg btn-block">Complete order</a>
+                                      
+                
+               
+            
+<div class="col-sm-6 order-md-2 text-right">
+            <a href="orderComplete.jsp" class="btn btn-primary mb-4 btn-lg pl-5 pr-5">next page test
+            </a>
+        </div>
+            
           </form>
+                 
+                  <div class="mx-auto" style="width: 60px;">
+                    <form method="post" action="AddOrderServlet"> 
+                        <div>
+                            <input class="btn btn-primary mb-4 btn-lg pl-5 pr-5" type="submit" value="Place order">
+                            <input type="hidden" name="submitted" value="yes">
+                            
+                        </div>
+                    </form>
+                </div>
         </div>
       </div>
 

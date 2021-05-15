@@ -61,30 +61,7 @@ public final class productCart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        \n");
       out.write("        \n");
-      out.write("        ");
- 
-            //if(request.getParameter("buttonName") != null) {
-            if(request.getParameterNames() != null) {
-        
-      out.write("\n");
-      out.write("            You clicked \n");
-      out.write("            ");
-      out.print( request.getParameter("buttonName") );
-      out.write("\n");
-      out.write("        ");
-
-            }
-        
-      out.write("\n");
-      out.write("\n");
-      out.write("        <FORM NAME=\"form1\" METHOD=\"POST\">\n");
-      out.write("            <INPUT TYPE=\"HIDDEN\" NAME=\"buttonName\">\n");
-      out.write("            <INPUT TYPE=\"BUTTON\" VALUE=\"Button 1\" ONCLICK=\"button1()\">\n");
-      out.write("            <INPUT TYPE=\"BUTTON\" VALUE=\"Button 2\" ONCLICK=\"button2()\">\n");
-      out.write("        </FORM>\n");
-      out.write("       \n");
-      out.write("\n");
-      out.write("       \n");
+      out.write("              \n");
       out.write("        \n");
       out.write("        \n");
       out.write("        ");
@@ -93,9 +70,9 @@ public final class productCart_jsp extends org.apache.jasper.runtime.HttpJspBase
                          ArrayList<Product> Cart = new ArrayList<Product>();
                           //session.setAttribute("productsCart", productsCart);
                           ///id, produtname, price, discount, productEnumeral 
-                         Cart.add(new Product( 1, "Book", 12, 1, null));
-                         Cart.add(new Product( 2, "Pencil", 2, 1, null));
-                         Cart.add(new Product( 3, "Pen", 7, 2, null));
+                            Cart.add(new Product( 1, "Book", 12, 1, null));
+                        Cart.add(new Product( 2, "Pencil", 2, 1, null));
+                        Cart.add(new Product( 3, "Pen", 7, 2, null));
                          
                          session.setAttribute("CartList", Cart);
 
@@ -105,27 +82,29 @@ public final class productCart_jsp extends org.apache.jasper.runtime.HttpJspBase
                       
             }
                 
-               
                 
                 
       out.write("\n");
-      out.write("                \n");
+      out.write("                           \n");
       out.write("                 <SCRIPT LANGUAGE=\"JavaScript\">\n");
       out.write("            <!--\n");
       out.write("            function button1()\n");
       out.write("            {\n");
       out.write("               document.form1.buttonName.value = \"button 1\";\n");
-      out.write("               form1.submit();\n");
+      out.write("\n");
+      out.write("               \n");
+      out.write("                 form1.submit();\n");
+      out.write("        \n");
       out.write("            }    \n");
       out.write("            function button2()\n");
       out.write("            {\n");
       out.write("                document.form1.buttonName.value = \"button 2\";\n");
+      out.write("               \n");
       out.write("                form1.submit();\n");
       out.write("            }    \n");
       out.write("            // --> \n");
       out.write("        </SCRIPT>\n");
-      out.write("        \n");
-      out.write("\n");
+      out.write("         \n");
       out.write("        \n");
       out.write("        <section class=\"pt-5 pb-5\">\n");
       out.write("  <div class=\"container\">\n");
@@ -152,11 +131,13 @@ public final class productCart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                      ");
 
 
-
-                        if(Cart == null){
+                          
+                        if(Cart == null || d == 0){
                           
       out.write("\n");
-      out.write("                          <p>Null array</p>\n");
+      out.write("                           <p class=\"mb-5 text-center\">\n");
+      out.write("                \n");
+      out.write("                        <i class=\"text-info font-weight-bold\"></i> Your cart is empty</p>\n");
       out.write("                          ");
 }
 
@@ -187,13 +168,15 @@ public final class productCart_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </td>\n");
       out.write("                        <td class=\"actions\" data-th=\"\">\n");
       out.write("                            <p>\n");
-      out.write("                                \n");
       out.write("                               \n");
-      out.write("                            <a  class=\"btn btn-secondary my-2\" ONCLICK=\"");
-      out.print( Cart.remove(i) );
-      out.write("\">Remove</a>\n");
+      out.write("\n");
+      out.write("                            <a  class=\"btn btn-secondary my-2\" ONCLICK=\"\">Remove</a>\n");
       out.write("                        </p>\n");
       out.write("                        </td>\n");
+      out.write("                        \n");
+      out.write("                        \n");
+      out.write("                                             \n");
+      out.write("                        \n");
       out.write("                      ");
 }
 

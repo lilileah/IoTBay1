@@ -13,7 +13,7 @@ import uts.isd.model.dao.DBConnector;
 import java.time.*;
 import java.util.Date;
 import uts.isd.model.dao.*;
-import uts.isd.model.dao.BBManager_Orders;
+import uts.isd.model.dao.DBOrders;
 /**
  * 
  * 
@@ -33,27 +33,10 @@ DBConnector connector = new DBConnector();
 
 Connection conn = connector.openConnection();
 
-BBManager_Orders db = new BBManager_Orders(conn);
+DBOrders db = new DBOrders(conn);
 
  
-
-System.out.print("Order Date: ");
-
-String date = in.nextLine();
-
-System.out.print("User ID: ");
-
-String userID = in.nextLine();
-
-System.out.print("Order ID: ");
-
-String orderID= in.nextLine();
-
-System.out.print("order ID: ");
-
-String invoiceID = in.nextLine();
-
-db.addOrder( date, userID, orderID, invoiceID);
+db.addOrder( "11/12/20", 7, 2, 3);
 
 System.out.println("Order is added to the database.");
 

@@ -23,16 +23,15 @@
         <div class="container">
           <h1 class="jumbotron-heading">Thanks for your order!</h1>
   
-          <p>Order summary</p>
           
-                <div>
-            <a>Order number</a>
+            <a>Check out the order history page to view your order details.</a>
         </div>
-            <a>Order summary</a>
-        </div>
-            <a href="index.jsp" class="btn btn-secondary my-2">Return to home</a>
+            <a href="OrderHistory.jsp" class="btn btn-primary my-2">Order History</a>
+            <a href="main.jsp" class="btn btn-secondary my-2">Return to home</a>
           </p>
+            
         </div>
+      
       </section>
             
 

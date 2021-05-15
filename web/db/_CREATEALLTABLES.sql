@@ -63,30 +63,24 @@
 );
 
 
-CREATE TABLE ORDER_CART (
-    order_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
-    total_price decimal,
-    CONSTRAINT order_id_cart_pk PRIMARY KEY (order_id)
-);
-
     CREATE TABLE ORDER_LINE_ITEM (
     order_line_item_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
     quantity int,
     order_id int,
     product_id int,
     CONSTRAINT order_line_itemPK PRIMARY KEY (order_line_item_id),
-    CONSTRAINT order_idFK FOREIGN KEY (order_id) REFERENCES order_cart(order_id),
+    CONSTRAINT order_idFK FOREIGN KEY (order_id) REFERENCES orders(order_id),
     CONSTRAINT product_idFK FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
-
+ 
 CREATE TABLE ORDERS (
-    Order_date timestamp,
+    order_id int NOT NULL GENERATED ALWAYS AS IDENTITY,    
+    Order_date varchar(25),
+    total_price double,
+    total_items int,
     user_id int,
-    order_id int NOT NULL GENERATED ALWAYS AS IDENTITY,
-    invoice_id int,
     CONSTRAINT user_id_orders_fk FOREIGN KEY (user_id) REFERENCES Users(user_id),
-    CONSTRAINT order_id_fk FOREIGN KEY (order_id) REFERENCES order_cart(order_id),
-    CONSTRAINT invoice_id_fk FOREIGN KEY (invoice_id) REFERENCES invoice(invoice_id)
+    CONSTRAINT order_id_pk PRIMARY KEY (order_id)
 );
 
     CREATE TABLE PAYMENT_DETAILS (

@@ -29,6 +29,19 @@
         <servlet-class>uts.isd.controller.ProductsServlets.GetProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    
+    
+<!--      Leah Servlets -->
+    <servlet>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.orderServlets.AddOrderServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddOrderServlet</servlet-name>
+        <url-pattern>/AddOrderServlet</url-pattern>
+    </servlet-mapping>
+
 
 <!--   Sam Servlets -->
     <servlet>
@@ -108,6 +121,9 @@
         <servlet-name>FinalizeShipmentServlet</servlet-name>
         <url-pattern>/FinalizeShipment</url-pattern>
     </servlet-mapping>
+    
+
+    
 
     <session-config>
         <session-timeout>30</session-timeout>

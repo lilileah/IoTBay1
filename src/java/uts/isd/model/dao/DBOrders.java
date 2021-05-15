@@ -18,14 +18,18 @@ import java.sql.*;
  *
  * @author lilil
  */
-public class BBManager_Orders {
+public class DBOrders {
     
 
 private Statement st;
    
-public BBManager_Orders(Connection conn) throws SQLException {       
+public DBOrders(Connection conn) throws SQLException {       
    st = conn.createStatement();   
 }
+
+    public DBOrders() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
 //Find user by email and password in the database   
 //public User findUser(String email, String password) throws SQLException {
@@ -47,8 +51,9 @@ public BBManager_Orders(Connection conn) throws SQLException {
 //}
 
 //Add a user-data into the database   
-public void addOrder(String date, String userID, String orderID, String invoiceID) throws SQLException {                   //code for add-operation       
-  st.executeUpdate("INSERT INTO iotbay.orders " + "VALUES('" + date + "','" + userID + "','" + orderID + "','" + invoiceID +"')");
+public void addOrder(String date, double total_price, int totalItems, int userID) throws SQLException {                   //code for add-operation       
+  st.executeUpdate("INSERT INTO iotbay.orders (ORDER_DATE, TOTAL_PRICE, TOTAL_ITEMS, USER_ID)" + 
+          "VALUES('" + date + "'," + total_price + "," + totalItems + ","+ userID +")");
 
 }
 

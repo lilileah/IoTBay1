@@ -27,9 +27,20 @@
             
             <!--Right side buttons-->
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="btn btn-sm btn-outline-secondary"" href="login.jsp">Login</a></li>
+                <li class="nav-item"><a class="btn btn-primary my-2" href="login.jsp">Login</a></li>
+    
                 <a>x</a>
-                <li class="nav-item"><a class="btn btn-sm btn-outline-secondary" href="register.jsp"> Register</a></li>
+                <li class="nav-item"><a class="btn btn-primary my-2" href="register.jsp">Register</a></li>
+    
+                <a>x</a>
+
+                <li class="nav-item"><a class="btn btn-secondary my-2" href="productCart.jsp"> My Cart</a></li>
+                
+                <a>x</a>
+                
+                <li class="nav-item"><a class="btn btn-secondary my-2" href="orderHistory.jsp"> order History</a></li>
+
+
             </ul>
         </nav>
         
