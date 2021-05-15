@@ -7,7 +7,13 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
 
-    <!--        Dean Servlets -->
+    <servlet-mapping>
+        <servlet-name>ConnServlet</servlet-name>
+        <url-pattern>/ConnServlet</url-pattern>
+    </servlet-mapping>
+
+
+<!--        Dean Servlets -->
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.AddProductServlet</servlet-class>
@@ -23,13 +29,15 @@
         <servlet-class>uts.isd.controller.ProductsServlets.GetProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+<<<<<<< HEAD
     <servlet>
         <servlet-name>GetAllProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.GetAllProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+=======
 
-    <!--   Sam Servlets -->
+<!--   Sam Servlets -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>uts.isd.controller.UserServlets.LoginServlet</servlet-class>
@@ -39,6 +47,7 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
+>>>>>>> main
     
     <servlet>
         <servlet-name>RegisterUserServlet</servlet-name>
@@ -61,7 +70,7 @@
     </servlet-mapping>
 
 
-    <!--   Enzo Servlets -->
+<!--   Enzo Servlets -->
     <servlet>
         <servlet-name>MyShipmentServlet</servlet-name>
         <servlet-class>uts.isd.controller.MyShipmentServlet</servlet-class>
@@ -103,6 +112,7 @@
         <servlet-class>uts.isd.controller.FinalizeShipmentServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+<<<<<<< HEAD
     
     <!--    Utility-->
     <servlet-mapping>
@@ -127,14 +137,14 @@
         <url-pattern>/GetAllProductServlet</url-pattern>
     </servlet-mapping>
     <!--User-->
-<!--    <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddUserServlet</servlet-name>
         <url-pattern>/AddUserServlet</url-pattern>
-    </servlet-mapping>-->
-<!--    <servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>GetUserServlet</servlet-name>
         <url-pattern>/GetUserServlet</url-pattern>
-    </servlet-mapping>-->
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MyShipmentServlet</servlet-name>
         <url-pattern>/MyShipment</url-pattern>
@@ -151,7 +161,8 @@
         <servlet-name>EditShipmentServlet</servlet-name>
         <url-pattern>/EditShipment</url-pattern>
     </servlet-mapping>
-
+=======
+>>>>>>> main
     <servlet-mapping>
         <servlet-name>FinalizeShipmentServlet</servlet-name>
         <url-pattern>/FinalizeShipment</url-pattern>

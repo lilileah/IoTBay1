@@ -40,11 +40,10 @@ public class DBMproduct {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
-            String desc = rs.getString(3);
-            float price = rs.getFloat(4);
-            float discount = rs.getFloat(5);
+            float price = rs.getFloat(3);
+            float discount = rs.getFloat(4);
 
-            productList.add(new Product(ID, name, desc ,price, discount,null));
+            productList.add(new Product(ID, name, price, discount,null));
         }
 
         return productList;
@@ -59,11 +58,10 @@ public class DBMproduct {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
-            String desc = rs.getString(3);
-            float price = rs.getFloat(4);
-            float discount = rs.getFloat(5);
+            float price = rs.getFloat(3);
+            float discount = rs.getFloat(4);
 
-            productList.add(new Product(ID, name, desc ,price, discount, null));
+            productList.add(new Product(ID, name, price, discount, null));
         }
 
         return productList;
@@ -78,12 +76,11 @@ public class DBMproduct {
         while (rs.next()) {
             int ID = rs.getInt(1);
             String name = rs.getString(2);
-            String desc = rs.getString(3);
-            float price = rs.getFloat(4);
-            float discount = rs.getFloat(5);
+            float price = rs.getFloat(3);
+            float discount = rs.getFloat(4);
 
             if (ID == _ID) {
-                return new Product(ID, name, desc ,price, discount, null);
+                return new Product(ID, name, price, discount, null);
             }
 
         }
@@ -91,9 +88,9 @@ public class DBMproduct {
     }
 
     //create product
-    public void addProduct(String name, String desc, float price, float discount) throws SQLException {
-        st.executeUpdate("INSERT INTO iotbay.products (PRODUCT_NAME, DESCRIPTION, PRICE, DISCOUNT)" +
-        " VALUES ('" + name + "','" + desc +"'," + price + "," + discount + ")");
+    public void addProduct(String name, float price, float discount) throws SQLException {
+        st.executeUpdate("INSERT INTO iotbay.products (PRODUCT_NAME, PRICE, DISCOUNT)" +
+        " VALUES ('" + name + "'," + price + "," + discount + ")");
     }
 
     //update by ID

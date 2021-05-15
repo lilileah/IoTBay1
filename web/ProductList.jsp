@@ -63,7 +63,7 @@
             </div>
         </div>
         <%}else{%>
-        <p> This page is empty :( (There are no products add one)</p>
+        <p> This page is empty :( (There are no product add one)</p>
         <%}%>
     </body>
 </html>
