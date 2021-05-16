@@ -3,6 +3,7 @@ package uts.isd.controller;
 import java.io.Serializable;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class Validator implements Serializable {
@@ -10,8 +11,13 @@ public class Validator implements Serializable {
     private String emailPattern = "([a-zA-Z0-9]+)(([._-])([a-zA-Z0-9]+))*(@)([a-z]+)(.)([a-z]{3})((([.])[a-z]{0,2})*)";
     private String namePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";
     private String passwordPattern = "[a-z0-9]{4,}";
+    private HttpServletRequest request;
 
     public Validator() {
+    }
+
+    public Validator(HttpServletRequest request) {
+        this.request = request;
     }
 
     public boolean validate(String pattern, String input) {

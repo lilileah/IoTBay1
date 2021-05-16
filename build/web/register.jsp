@@ -14,7 +14,7 @@
         <div>
             <iframe width="100%" height="80" scrolling="no" src="interface.jsp" title="Interface"></iframe>
         </div>
-<!--        Check for session-->
+<!--Check for registration-->
         <c:choose>
             <c:when test="${registered}">
                 <div class="alert alert-success" role="alert">
@@ -29,6 +29,22 @@
                     <h1 class = "centre">Register</h1>
                     <hr>
                 </div>
+                
+<!--                Check form validation errors-->
+
+                    <c:if test="${not empty emailErr}">
+                        <div class="alert alert-primary "role="alert">
+                            <c:out value="${emailErr}"/>
+                        </div>
+                    </c:if>
+
+                    <c:if test="${not empty passwordErr}">
+                        <div class="alert alert-primary" role="alert">
+                            <c:out value="${passwordErr}"/>
+                        </div>
+                    </c:if>
+
+                    
                 <div class="mx-auto" style="width: 400px;">
                     <form method="post" action="RegisterUserServlet"> 
                         
@@ -36,9 +52,13 @@
                         <input class="mb-2 form-control" type="text" placeholder="Full name" name = "USER_NAME" required= "true"><br>
                         <input class="mb-2 form-control" type="password" placeholder="Password" name = "PASSWORD" required= "true"><br>
                         <input class="mb-2 form-control" type="text" placeholder="Phone" name = "PHONE" required= "true"><br>
-                        <input class="mb-2 form-control" type="text" placeholder="dd/mm/yyyy" name = "DOB" required= "true"><br>
+                        <!--<input class="mb-2 form-control" type="text" placeholder="dd/mm/yyyy" name = "DOB" required= "true"><br>-->
+                        <input class="mb-2 form-control" type="date" placeholder="dd/mm/yyyy" name = "DOB" required= "true"><br>
                         <input class="mb-2 form-control" type="text" placeholder="gender" name = "GENDER" required= "true"><br>
-                        <input class="mb-2 form-control" type="text" placeholder="type" name = "USER_TYPE" required= "true"><br>
+                        <select input class="mb-2 form-control" name="USER_TYPE" id="USER_TYPE">
+                            <option value="C">Customer</option>
+                            <option value="S">Staff</option>
+                        </select><br>
                         <div>
                             <input class="mb-2 btn-primary btn" type="submit" value="register">
                             <input type="hidden" name="submitted" value="yes">

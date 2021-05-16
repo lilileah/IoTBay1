@@ -16,7 +16,19 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
         <link href="css/Adjustment.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap.css">
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+        <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                //alert("Hello");
+                $('#dataTable').DataTable({
+                    "searching": true
+                });
+            });
+            
+
+        </script>
         <title>Access Logs</title>
     </head>
     <%
@@ -34,32 +46,34 @@
             <hr>
         </div>
 
-        <!--        access logs view-->
-        <table class ="table" id="dataTable">
-            <thead>
-                <tr>
-                    <th>Log Id</th>
-                    <th>user Id</th>
-                    <th>Action</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <c:forEach var ="logsList" items="${logsList}">
-                <tbody>
-                    <tr>
-                        <td><c:out value ="${logsList.log_id}"/></td>
-                        <td><c:out value ="${logsList.user_id}"/></td>
-                        <td><c:out value ="${logsList.action}"/></td>
-                        <td><c:out value ="${logsList.time}"/></td>
-                    </tr>
-                </tbody>
-            </c:forEach>
-        </table>
-        <script>
-            $(document).ready(function(){
-                //alert("Hello");
-                $('#dataTable').DataTable();
-            });
-        </script>
+        <!--        access logs view--> 
+        <div class ="row">
+            <div class ="table responsive">
+                <table class ="display" id="dataTable" cellspacing="5" cellpadding="5" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Log Id</th>
+                            <th>user Id</th>
+                            <th>Action</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                        <c:forEach var ="logsList" items="${logsList}">
+                    <div class="panel-body">
+                            <div class="table-responsive">
+                            <tbody>
+                                <tr>
+                                    <td><c:out value ="${logsList.log_id}"/></td>
+                                    <td><c:out value ="${logsList.user_id}"/></td>
+                                    <td><c:out value ="${logsList.action}"/></td>
+                                    <td><c:out value ="${logsList.time}"/></td>
+                                </tr>
+                            </tbody>
+                        </div>
+                    </div>
+                </c:forEach>
+                </table>
+            </div>
+        </div>
     </body>
 </html>

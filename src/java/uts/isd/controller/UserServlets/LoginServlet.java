@@ -33,31 +33,60 @@ public class LoginServlet extends ConnServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = dbmUser.getUser(
-                request.getParameter("USERNAME_EMAIL"),
-                request.getParameter("PASSWORD")
-        );
+        //Before doing anything with the model - validte input
+        Validator validator = new Validator(request);
+        HttpSession session = request.getSession();
+        validator.clear(session);
+//
+        if (!validator.validateEmail(request.getParameter("USERNAME_EMAIL"))) {
+            session.setAttribute("emailErr", "Error: Email format incorrect");
+            request.getRequestDispatcher("login.jsp").include(request, response);
+        } else if (!validator.validatePassword(request.getParameter("PASSWORD"))) {
+            session.setAttribute("passErr", "Error: Password needing to be more than 4 digits");
+            request.getRequestDispatcher("login.jsp").include(request, response);
+        } else {
+
+            User user = dbmUser.getUser(
+                    request.getParameter("USERNAME_EMAIL"),
+                    request.getParameter("PASSWORD")
+            );
 //                User user = dbmUser.getUserById(1);
-        request.setAttribute("user", user);
-        request.getRequestDispatcher("main.jsp").forward(request, response);
+            request.setAttribute("user", user);
+            request.getRequestDispatcher("main.jsp").forward(request, response);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = dbmUser.getUser(
-                request.getParameter("USERNAME_EMAIL"),
-                request.getParameter("PASSWORD")
-        );
-        HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        request.setAttribute("loggedIn", true);
-        request.getRequestDispatcher("main.jsp").include(request, response);
 
-        try {
-            dbmLogs.addLog(user.getUser_id(), "Login");
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+        //Before doing anything with the model - validte input
+        Validator validator = new Validator(request);
+        HttpSession session = request.getSession();
+        validator.clear(session);
+//
+        if (!validator.validateEmail(request.getParameter("USERNAME_EMAIL"))) {
+            session.setAttribute("emailErr", "Error: Email format incorrect");
+            request.getRequestDispatcher("login.jsp").include(request, response);
+        } else if (!validator.validatePassword(request.getParameter("PASSWORD"))) {
+            session.setAttribute("passErr", "Error: Password needing to be more than 4 digits");
+            request.getRequestDispatcher("login.jsp").include(request, response);
+        } else {
+
+            User user = dbmUser.getUser(
+                    request.getParameter("USERNAME_EMAIL"),
+                    request.getParameter("PASSWORD")
+            );
+
+            session.setAttribute("user", user);
+            request.setAttribute("loggedIn", true);
+            request.getRequestDispatcher("main.jsp").include(request, response);
+
+            try {
+                dbmLogs.addLog(user.getUser_id(), "Login");
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

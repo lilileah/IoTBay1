@@ -32,33 +32,49 @@ public class RegisterUserServlet extends ConnServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = new User();
-        user.setUsername_email(request.getParameter("USERNAME_EMAIL"));
-        user.setUser_name(request.getParameter("USER_NAME"));
-        user.setPassword(request.getParameter("PASSWORD"));
-        user.setPhone(request.getParameter("PHONE"));
-        user.setGender(request.getParameter("GENDER"));
-        user.setDob(request.getParameter("DOB"));
-        user.setUser_type(request.getParameter("USER_TYPE"));
-
-        //Add user to database
-        try {
-            dbmUser.addUser(user);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        //Create session and send it to the view
+        
+        //Before doing anything with the model - validte input
+        Validator validator = new Validator(request);
         HttpSession session = request.getSession();
-        session.setAttribute("user", user);
-        request.setAttribute("registered", true);
-        request.getRequestDispatcher("register.jsp").include(request, response);
+        validator.clear(session);
+        
+        if(!validator.validateEmail(request.getParameter("USERNAME_EMAIL"))){
+             session.setAttribute("emailErr", "Error: Email format incorrect");
+             request.getRequestDispatcher("register.jsp").include(request, response);
+         } else if (!validator.validatePassword(request.getParameter("PASSWORD"))){
+             session.setAttribute("passwordErr", "Error: Password needing to be more than 4 digits");
+             request.getRequestDispatcher("register.jsp").include(request, response);
+        } else {
 
-        try {
-            dbmLogs.addLog(user.getUser_id(), "Register");
-        } catch (SQLException ex) {
-            Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            User user = new User();
+            user.setUsername_email(request.getParameter("USERNAME_EMAIL"));
+            user.setUser_name(request.getParameter("USER_NAME"));
+            user.setPassword(request.getParameter("PASSWORD"));
+            user.setPhone(request.getParameter("PHONE"));
+            user.setGender(request.getParameter("GENDER"));
+            user.setDob(request.getParameter("DOB").toString());
+            user.setUser_type(request.getParameter("USER_TYPE"));
+
+            //Add user to database
+            try {
+                dbmUser.addUser(user);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            //Create session and send it to the view
+            session.setAttribute("user", user);
+            request.setAttribute("registered", true);
+            request.getRequestDispatcher("register.jsp").include(request, response);
+
+            try {
+                dbmLogs.addLog(user.getUser_id(), "Register");
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
+
     }
 }
