@@ -3,14 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/LoginServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBMproduct.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/WEB-INF/web.xml</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/Test_User.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/EditShipmentServlet.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/login_new.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/login.jsp</file>
-            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/DeleteUserServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/logout.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/editUser.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/GetAccessLogsServlet.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBMuser.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/DeleteUserServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/shipment_details.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/access_logs.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBShipment.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/RegisterUserServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/LoginServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/login.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/shipment.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/User.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/accesslogs.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/deleted.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/dao/DBMlogs.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/db/_CREATEALLTABLES.sql</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/Test_Logs.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/Shipment.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/ProductsServlets/AddProductServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/addShipment.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/ProductsServlets/GetProductServlet.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/register.jsp</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/model/AccessLogs.java</file>
             <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/src/java/uts/isd/controller/UserServlets/UpdateUserServlet.java</file>
+            <file>file:/Users/samuelpolgar/Documents/GitHub/IoTBay1/web/main.jsp</file>
         </group>
     </open-files>
 </project-private>

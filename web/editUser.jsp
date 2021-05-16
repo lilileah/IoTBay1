@@ -30,7 +30,6 @@
                         </thead>
                         <tbody>
                         <tr>
-                           
                             <td><input class="mb-2 form-control" type="text" name = "USERNAME_EMAIL" required= "true" value="${user.username_email}"></td>
                             <td><input class="mb-2 form-control" type="text" name = "USER_NAME" required= "true" value="${user.user_name}"></td>
                             <td><input class="mb-2 form-control" type="text" name = "PHONE" required= "true" value="${user.phone}"></td>
@@ -46,12 +45,12 @@
                             <input type="hidden" name="submitted" value="yes">
                     </div>
                 </form>
+                    
                 <p>
-                <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
+                <a href="deleted.jsp" class="btn btn-secondary my-2">Log out</a>
                 <form method = "POST" action="DeleteUserServlet">
                 <input class="mb-2 form-control" type="hidden" name = "USER_ID" required= "true" value="${user.user_id}">
                 <input class="mb-2 btn-primary btn" type="submit" value="Delete Account">
-                <input type="hidden" name="submitted" value="yes">
                 </form>
                 </p>
             </body>

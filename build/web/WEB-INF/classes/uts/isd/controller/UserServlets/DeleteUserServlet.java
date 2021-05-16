@@ -35,7 +35,9 @@ import uts.isd.model.dao.DBConnector;
                     if( session != null ){
                         //session exists
                         User currentUser = (User)session.getAttribute("user");
-                        dbmUser.deleteUserById(Integer.parseInt(request.getParameter("user_id")));
+                        int userId = Integer.parseInt(request.getParameter("USER_ID"));
+                        System.out.println("Deleting userId: " + userId);
+                        dbmUser.deleteUserById(Integer.parseInt(request.getParameter("USER_ID")));
                         session.invalidate();
                         request.setAttribute("loggedIn", false);
                         request.setAttribute("userStatus", "deleted");

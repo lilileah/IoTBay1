@@ -43,6 +43,9 @@
                 <p>
                 <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
                 <a href="editUser.jsp" class="btn btn-secondary my-2">Edit Account</a>
+                <a href="GetAccessLogsServlet" class="btn btn-secondary my-2">Access Logs</a>
+                <a href="/IoTBay1/GetAccessLogsServlet?USER_ID=${user.user_id}" class="btn btn-secondary my-2">Get My Access Logs</a>
+                
               </p>
             </body>
         </div>

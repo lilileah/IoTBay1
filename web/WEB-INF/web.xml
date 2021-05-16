@@ -5,6 +5,10 @@
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>GetAccessLogsServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UserServlets.GetAccessLogsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -15,16 +19,28 @@
         <servlet-class>uts.isd.controller.ProductsServlets.AddProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>EditProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.EditProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>EditProductServlet</servlet-name>
+        <url-pattern>/EditProductServlet</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>GetProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.ProductsServlets.GetProductServlet</servlet-class>
         <load-on-startup>0</load-on-startup>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>GetProductServlet</servlet-name>
+        <url-pattern>/GetProductServlet</url-pattern>
+    </servlet-mapping>
     <!--   Sam Servlets -->
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -103,6 +119,10 @@
     <servlet-mapping>
         <servlet-name>FinalizeShipmentServlet</servlet-name>
         <url-pattern>/FinalizeShipment</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAccessLogsServlet</servlet-name>
+        <url-pattern>/GetAccessLogsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
