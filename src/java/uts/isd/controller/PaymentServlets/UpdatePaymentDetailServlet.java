@@ -28,7 +28,7 @@ public class UpdatePaymentDetailServlet extends HttpServlet{
         HttpSession session = request.getSession();
         
         //Validator validatior
-        
+       
         int ID = Integer.parseInt(request.getParameter("paymentID"));
         String type = request.getParameter("cardType");
         String hold = request.getParameter("cardNumber");
@@ -36,16 +36,18 @@ public class UpdatePaymentDetailServlet extends HttpServlet{
         String owner = request.getParameter("cardOwnerName");
         String exp = request.getParameter("cardExpiry");
         int CCV = Integer.parseInt(request.getParameter("cardCCV"));
+        String amount = request.getParameter("cardAmount");
         
         DBManager_payment manager = (DBManager_payment) session.getAttribute("paymentManager");
         
         try{
-            manager.updatePayment(ID, type,number,owner,exp,CCV);
-            request.getRequestDispatcher("main.jsp").include(request,response);
+            manager.updatePayment(ID,type,number,owner,exp,CCV,amount);
+            request.getRequestDispatcher("/GetUserPaymentDetailsServlet").include(request, response);
         }
   
         catch(SQLException ex){
             System.out.println(ex.getMessage() == null ? "Something broke": "Added " + number);
+            System.out.println(ex);
         }
     }
 }

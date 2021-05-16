@@ -75,6 +75,14 @@
         <servlet-name>GetUserPaymentDetailsServlet</servlet-name>
         <url-pattern>/GetUserPaymentDetailsServlet</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>DeletePaymentDetailServlet</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentServlets.DeletePaymentDetailServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeletePaymentDetailServlet</servlet-name>
+        <url-pattern>/DeletePaymentDetailServlet</url-pattern>
+    </servlet-mapping>
     <!--   Enzo Servlets -->
     <servlet>
         <servlet-name>MyShipmentServlet</servlet-name>

@@ -1,3 +1,8 @@
+<%-- 
+    Document   : editPayment
+    Created on : 13/05/2021, 2:53:50 PM
+    Author     : timfi
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,7 +27,7 @@
                     </div>
                 </div>
                 <div class="form-group row mb-2">
-                    <label class="col-sm-2 col-form-label">Card Number (16 digits on the front of the card)</label>
+                    <label class="col-sm-2 col-form-label">Card Number (16 numbers)</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="cardNumber">
                     </div>
@@ -40,9 +45,15 @@
                     </div>
                 </div>
                 <div class="form-group row mb-2">
-                    <label class="col-sm-2 col-form-label">CCV Number (3 digits on the back of your card)</label>
+                    <label class="col-sm-2 col-form-label">CCV Number </label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" name="cardCCV">
+                    </div>
+                </div>
+                <div class="form-group row mb-2">
+                    <label class="col-sm-2 col-form-label">Amount to pay</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="cardAmount">
                     </div>
                 </div>
                 <input type="hidden" name="userId" value="1">

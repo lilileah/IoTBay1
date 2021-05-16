@@ -38,9 +38,10 @@ public PaymentDetails fetchPaymentDetailsById(int _ID) throws SQLException {
         String exp = rs.getString(5);
         int CCV = rs.getInt(6);
         int userID = rs.getInt(7);
+        String amount = rs.getString(8);
      
         if (ID == _ID) {
-            return new PaymentDetails(ID, type, number, owner, exp, CCV, userID);
+            return new PaymentDetails(ID, type, number, owner, exp, CCV, userID, amount);
         }
     }
     return null;
@@ -62,9 +63,10 @@ public ArrayList<PaymentDetails> fetchPaymentDetailsByUser(User user) throws SQL
         String exp = rs.getString(5);
         int CCV = rs.getInt(6);
         int theirID = rs.getInt(7);
+        String amount = rs.getString(8);
      
         if (theirID == userID) {
-            details.add(new PaymentDetails(ID, type, number, owner, exp, CCV, theirID));
+            details.add(new PaymentDetails(ID, type, number, owner, exp, CCV, theirID, amount));
         }
     }
     if(details != null)
@@ -75,19 +77,19 @@ public ArrayList<PaymentDetails> fetchPaymentDetailsByUser(User user) throws SQL
 
 
 //Add a set of payment details into the database   
-public void addPayment(String type, BigInteger number, String owner, String date, int CCV, User user) throws SQLException {                   //code for add-operation       
+public void addPayment(String type, BigInteger number, String owner, String date, int CCV, User user, String amount) throws SQLException {                   //code for add-operation       
     int userID;
     userID = user.getUser_id();
-    st.executeUpdate("INSERT INTO iotbay.PAYMENT_DETAILS (Card_Type, Card_Number, Owner_Name, Exp_Date, CCV, USER_ID)" + 
+    st.executeUpdate("INSERT INTO iotbay.PAYMENT_DETAILS (Card_Type, Card_Number, Owner_Name, Exp_Date, CCV, USER_ID, Amount)" + 
          " VALUES ('" 
-            + type + "'," + number + ",'" + owner  + "','" + date + "'," + CCV + "," + userID + ")");   
+            + type + "'," + number + ",'" + owner  + "','" + date + "'," + CCV + "," + userID + ",'" + amount + "')");   
 
 }
 
 //update a set of payment details in the database by its ID 
-public void updatePayment(int ID, String type, BigInteger number, String owner, String date, int CCV) throws SQLException {       
+public void updatePayment(int ID, String type, BigInteger number, String owner, String date, int CCV, String amount) throws SQLException {       
     st.executeUpdate("UPDATE iotbay.PAYMENT_DETAILS "
-                + "SET CARD_TYPE='" + type + "',CARD_NUMBER=" + number + ", OWNER_NAME='" + owner + "',EXP_DATE='" + date + "',CCV=" + CCV + ""
+                + "SET CARD_TYPE='" + type + "',CARD_NUMBER=" + number + ", OWNER_NAME='" + owner + "',EXP_DATE='" + date + "',CCV=" + CCV + ",AMOUNT='" + amount + "'"
                 + " WHERE PAYMENT_DETAILS_ID=" + ID +"");  
 
 }       

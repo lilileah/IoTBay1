@@ -36,11 +36,12 @@ public class AddPaymentDetailServlet extends HttpServlet{
         String owner = request.getParameter("cardOwnerName");
         String exp = request.getParameter("cardExpiry");
         int CCV = Integer.parseInt(request.getParameter("cardCCV"));
+        String amount = request.getParameter("cardAmount");
         
         DBManager_payment manager = (DBManager_payment) session.getAttribute("paymentManager");
         
         try{
-            manager.addPayment(type,number,owner,exp,CCV,user);
+            manager.addPayment(type,number,owner,exp,CCV,user,amount);
             request.getRequestDispatcher("GetUserPaymentDetailsServlet").include(request,response);
         }
   

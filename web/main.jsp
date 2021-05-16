@@ -50,6 +50,7 @@
                             <th>Card Number</th>
                             <th>Owner Name</th>
                             <th>Expiry Date</th>
+                            <th>Amount Paid</th>
                         </tr>
                         <c:forEach var="paymentmethod" items="${paymentdetails}">
                             <tr>
@@ -58,10 +59,18 @@
                                 <td><c:out value = "${paymentmethod.card_number}" /></td>
                                 <td><c:out value = "${paymentmethod.owner_name}" /></td>
                                 <td><c:out value = "${paymentmethod.exp_date}" /></td>
+                                <td><c:out value = "${paymentmethod.amount}" /></td>
+                                <td></td>
                             </tr>
                         </c:forEach>
                     </table>
- 
+                        <p>
+                            <a href="editPayment.jsp" class="btn btn-secondary my-2">Edit a payment method</a>  
+                        <form action="/Recovered/DeletePaymentDetailServlet" method="POST">
+                            <input type="text" class="form-control" name="ID">
+                            <button type="submit" class="btn btn-primary">Delete</button>
+                        </form>
+                        </p>
                 <p>
                 <a href="logout.jsp" class="btn btn-secondary my-2">Log out</a>
                 <a href="editUser.jsp" class="btn btn-secondary my-2">Edit Account</a>

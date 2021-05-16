@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/Recovered/web/main.jsp</file>
+            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/Recovered/web/db/add_test_user.sql</file>
+            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/Recovered/src/java/uts/isd/controller/PaymentServlets/GetUserPaymentDetailsServlet.java</file>
+            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/Recovered/src/java/uts/isd/model/dao/DBManager_payment.java</file>
+            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/Recovered/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/Recovered/src/java/uts/isd/controller/Test_Payment.java</file>
+            <file>file:/C:/Users/timfi/OneDrive/Documents/GitHub/Recovered/src/java/uts/isd/controller/PaymentServlets/AddPaymentDetailServlet.java</file>
+        </group>
     </open-files>
 </project-private>

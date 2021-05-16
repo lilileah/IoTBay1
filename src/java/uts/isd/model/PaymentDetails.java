@@ -21,8 +21,17 @@ public class PaymentDetails implements Serializable {
     private String exp_date;
     private int CCV;
     private int userID;
+    private String amount;
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
     
-    public PaymentDetails(int method_id, String card_type, BigInteger card_number, String owner_name, String exp_date, int CCV, int userID) {
+    public PaymentDetails(int method_id, String card_type, BigInteger card_number, String owner_name, String exp_date, int CCV, int userID, String amount) {
         this.payment_details_id = method_id;
         this.card_type = card_type;
         this.card_number = card_number;
@@ -30,6 +39,7 @@ public class PaymentDetails implements Serializable {
         this.exp_date = exp_date;
         this.CCV = CCV;
         this.userID = userID;
+        this.amount = amount;
     }
     
     public void setUserID(int userID) {

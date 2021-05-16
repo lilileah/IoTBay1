@@ -97,6 +97,7 @@ CREATE TABLE ORDERS (
     exp_date varchar(20),
     CCV int NOT NULL,
     user_id int,
+    amount varchar(20),
     CONSTRAINT payment_details_id_pk PRIMARY KEY (payment_details_id),
     CONSTRAINT user_id_fk FOREIGN KEY (user_id) REFERENCES users(user_id)
 );

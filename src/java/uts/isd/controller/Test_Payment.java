@@ -58,10 +58,11 @@ public class Test_Payment {
             String name = "Test Name";
             String exp = "11/21";
             int ccv = 980;
+            String amount = "$7000";
 
             User user = dbu.getUser("test@email.com","testpass");
             System.out.println(user.getUser_id());
-            dbp.addPayment(type, held, name, exp, ccv, user);
+            dbp.addPayment(type, held, name, exp, ccv, user, amount);
             System.out.println("payment detail added");
             
             //testing if retrieve by payment ID works CHANGED TO ARRAY LIST, NEEDS TWEAK
