@@ -57,7 +57,7 @@
         </table>
         <script>
             $(document).ready(function(){
-                alert("Hello");
+                //alert("Hello");
                 $('#dataTable').DataTable();
             });
         </script>

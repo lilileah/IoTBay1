@@ -19,36 +19,46 @@ import uts.isd.model.dao.*;
 import uts.isd.model.dao.DBConnector;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
-    public class LoginServlet extends ConnServlet {
-        DBMuser dbmUser;
-        
-        public LoginServlet(){
-            dbmUser = new DBMuser();
-        }
-        
-        @Override
-         protected void doGet(HttpServletRequest request, HttpServletResponse response)
+public class LoginServlet extends ConnServlet {
+
+    DBMuser dbmUser;
+    DBMlogs dbmLogs;
+
+    public LoginServlet() {
+        dbmUser = new DBMuser();
+        dbmLogs = new DBMlogs();
+
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                User user = dbmUser.getUser(
-                        request.getParameter("USERNAME_EMAIL"),
-                        request.getParameter("PASSWORD")
-                );
+        User user = dbmUser.getUser(
+                request.getParameter("USERNAME_EMAIL"),
+                request.getParameter("PASSWORD")
+        );
 //                User user = dbmUser.getUserById(1);
-                request.setAttribute("user", user);
-                request.getRequestDispatcher("main.jsp").forward(request, response);
+        request.setAttribute("user", user);
+        request.getRequestDispatcher("main.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        User user = dbmUser.getUser(
+                request.getParameter("USERNAME_EMAIL"),
+                request.getParameter("PASSWORD")
+        );
+        HttpSession session = request.getSession();
+        session.setAttribute("user", user);
+        request.setAttribute("loggedIn", true);
+        request.getRequestDispatcher("main.jsp").include(request, response);
+
+        try {
+            dbmLogs.addLog(user.getUser_id(), "Update Account");
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        @Override
-        protected void doPost(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
-                    User user = dbmUser.getUser(
-                            request.getParameter("USERNAME_EMAIL"), 
-                            request.getParameter("PASSWORD")
-                    );
-                    HttpSession session = request.getSession();
-                        session.setAttribute("user", user);
-                        request.setAttribute("loggedIn", true);
-                        request.getRequestDispatcher("main.jsp").include(request, response);
-        }
-            
+    }
+
 }

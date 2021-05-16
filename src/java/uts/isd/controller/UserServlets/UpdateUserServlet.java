@@ -20,44 +20,54 @@ import uts.isd.model.dao.DBConnector;
 
 @WebServlet(name = "UpdateUserServlet", urlPatterns = {"/UpdateUserServlet"})
 public class UpdateUserServlet extends ConnServlet {
+
     DBMuser dbmUser;
-    
-    
-    public UpdateUserServlet(){
+    DBMlogs dbmLogs;
+
+    public UpdateUserServlet() {
         dbmUser = new DBMuser();
+        dbmLogs = new DBMlogs();
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                User user = dbmUser.getUserById(Integer.parseInt(request.getParameter("user_id")));
+        User user = dbmUser.getUserById(Integer.parseInt(request.getParameter("user_id")));
 //                User user = dbmUser.getUserById(1);
-                request.setAttribute("user", user);
-                request.getRequestDispatcher("main.jsp").forward(request, response);
+        request.setAttribute("user", user);
+        request.getRequestDispatcher("main.jsp").forward(request, response);
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-                throws ServletException, IOException {
-                    User user = new User();
-                    user.setUser_id(Integer.parseInt(request.getParameter("USER_ID")));
-                    user.setUsername_email(request.getParameter("USERNAME_EMAIL"));
-                    user.setUser_name(request.getParameter("USER_NAME"));
-                    user.setPassword(request.getParameter("PASSWORD"));
-                    user.setPhone(request.getParameter("PHONE"));
-                    user.setGender(request.getParameter("GENDER"));
-                    user.setDob(request.getParameter("DOB"));
-                    user.setUser_type(request.getParameter("USER_TYPE"));
-                    
-                    try {
-                        System.out.println(user.toString());
-                        dbmUser.updateUser(user);
-                        //update session
-                        HttpSession session = request.getSession();
-                        session.setAttribute("user", user);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(UpdateUserServlet.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-            request.getRequestDispatcher("main.jsp").include(request, response);
-            }
+            throws ServletException, IOException {
+        User user = new User();
+        user.setUser_id(Integer.parseInt(request.getParameter("USER_ID")));
+        user.setUsername_email(request.getParameter("USERNAME_EMAIL"));
+        user.setUser_name(request.getParameter("USER_NAME"));
+        user.setPassword(request.getParameter("PASSWORD"));
+        user.setPhone(request.getParameter("PHONE"));
+        user.setGender(request.getParameter("GENDER"));
+        user.setDob(request.getParameter("DOB"));
+        user.setUser_type(request.getParameter("USER_TYPE"));
+
+        try {
+            System.out.println(user.toString());
+            dbmUser.updateUser(user);
+            //update session
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+        } catch (SQLException ex) {
+            Logger.getLogger(UpdateUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        request.getRequestDispatcher("main.jsp").include(request, response);
+
+        try {
+            dbmLogs.addLog(user.getUser_id(), "Update Account");
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterUserServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
 }
